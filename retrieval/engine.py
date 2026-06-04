@@ -35,6 +35,57 @@ def answer_query_structured(query: str) -> dict:
     Structured entrypoint for the API, returning separate answer, citations, and retrieval metrics.
     """
     start_time = time.perf_counter()
+    
+    # --- PHASE 7.6: QUERY ROUTING ---
+    from retrieval.query_router import route_query
+    from registry.service import get_all_funds, get_funds_by_amc, get_funds_by_strategy, get_live_funds, get_nfo_funds
+    
+    route_type, params = route_query(query)
+    
+    if route_type == "discovery":
+        if "filter_amc" in params:
+            funds = get_funds_by_amc(params["filter_amc"])
+        elif "filter_strategy" in params:
+            funds = get_funds_by_strategy(params["filter_strategy"])
+        elif "filter_status" in params:
+            if params["filter_status"] == "Live":
+                funds = get_live_funds()
+            else:
+                funds = get_nfo_funds()
+        else:
+            funds = get_all_funds()
+            
+        search_time_ms = int((time.perf_counter() - start_time) * 1000)
+        return {
+            "answer": f"We currently have structured information for {len(funds)} funds matching your criteria.",
+            "query_type": "discovery",
+            "structured_data": funds,
+            "citations": [],
+            "retrieval": {
+                "chunks_retrieved": len(funds),
+                "search_time_ms": search_time_ms,
+                "embedding_model": "registry_lookup",
+                "llm": "none"
+            }
+        }
+        
+    if route_type == "comparison":
+        funds = compare_funds(params.get("funds", []))
+        search_time_ms = int((time.perf_counter() - start_time) * 1000)
+        return {
+            "answer": f"Here is the comparison between the requested funds.",
+            "query_type": "comparison",
+            "structured_data": funds,
+            "citations": [],
+            "retrieval": {
+                "chunks_retrieved": len(funds),
+                "search_time_ms": search_time_ms,
+                "embedding_model": "registry_lookup",
+                "llm": "none"
+            }
+        }
+    
+    # --- DEFAULT: RAG PIPELINE ---
     query_vector = embed_query(query)
     chunks = search_chunks(query_vector, top_k=5)
     search_time_ms = int((time.perf_counter() - start_time) * 1000)
@@ -60,8 +111,13 @@ def answer_query_structured(query: str) -> dict:
         
     response_text = generate_response(context_str, query)
     
+    # Post-process answer to reduce cognitive load
+    from retrieval.answer_cleaner import clean_answer
+    cleaned_response = clean_answer(response_text)
+    
     return {
-        "answer": response_text,
+        "answer": cleaned_response,
+        "query_type": "rag",
         "citations": included_chunks,
         "retrieval": {
             "chunks_retrieved": len(included_chunks),

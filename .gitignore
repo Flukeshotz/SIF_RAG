@@ -34,3 +34,6 @@ htmlcov/
 
 # Storage (raw downloaded documents)
 storage/
+data/qdrant/
+frontend/node_modules/
+data/snapshots/

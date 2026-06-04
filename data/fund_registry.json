@@ -1,0 +1,102 @@
+[
+  {
+    "fund_name": "Magnum Hybrid Long Short Fund",
+    "amc": "SBI",
+    "strategy": "Hybrid Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/magnum-hybrid-long-short-fund-direct-plan-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.211950+00:00"
+  },
+  {
+    "fund_name": "Sapphire Equity Long Short SIF",
+    "amc": "Sapphire",
+    "strategy": "Equity Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/sapphire-equity-long-short-sif-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212144+00:00"
+  },
+  {
+    "fund_name": "iSIF Hybrid Long Short Fund",
+    "amc": "ICICI",
+    "strategy": "Hybrid Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/isif-hybrid-long-short-fund-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212155+00:00"
+  },
+  {
+    "fund_name": "Altiva Hybrid Long Short Fund",
+    "amc": "Altiva",
+    "strategy": "Hybrid Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/altiva-hybrid-long-short-fund-direct-plan-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212163+00:00"
+  },
+  {
+    "fund_name": "qSIF Equity Long Short Fund",
+    "amc": "Quant",
+    "strategy": "Equity Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/qsif-equity-long-short-fund-direct-plan-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212172+00:00"
+  },
+  {
+    "fund_name": "iSIF Equity Ex Top 100 Long Short Fund",
+    "amc": "ICICI",
+    "strategy": "Equity Ex Top 100 Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/isif-equity-ex-top-100-long-short-fund-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212181+00:00"
+  },
+  {
+    "fund_name": "Titanium Hybrid Long Short Fund",
+    "amc": "Tata",
+    "strategy": "Hybrid Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/titanium-hybrid-long-short-fund-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212190+00:00"
+  },
+  {
+    "fund_name": "Dynasif Equity Long Short Fund",
+    "amc": "DSP",
+    "strategy": "Equity Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/dynasif-equity-long-short-fund-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212198+00:00"
+  },
+  {
+    "fund_name": "Diviniti Equity Long Short Fund",
+    "amc": "Diviniti",
+    "strategy": "Equity Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/diviniti-equity-long-short-fund-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212206+00:00"
+  },
+  {
+    "fund_name": "Wsif Equity Long Short Fund",
+    "amc": "WhiteOak",
+    "strategy": "Equity Long Short",
+    "category": "Alternative Investment Fund",
+    "url": "https://groww.in/mutual-funds/wsif-equity-long-short-fund-direct-growth",
+    "source": "Groww",
+    "status": "Active",
+    "last_updated": "2026-06-04T18:30:42.212215+00:00"
+  }
+]

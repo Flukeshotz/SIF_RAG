@@ -7,4 +7,6 @@ export interface Message {
   citations?: Citation[];
   retrieval?: RetrievalMetrics;
   loading?: boolean;
+  query_type?: 'rag' | 'discovery' | 'comparison';
+  structured_data?: any;
 }

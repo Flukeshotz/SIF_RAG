@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import type { Message } from '../types';
 import type { Citation } from '../api';
+import { FundCards, ComparisonTable } from './FundRegistryViews';
 
 interface ChatAreaProps {
   messages: Message[];
@@ -19,6 +20,71 @@ renderer.link = function(token) {
     return `<button class="tour-citation inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative" data-source="${sourceIndex}">${token.text}</button>`;
   }
   return `<a href="${token.href}" class="text-primary hover:underline">${token.text}</a>`;
+};
+
+renderer.table = function(token) {
+  // Check if this is a 2-column table that should be rendered as Metric Cards
+  if (token.header.length === 2) {
+    const isMetricTable = token.rows.some(row => 
+      ['Risk', 'Asset', 'Portfolio', 'Benchmark', 'Exposure', 'Return'].some(k => 
+        row[0].text.includes(k)
+      )
+    ) || ['Risk', 'Asset', 'Portfolio', 'Benchmark', 'Exposure', 'Return'].some(k => 
+      token.header[0].text.includes(k) || token.header[1].text.includes(k)
+    );
+
+    if (isMetricTable || token.header[0].text.trim() === '') {
+      let cardsHtml = '<div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">';
+      
+      // If header has actual content, add it as a card too (if applicable)
+      if (token.header[0].text.trim() !== '') {
+        const title = this.parser.parseInline(token.header[0].tokens);
+        const value = this.parser.parseInline(token.header[1].tokens);
+        cardsHtml += `
+          <div class="bg-[#020617] border border-[#152238] rounded-xl p-4 shadow-lg hover:border-primary/50 transition-colors">
+            <span class="block text-xs font-mono-data text-on-surface-variant uppercase mb-2 tracking-wider">${title}</span>
+            <span class="block font-headline-md text-on-surface">${value}</span>
+          </div>`;
+      }
+      
+      token.rows.forEach(row => {
+        const title = this.parser.parseInline(row[0].tokens);
+        const value = this.parser.parseInline(row[1].tokens);
+        cardsHtml += `
+          <div class="bg-[#020617] border border-[#152238] rounded-xl p-4 shadow-lg hover:border-primary/50 transition-colors">
+            <span class="block text-xs font-mono-data text-on-surface-variant uppercase mb-2 tracking-wider">${title}</span>
+            <span class="block font-headline-md text-on-surface">${value}</span>
+          </div>`;
+      });
+      cardsHtml += '</div>';
+      return cardsHtml;
+    }
+  }
+
+  // Standard DataTable Rendering
+  let headerHtml = '';
+  token.header.forEach(cell => {
+    const content = this.parser.parseInline(cell.tokens);
+    headerHtml += `<th class="p-4 font-label-md text-on-surface-variant font-semibold tracking-wide border-r border-[#152238] last:border-r-0 whitespace-nowrap bg-surface-container-low sticky top-0">${content}</th>`;
+  });
+
+  let bodyHtml = '';
+  token.rows.forEach((row, i) => {
+    const bgClass = i % 2 === 0 ? 'bg-[#020617]' : 'bg-[#051424]';
+    bodyHtml += `<tr class="hover:bg-surface-container transition-colors border-b border-[#152238]/50 ${bgClass}">`;
+    row.forEach(cell => {
+      const content = this.parser.parseInline(cell.tokens);
+      bodyHtml += `<td class="p-4 font-body-md text-on-surface border-r border-[#152238]/30 last:border-r-0 align-top">${content}</td>`;
+    });
+    bodyHtml += `</tr>`;
+  });
+
+  return `<div class="overflow-x-auto my-6 bg-surface-container border border-[#152238] rounded-xl shadow-lg relative max-w-full">
+    <table class="w-full text-left border-collapse min-w-[600px]">
+      <thead><tr>${headerHtml}</tr></thead>
+      <tbody>${bodyHtml}</tbody>
+    </table>
+  </div>`;
 };
 marked.use({ 
   renderer,
@@ -201,33 +267,48 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
                   )}
                 </div>
                 
-                <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant font-body-md space-y-md">
+                <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant font-body-md space-y-md overflow-x-auto overflow-y-auto max-h-[70vh] custom-scrollbar">
                   {msg.loading ? (
                     <LoadingAnimation />
                   ) : (
                     <>
                       <div className="w-full">
-                        {renderFormattedText(msg)}
+                        {msg.query_type === 'discovery' ? (
+                          <>
+                            <p className="text-on-surface font-body-lg mb-4">{msg.text}</p>
+                            <FundCards funds={msg.structured_data || []} />
+                          </>
+                        ) : msg.query_type === 'comparison' ? (
+                          <>
+                            <p className="text-on-surface font-body-lg mb-4">{msg.text}</p>
+                            <ComparisonTable funds={msg.structured_data || []} />
+                          </>
+                        ) : (
+                          renderFormattedText(msg)
+                        )}
                       </div>
                       
                       {/* Generation Metrics Panel */}
                       {msg.retrieval && !isPresentationMode && (
-                        <div className="mt-6 pt-4 border-t border-[#152238] print:hidden">
-                          <h4 className="text-xs font-mono-data text-on-surface-variant uppercase tracking-wider mb-3">How this answer was generated</h4>
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg">
+                        <details className="mt-6 pt-4 border-t border-[#152238] print:hidden group">
+                          <summary className="cursor-pointer flex items-center gap-2 text-xs font-mono-data text-on-surface-variant uppercase tracking-wider select-none hover:text-primary transition-colors outline-none">
+                            <span className="material-symbols-outlined text-[18px] group-open:rotate-180 transition-transform">expand_more</span>
+                            How this answer was generated
+                          </summary>
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 animate-fade-up">
+                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg shadow-inner">
                               <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Retrieved</span>
                               <span className="font-mono-data text-on-surface text-sm flex items-center gap-1"><span className="material-symbols-outlined text-[14px] text-primary">library_books</span> {msg.retrieval.chunks_retrieved} chunks</span>
                             </div>
-                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg">
+                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg shadow-inner">
                               <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Search</span>
                               <span className="font-mono-data text-on-surface text-sm flex items-center gap-1"><span className="material-symbols-outlined text-[14px] text-secondary">timer</span> {msg.retrieval.search_time_ms}ms</span>
                             </div>
-                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg">
+                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg shadow-inner">
                               <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Generation</span>
                               <span className="font-mono-data text-on-surface text-sm flex items-center gap-1"><span className="material-symbols-outlined text-[14px] text-primary">memory</span> Groq LPU</span>
                             </div>
-                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg">
+                            <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg shadow-inner">
                               <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Confidence</span>
                               <span className="font-mono-data text-secondary text-sm flex items-center gap-1">
                                 <span className="material-symbols-outlined text-[14px]">done_all</span> 
@@ -237,7 +318,7 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
                               </span>
                             </div>
                           </div>
-                        </div>
+                        </details>
                       )}
                     </>
                   )}

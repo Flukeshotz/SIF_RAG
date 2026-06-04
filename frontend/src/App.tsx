@@ -12,13 +12,14 @@ import type { Message } from './types';
 const Architecture = lazy(() => import('./pages/Architecture'));
 const Insights = lazy(() => import('./pages/Insights'));
 const SchedulerDashboard = lazy(() => import('./pages/SchedulerDashboard'));
+const MarketExplorer = lazy(() => import('./pages/MarketExplorer'));
 
 function App() {
   const [activeCitationId, setActiveCitationId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [currentView, setCurrentView] = useState<'chat' | 'architecture' | 'insights' | 'scheduler' | 'coming_soon'>('chat');
+  const [currentView, setCurrentView] = useState<'chat' | 'architecture' | 'insights' | 'scheduler' | 'coming_soon' | 'market_explorer'>('chat');
   
   // App State Toggles
   const [isDemoMode, setIsDemoMode] = useState(false);
@@ -207,6 +208,12 @@ function App() {
           {currentView === 'scheduler' && (
             <div className="flex-1 flex flex-col h-full relative border-r border-[#152238] bg-[#071122] overflow-y-auto">
               <SchedulerDashboard />
+            </div>
+          )}
+
+          {currentView === 'market_explorer' && (
+            <div className="flex-1 flex flex-col h-full relative border-r border-[#152238] bg-[#071122] overflow-y-auto">
+              <MarketExplorer />
             </div>
           )}
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function KnowledgeGraph() {
   const [nodes, setNodes] = useState<{id: number, x: number, y: number, label: string, type: string}[]>([]);

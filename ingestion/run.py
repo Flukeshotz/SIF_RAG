@@ -27,6 +27,11 @@ async def process_source(source: dict) -> dict:
         filepath = storage.save_document(source_id, content, is_pdf, content_hash)
         is_new, metadata = versioning.update_version(source_id, content_hash, filepath)
         
+        # Extract structured metadata for Fund Registry
+        from .extractor import extract_fund_metadata, merge_into_registry
+        fund_meta = extract_fund_metadata(content, source_id, is_pdf)
+        merge_into_registry(fund_meta)
+        
         return {
             "source_id": source_id, 
             "status": "success", 

@@ -113,6 +113,26 @@ def metrics_endpoint():
             "last_refresh_timestamp": "Unknown"
         }
 
+@app.get("/admin/system")
+def admin_system_endpoint():
+    try:
+        registry_data = get_registry_data()
+        registry_size = len(registry_data)
+        
+        metrics = metrics_endpoint()
+        scheduler_status = get_scheduler_status()
+        
+        return {
+            "registry_size": registry_size,
+            "chunk_count": metrics.get("chunk_count", "Unknown"),
+            "vector_count": metrics.get("chunk_count", "Unknown"), # Usually 1 vector per chunk
+            "scheduler_status": scheduler_status.get("status", "Unknown"),
+            "last_refresh_time": scheduler_status.get("last_run", "Unknown"),
+            "api_latency_ms": 12 # Mocked average for demo
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
 @app.get("/scheduler/status")
 def scheduler_status_endpoint():
     return get_scheduler_status()
@@ -146,6 +166,100 @@ def analytics_endpoint():
         "average_latency": round(avg_latency, 2),
         "recent_queries": list(reversed(queries))[-10:] # Last 10
     }
+
+# --- MARKET ANALYTICS API ---
+
+from pydantic import BaseModel
+
+class ViewFundRequest(BaseModel):
+    fund_id: str
+    amc: str
+    strategy: str
+
+def load_market_analytics():
+    if os.path.exists("data/market_analytics.json"):
+        with open("data/market_analytics.json", "r") as f:
+            try:
+                return json.load(f)
+            except:
+                pass
+    return {"funds": {}, "amcs": {}, "strategies": {}}
+
+def save_market_analytics(data):
+    os.makedirs("data", exist_ok=True)
+    with open("data/market_analytics.json", "w") as f:
+        json.dump(data, f, indent=2)
+
+@app.post("/analytics/view_fund")
+def record_fund_view(req: ViewFundRequest):
+    data = load_market_analytics()
+    
+    data["funds"][req.fund_id] = data["funds"].get(req.fund_id, 0) + 1
+    data["amcs"][req.amc] = data["amcs"].get(req.amc, 0) + 1
+    data["strategies"][req.strategy] = data["strategies"].get(req.strategy, 0) + 1
+    
+    save_market_analytics(data)
+    return {"status": "success"}
+
+@app.get("/analytics/market")
+def get_market_analytics():
+    data = load_market_analytics()
+    
+    # Sort and return top 5
+    top_funds = sorted(data["funds"].items(), key=lambda x: x[1], reverse=True)[:5]
+    top_amcs = sorted(data["amcs"].items(), key=lambda x: x[1], reverse=True)[:5]
+    top_strategies = sorted(data["strategies"].items(), key=lambda x: x[1], reverse=True)[:5]
+    
+    return {
+        "most_viewed_funds": [{"id": k, "views": v} for k, v in top_funds],
+        "most_viewed_amcs": [{"amc": k, "views": v} for k, v in top_amcs],
+        "most_viewed_strategies": [{"strategy": k, "views": v} for k, v in top_strategies]
+    }
+
+# ------------------------------
+def get_registry_data():
+    if os.path.exists("data/sif_registry.json"):
+        with open("data/sif_registry.json", "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except:
+                return []
+    return []
+
+@app.get("/funds")
+def get_all_funds():
+    return get_registry_data()
+
+@app.get("/funds/count")
+def get_funds_count():
+    funds = get_registry_data()
+    return {"count": len(funds)}
+
+@app.get("/funds/strategies")
+def get_funds_strategies():
+    funds = get_registry_data()
+    strategies = {}
+    for f in funds:
+        st = f.get("strategy", "Unknown")
+        strategies[st] = strategies.get(st, 0) + 1
+    return strategies
+
+@app.get("/funds/categories")
+def get_funds_categories():
+    funds = get_registry_data()
+    categories = {}
+    for f in funds:
+        cat = f.get("category", "Unknown")
+        categories[cat] = categories.get(cat, 0) + 1
+    return categories
+
+@app.get("/funds/{amc}")
+def get_funds_by_amc(amc: str):
+    funds = get_registry_data()
+    # Case insensitive
+    filtered = [f for f in funds if f.get("amc", "").lower() == amc.lower()]
+    return filtered
+# ------------------------------
 
 @app.get("/sources/{source_id}")
 def get_source_endpoint(source_id: str):
