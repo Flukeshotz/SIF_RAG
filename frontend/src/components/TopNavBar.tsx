@@ -10,14 +10,15 @@ const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
         <nav className="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-gutter bg-surface/60 backdrop-blur-md border-b border-outline-variant shadow-sm">
             <div className="flex items-center gap-md flex-1 overflow-hidden">
                 <div className="font-display-lg text-headline-md font-bold tracking-tight text-primary ml-4">SIF Copilot V2</div>
+                <div className="w-px h-6 bg-outline-variant hidden md:block"></div>
                 
-                {/* Market Ticker */}
-                <div className="hidden md:flex overflow-hidden w-full max-w-2xl items-center border-l border-r border-outline-variant px-md h-full ml-4">
-                    <div className="motion-safe:animate-ticker flex gap-xl whitespace-nowrap font-mono-data text-mono-data text-on-surface-variant w-full">
-                        <span><span className="text-secondary">NIFTY</span> 22,450.50 ▲ +0.4%</span>
-                        <span><span className="text-error">SENSEX</span> 73,810.15 ▼ -0.1%</span>
-                        <span><span className="text-secondary">USDINR</span> 83.20 ▲ +0.05%</span>
-                        <span><span className="text-secondary">NIFTY</span> 22,450.50 ▲ +0.4%</span>
+                {/* SIF NAV Ticker */}
+                <div className="hidden md:flex flex-1 overflow-hidden relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+                    <div className="flex animate-ticker whitespace-nowrap gap-xl items-center text-xs font-mono-data px-4">
+                        <span className="flex items-center gap-2"><span className="text-secondary font-bold">QUANT SIF</span> ₹14.52 <span className="text-secondary">▲ +1.2%</span></span>
+                        <span className="flex items-center gap-2"><span className="text-secondary font-bold">TATA SIF</span> ₹102.40 <span className="text-secondary">▲ +0.8%</span></span>
+                        <span className="flex items-center gap-2"><span className="text-error font-bold">ZERODHA SIF</span> ₹25.10 <span className="text-error">▼ -0.3%</span></span>
+                        <span className="flex items-center gap-2"><span className="text-secondary font-bold">SBI SIF</span> ₹45.80 <span className="text-secondary">▲ +0.1%</span></span>
                     </div>
                 </div>
             </div>
