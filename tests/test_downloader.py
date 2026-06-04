@@ -22,4 +22,4 @@ async def test_download_retry_failure():
         with pytest.raises(Exception):
             await download_file("http://example.com/test.pdf")
             
-        assert mock_get.call_count == 1
+        assert mock_get.call_count == 3
