@@ -1,4 +1,5 @@
 import time
+import os
 from pathlib import Path
 from qdrant_client.models import Filter, FieldCondition, MatchValue
 from db.qdrant_connection import get_client
