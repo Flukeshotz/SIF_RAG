@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import type { Message } from '../types';
-import type { Message } from '../types';
 import type { Citation } from '../api';
 
 interface ChatAreaProps {
