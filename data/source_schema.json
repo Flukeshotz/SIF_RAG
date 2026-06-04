@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SIF Copilot Source Registry Schema",
+  "description": "Schema for tracking official SIF documents and data sources.",
+  "type": "object",
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "description": "Unique identifier for the source (e.g., 'sebi-circular-2025-02')"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable title of the document or source"
+    },
+    "organization": {
+      "type": "string",
+      "description": "Organization responsible for the document (e.g., SEBI, AMFI, AMC name)"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "SEBI Circular",
+        "AMFI Circular",
+        "Master Direction",
+        "ISID",
+        "SID",
+        "KIM",
+        "Factsheet",
+        "FAQ",
+        "AMC Website",
+        "Brochure"
+      ],
+      "description": "The category/type of the document"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Primary URL for the source (can be a webpage or direct PDF)"
+    },
+    "pdf_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri",
+      "description": "Direct download URL for the PDF if applicable"
+    },
+    "priority_tier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Retrieval priority tier (1=highest/regulatory, 5=lowest/marketing)"
+    },
+    "ingestion_method": {
+      "type": "string",
+      "enum": [
+        "direct_download",
+        "playwright_scrape",
+        "manual_upload",
+        "api"
+      ],
+      "description": "Method required to acquire the document"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "deprecated",
+        "superseded",
+        "pending_review"
+      ],
+      "description": "Current status of the document"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when this source was last manually reviewed for freshness (YYYY-MM-DD)"
+    },
+    "landing_url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": [
+    "source_id",
+    "title",
+    "organization",
+    "source_type",
+    "url",
+    "priority_tier",
+    "ingestion_method",
+    "status"
+  ],
+  "additionalProperties": false
+}

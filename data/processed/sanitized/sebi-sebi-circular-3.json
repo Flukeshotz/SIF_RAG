@@ -1,0 +1,965 @@
+{
+  "document_id": "sebi-sebi-circular-3",
+  "document_type": "Unknown",
+  "organization": "SEBI",
+  "source_url": "",
+  "effective_date": "",
+  "sections": [
+    {
+      "title": "Document Start",
+      "level": 1,
+      "content": "Page 1 of 2\n\n",
+      "subsections": [
+        {
+          "title": "CIRCULAR",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "SEBI/HO/IMD/IMD-RAC/P/CIR/2025/54 April 11, 2025",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "To,",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Mutual Funds",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Asset Management Companies (AMCs)",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Trustee Companies/ Board of Trustees of Mutual Funds",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Registrar and Share Transfer Agents (RTAs)",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Recognized Stock Exchanges",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Recognized Clearing Corporations",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "All Depositories",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "Association of Mutual Funds in India (AMFI)",
+          "level": 2,
+          "content": "Madam/ Sir,\n\n",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "Subject: Specialized Investment Funds (\u2018SIF\u2019) \u2013 Application and Investment",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "Strategy Information Document (ISID) formats",
+          "level": 2,
+          "content": "1. As stipulated in Regulation 49Y(1) of the SEBI (Mutual Funds) Regulations 1996 (\u2018MF\n\nRegulations\u2019) for launching of investment strategies, Mutual Funds are required to\n\nlaunch Investment Strategies in accordance with the procedure applicable to the\n\nschemes of the Mutual Funds, as laid down in Regulation 28 of the MF Regulations.\n\n2. SEBI vide Circulars dated February 27, 2025 (\u2018SIF Circular\u2019) and April 09, 2025\n\nspecified the Regulatory Framework for Specialized Investment Funds, which, inter-\n\nalia, provides the eligibility criteria for a registered Mutual Fund to establish Specialized\n\nInvestment Fund, including disclosures in Investment Strategy Information Document\n\n(\u2018ISID\u2019).\n\n3. Pursuant to the above and to ensure uniformity and efficient processing of\n\napplications, it has been decided that registered Mutual Funds intending to establish\n\nSpecialized Investment Funds are required to submit their applications as per the\n\n",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "format provided at Annexure I to this Circular.",
+          "level": 2,
+          "content": "Page 2 of 2\n\n4. In terms of Clause 11 of Annexure A of the SIF Circular, the format of ISID is provided\n\n",
+          "subsections": [],
+          "page": 1
+        },
+        {
+          "title": "at Annexure II to this Circular .",
+          "level": 2,
+          "content": "5. This Circular shall come into force with effect from the date of this Circular.\n\n6. This Circular is issued in exercise of the powers conferred by Section 11(1) of the\n\nSecurities and Exchange Board of India Act, 1992 read with Chapter VI-C of the SEBI\n\n(Mutual Funds) Regulations 1996 to protect the interest of investors in securities and\n\nto promote the development of, and to regulate the securities market.\n\n7. This Circular is available at www.sebi.gov.in under the link \u201cLegal ->Circulars\u201d.\n\nYours faithfully,\n\n",
+          "subsections": [],
+          "page": 2
+        },
+        {
+          "title": "Anupma Chadha",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 2
+        },
+        {
+          "title": "General Manager",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 2
+        },
+        {
+          "title": "Investment Management Department",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 2
+        },
+        {
+          "title": "+91-22-264491319",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 2
+        },
+        {
+          "title": "anupmac@sebi.gov.in",
+          "level": 2,
+          "content": "Page 1 of 7\n\n",
+          "subsections": [],
+          "page": 2
+        },
+        {
+          "title": "ANNEXURE I",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Format of application by mutual funds for grant of approval to establish",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Specialized Investment Fund (SIF)",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Instruction for filling up form: -",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "1 Applicants must submit a completed application form together with supporting",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "documents to the Board.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "2 This application form should be filled in accordance with the SEBI (Mutual Funds)",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Regulations, 1996 and circulars issued thereunder.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "3 An incomplete application shall be liable to be rejected.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "4 All entries by AMCs must be typed and legible.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "5 In case any further details are required to be submitted, the same shall be given",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "on separate sheets attached to the application form.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "6 The application must be signed by the competent person having authority to do",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "so and all signatures must be in original.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "1. Proposed brand name of",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "the SIF",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "2. Name of Mutual Fund",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "3. Assets Under",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Management (AUM) over",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "the preceding 3 years",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "certified by scheme",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "statutory auditor.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Financial Year (FY) Amount (in crore)",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "Average AUM- \u2026\u2026. crore",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "4. Details of action initiated/",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "taken against the",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "sponsor/asset",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "management company",
+          "level": 2,
+          "content": "Provide complete information of the action taken/\n\ninitiated and the current status of the same.\n\nPage 2 of 7\n\n",
+          "subsections": [],
+          "page": 3
+        },
+        {
+          "title": "(\u2018AMC\u2019) under section 11,",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "11B, and/or Section 24 of",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "the SEBI Act, 1992 during",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "the last 3 years.",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "5. Details of Chief",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "Investment Officer (CIO)",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "proposed to be appointed",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "for SIF in case applicant",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "opts Route 2",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "Average AUM managed",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "by the CIO",
+          "level": 2,
+          "content": "Name of CIO:\n\nQualification:\n\nExperience in fund management (brief): Details\n\nneed to be mentioned in bio data to be submitted in\n\nthe prescribed format.\n\nPlease mention the value of assets managed by CIO\n\non behalf of clients in India/ abroad, provided the\n\nsaid assets are regulated by a financial regulator\n\nand/or such assets are located  in a country that is a\n\nmember of Financial Action Task Force (FATF) and\n\na country that is a signatory to International\n\nOrganization of Securities Commission's (IOSCO)\n\nMultilateral Memorandum of Understanding\n\n(MMOU).\n\n",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "6. Details of additional fund",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "manager to be appointed",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "for SIF in case applicant",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "opts Route 2",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "Average AUM managed",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "by the additional fund",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "manager",
+          "level": 2,
+          "content": "Name of Fund Manager:\n\nQualification:\n\nExperience in fund management (brief): Details\n\nneed to be mentioned in bio data to be submitted in\n\nthe prescribed format.\n\nPlease mention the value of assets managed by\n\nfund manager on behalf of clients in India/ abroad,\n\nprovided the said assets are regulated by a financial\n\nregulator and/or such assets are located  in a\n\ncountry that is a member of Financial Action Task\n\nForce (FATF) and a country that is a signatory to\n\nPage 3 of 7\n\nInternational Organization of Securities\n\nCommission's (IOSCO) Multilateral Memorandum of\n\nUnderstanding (MMOU).\n\n",
+          "subsections": [],
+          "page": 4
+        },
+        {
+          "title": "Appendix:",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 5
+        },
+        {
+          "title": "1. Rationale for compliance with the eligibility requirements",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 5
+        },
+        {
+          "title": "2. List of documents to be enclosed",
+          "level": 2,
+          "content": "Name \u2026\u2026\u2026\u2026\u2026..\n\nDesignation \u2013 Authorised Signatory \u2013 \u2026\u2026\u2026\u2026\u2026\u2026\n\nPage 4 of 7\n\n",
+          "subsections": [],
+          "page": 5
+        },
+        {
+          "title": "Appendix 1",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "Rationale for compliance with the eligibility requirements",
+          "level": 2,
+          "content": "\u2026\u2026.. (name of the mutual fund) meets the requirements of the eligibility criteria stipulated\n\nin Route 1 (Sound Track Record)/ Route 2 (Alternate Route) for grant of approval to\n\nestablish Specialized Investment Fund (SIF), in accordance with SEBI Circular\n\nSEBI/HO/IMD/IMD PoD1/P/CIR/2025/26 dated February 27, 2025 as mentioned below:\n\n[ Route 1- Sound Track Record]\n\n",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "Regulatory Reference to",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "SEBI Circular",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "SEBI/HO/IMD/IMD",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "PoD1/P/CIR/2025/26",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "dated February 27, 2025",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "Justification on how",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "the Mutual Fund",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "complies with the",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "requirement",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "Supporting Documents",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "( reference can be given to",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "the list of enclosures:",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "Appendix 2 )",
+          "level": 2,
+          "content": "Para 1.1.1.1 (i)-\n\nMutual Fund has been in\n\noperation for a minimum\n\nperiod of 3 years and has\n\nan average asset under\n\nmanagement (\u2018AUM\u2019) of\n\nnot less than INR 10,000\n\ncrores, in immediately\n\npreceding 3 years\n\n\uf0b7 Copy of certificate of\n\nregistration as mutual fund\n\n\uf0b7 Certificate from Scheme\n\nStatutory Auditor on the\n\naverage Assets Under\n\nManagement over the\n\npreceding 3 financial years\n\nPara 1.1.1.1 (ii)-\n\nNo action has been\n\ninitiated or taken against\n\nthe sponsor/asset\n\nmanagement company\n\nUndertaking from the Trustee\n\nCompany of Mutual Fund\n\nPage 5 of 7\n\n(\u2018AMC\u2019) under section 11,\n\n11B, and/or Section 24 of\n\nthe SEBI Act, 1992 during\n\nthe last 3 years.\n\n[Route 2: Alternate Route]\n\nPara 1.1.1.2 (i) (a)\n\nA Chief Investment Officer\n\n(\u2018CIO\u2019) for the SIF with an\n\nexperience of fund\n\nmanagement of at least 10\n\nyears and has managed an\n\naverage AUM of not less\n\nthan INR 5,000 crores\n\n\uf0b7 Bio data of Chief\n\nInvestment Officer (CIO) in\n\nthe prescribed format\n\n\uf0b7 Undertaking from the AMC\n\non average AUM managed\n\nby CIO\n\n\uf0b7 Self-certified undertaking\n\nfrom the CIO  on the\n\naverage AUM managed\n\nPara 1.1.1.2 (i) (b)\n\nAn additional Fund Manager\n\nfor the SIF with experience of\n\nfund management of at least\n\n3 years and has managed an\n\naverage AUM of not less\n\nthan INR 500 crores\n\n\uf0b7 Bio data of Fund Manager\n\nin the prescribed format\n\n\uf0b7 Undertaking from the AMC\n\non average AUM managed\n\nby Fund Manager\n\n\uf0b7 Self-certified undertaking\n\nfrom the Fund Manager  on\n\nthe average AUM\n\nmanaged\n\nPara 1.1.1.2 (ii)\n\nNo action has been initiated\n\nor taken against the\n\nsponsor/AMC under section\n\n11, 11B, and/or Section 24 of\n\nUndertaking from the Trustee\n\nCompany of Mutual Fund\n\nPage 6 of 7\n\nthe SEBI Act, 1992 during\n\nthe last 3 years\n\n",
+          "subsections": [],
+          "page": 6
+        },
+        {
+          "title": "Appendix 2:",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 8
+        },
+        {
+          "title": "List of documents to be enclosed",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 8
+        },
+        {
+          "title": "Name of Document Particulars",
+          "level": 2,
+          "content": "Annexure xx Copy of certificate of registration as mutual fund\n\n",
+          "subsections": [],
+          "page": 8
+        },
+        {
+          "title": "Route 1: Sound Track record",
+          "level": 2,
+          "content": "Annexure xx Certificate from Scheme Statutory Auditor on the average\n\nAssets Under Management over the preceding 3 financial\n\nyears\n\nAnnexure xx Undertaking from the Trustee Company of Mutual Fund\n\nregarding action initiated/ taken against the sponsor/asset\n\nmanagement company (\u2018AMC\u2019) under section 11, 11B,\n\nand/or Section 24 of the SEBI Act, 1992 during the last 3\n\nyears.\n\n",
+          "subsections": [],
+          "page": 8
+        },
+        {
+          "title": "Route 2: Alternate Route",
+          "level": 2,
+          "content": "Annexure xx Bio data of Chief Investment Officer (CIO) in the format\n\nprescribed for \u2018Bio data of Key Personnel\u2019 in SEBI Master\n\nCircular for Mutual Funds dated June 27, 2024  along with\n\nidentity proof.\n\nAnnexure xx Undertaking from the AMC that the CIO appointed for SIF\n\nhas managed an average AUM of not less than INR 5,000\n\ncrores.\n\nAnnexure xx Self-certified undertaking from the CIO that he/she has\n\nmanaged an average AUM of not less than INR 5,000 crores.\n\nAnnexure xx Self-certified fit and proper person declaration by the CIO as\n\nper Schedule II of the SEBI (Intermediaries) Regulations,\n\n2008.\n\nPage 7 of 7\n\nAnnexure xx Bio data of additional fund manager of SIF in the format\n\nprescribed for \u2018Bio data of Key Personnel\u2019 in SEBI Master\n\nCircular for Mutual Funds dated June 27, 2024 along with\n\nidentity proof\n\nAnnexure xx Undertaking from the AMC that the Fund manager\n\nappointed for SIF has managed an average AUM of not\n\nless than INR 500 crores.\n\nAnnexure xx Self-certified undertaking from the Fund manager\n\nappointed for SIF that he/she has managed an average\n\nAUM of not less than INR 500 crores.\n\nAnnexure xx Self-certified fit and proper person declaration by the fund\n\nmanager as per Schedule II of the SEBI (Intermediaries)\n\nRegulations, 2008.\n\nAnnexure xx Undertaking from the Trustee Company of Mutual Fund\n\nregarding action initiated/ taken against the sponsor/asset\n\nmanagement company (\u2018AMC\u2019) under section 11, 11B,\n\nand/or Section 24 of the SEBI Act, 1992 during the last 3\n\nyears.\n\nAnnexure xx Undertaking from AMC that it shall maintain a separate\n\nwebsite/ dedicated webpage exclusively for SIF and that\n\nthere would be clear differentiation between the SIF\u2019s\n\nofferings and the regular Mutual Fund Offerings\n\nAnnexure xx Organizational structure of SIF indicating details of\n\nresources being shared\n\n",
+          "subsections": [],
+          "page": 8
+        },
+        {
+          "title": "Page 1 of 20",
+          "level": 2,
+          "content": "",
+          "subsections": [],
+          "page": 10
+        },
+        {
+          "title": "ANNEXURE II",
+          "level": 2,
+          "content": "1. STANDARD OFFER DOCUMENTS\n\nA. INVESTMENT STRATEGY INFORMATION DOCUMENT (ISID)\n\nFront Cover Page\n\nINVESTMENT STRATEGY INFORMATION DOCUMENT\n\nSECTION 1\n\nOffer of units of Rs\u2026 each for cash during the New Fund Offer and Continuous offer for Units at NAV based prices\n\nN A M E  O F  T H E  I N V E S T M E N T  S T R A T E G Y\n\n( T y p e  o f  I n v e s t m e n t  S t r a t e g y )\n\n1. Name and type of the Investment strategy to be aligned with SEBI Circular on Regulatory framework for Specialised Investment Funds (SIF). 2. In accordance with SEBI Circulars on Potential Risk Class (PRC) Matrix for debt schemes, type of investment strategy to include PRC description and table. As per SEBI Circulars on Potential Risk Class (PRC) Matrix for debt schemes, the PRC matrix along with the mark for the cell in which the scheme resides shall be disclosed on front page of ISID. 3. Product Labelling and Risk- band of the Investment Strategy and Benchmark should be disclosed 4. In case the investment strategy is listed/proposed to be listed (close ended / interval investment strategies etc.), the Scrip Code issued by the stock exchange after listing to be mentioned below the name of the investment strategy.\n\nThis product is suitable for investors who are seeking\n\nRisk-band* Benchmark Risk- band (as applicable)\n\nRisk band Level 1 .. .. .. Risk band Level 5\n\nRisk band Level 1 .. .. .. Risk band Level 5 * The Risk Band shall be as specified by AMFI. The above product labelling assigned during the New Fund Offer (NFO) is based on internal assessment of the characteristics of the investment strategy or model portfolio and the same may vary post NFO when the actual investments are made\n\n",
+          "subsections": [],
+          "page": 10
+        },
+        {
+          "title": "Page 2 of 20",
+          "level": 2,
+          "content": "New Fund Offer Opens on: _______ New Fund Offer Closes on: _______ Investment strategy re-opens on: __________\n\nName of SIF :\n\nName of the mutual fund: Name of Asset Management Company    : Name of Trustee Company : Addresses, Website of the entities (including SIF) The particulars of the investment strategy have been prepared in accordance with the\n\nSecurities and Exchange Board of India (Mutual Funds) Regulations 1996, (herein after\n\nreferred to as SEBI (MF) Regulations) as amended till date and circulars issued thereunder\n\nfiled with SEBI, along with a Due Diligence Certificate from the AMC. The units being\n\noffered for public subscription have not been approved or recommended by SEBI nor has\n\nSEBI certified the accuracy or adequacy of the Investment Strategy Information Document.\n\nThe Investment Strategy Information Document sets forth concisely the information about the\n\ninvestment strategy that a prospective investor ought to know before investing. Before\n\ninvesting, investors should also ascertain about any further changes to this Investment\n\nStrategy Information Document after the date of this Document from the SIF/Mutual Fund /\n\nInvestor Service Centres / Website / Distributors or Brokers.\n\nThe investors are advised to refer to the Statement of Additional Information (SAI) for\n\ndetails of ________ SIF, Mutual Fund, Standard Risk Factors, Special Considerations, Tax\n\nand Legal issues and general information on www.__________. (website address).\n\nSAI is incorporated by reference (is legally a part of the Investment Strategy\n\nInformation Document). For a free copy of the current SAI, please contact your\n\nnearest Investor Service Centre or log on to our website (give reference to both the\n\nSIF website and mutual fund website)\n\nThe Investment strategy Information Document (Section I and II) should be read in\n\nconjunction with the SAI and not in isolation.\n\n",
+          "subsections": [],
+          "page": 11
+        },
+        {
+          "title": "Page 3 of 20",
+          "level": 2,
+          "content": "Investors are advised to note that investments in Specialized Investment Fund involves\n\nrelatively higher risk including potential loss of capital, liquidity risk and market volatility.\n\nPlease read all investment strategy related documents carefully before making the investment\n\ndecision.\n\nThis Investment Strategy Information Document is dated ________. Note: The wording in italics is explanatory commentary/instructions. Instructions:\n\ni. SIF is free to add any other disclosure, which in the opinion of the Trustees or the Asset Management Company (AMC) is material for the investor, provided that such information is not presented in an incomplete, inaccurate or misleading manner. Care should be taken to ensure that inclusion of such information does not, by virtue of its nature, or manner of presentation, obscure or impede understanding of any information that is required to be included under the Investment Strategy Information Document. ii. Care should be taken to ensure that the information is presented in the Investment Strategy Information Document in simple language and in a clear, concise and easily understandable manner. iii. The investment strategy shall not have a name or title which may be deceptive or misleading. Name of the investment strategy should be consistent with its statement of investment policy and the investment strategy name should be in line with SEBI circular on Regulatory framework for Specialised Investment Funds (SIF). iv. The type of the investment strategy would mean whether the strategy is an equity oriented investment strategy, debt oriented investment strategy or hybrid investment strategy, etc. and whether the investment strategy is open-ended, close-ended or interval and the investment strategy type should be in line with SEBI circular on Regulatory framework for Specialised Investment Funds (SIF). v. Investment Strategy Information Document has two sections- Section I and Section II. While Section I contains investment strategy specific information that is dynamic, Section II contains elaborated provisions (including references to applicable Regulations/circulars/guidelines) with reference to information/disclosures provided in Section I.\n\n",
+          "subsections": [],
+          "page": 12
+        },
+        {
+          "title": "Page 4 of 20",
+          "level": 2,
+          "content": "PART I. HIGHLIGHTS/SUMMARY OF THE INVESTMENT STRATEGY Sr. No. Title Description\n\nI. Name of the Investment Strategy\n\n\uf0b7 (As per SEBI Circular on Regulatory Framework for Specialised Investment Funds (SIF)\n\nII. Category of the Investment Strategy\n\nAs per SEBI circular on Regulatory Framework for Specialised Investment Funds)\n\nIII. Type of Investment Strategy\n\n\uf0b7 Open ended/ close/interval investment strategy \uf0b7 All Debt oriented investment strategies to include PRC description in the investment strategy type in terms of Clause 17.5 of SEBI Master Circular for Mutual Funds dated June 27, 2024.\n\nIV. Investment strategy code (To be disclosed after obtaining investment strategy code)\n\nV. Investment objective \uf0b7 Clear and concise Investment objective to be stated in ISID and must be true to the investment strategy label. It shall contain the following statement\n\n\u201cThere is no assurance that the investment objective of the Investment strategy will be achieved.\n\nVI. Liquidity/listing details\n\nProvide Liquidity provisions on ongoing basis. Listing details only to be provided if the investment strategy intends to list immediately after NFO\n\nVII. Benchmark (Total Return Index)\n\n\uf0b7 The name and the justification (specific to the investment strategy objective) for the use of benchmark index with which the performance of the investment strategy can be compared with. \uf0b7 Second Tier benchmark if applicable\n\nVIII. Subscription frequency\n\nIX. Redemption frequency Equity Oriented Investment Strategies- Daily or any lesser redemption frequency as may be decided by AMC\n\nDebt Oriented Investment Strategies- Once in a week or any lesser redemption frequency as may be decided by AMC\n\nHybrid Investment Strategies- Two Times in a week or any lesser redemption frequency as may be\n\n",
+          "subsections": [],
+          "page": 13
+        },
+        {
+          "title": "Page 5 of 20",
+          "level": 2,
+          "content": "X. NAV disclosure Mention only the Daily Disclosure timings on AMFI and AMC website. Further Details in Section II.\n\nXI. Applicable timelines Timeline for\n\n\uf0b7 Dispatch of redemption proceeds, \uf0b7 Dispatch of IDCW (if applicable) etc.\n\nXII.\n\nPlans and Options\n\nPlans/Options and sub options under the Investment strategy\n\nPlan- Direct Plan/Regular Plan\n\nOptions under each Plan(s)\n\nGrowth Income Distribution cum Capital Withdrawal (IDCW) (include facilities if applicable) \uf0b7 Including Default option/ facility (as applicable)\n\nFor detailed disclosure on default plans and options, kindly refer SAI.\n\nXIII. Load Structure\n\nExit Load:\n\nXIV. Minimum Application Amount/switch in\n\n\uf0b7 During NFO: \uf0b7 On continuous basis:\n\nXV. Minimum Additional\n\nPurchase Amount\n\nXVI. Minimum Redemption/switch out amount\n\nRs. _______ The redemption will be subject to compliance with provisions mentioned under \u201cMinimum investment threshold\u201d\n\nXVII. Notice Period (Maximum duration of notice period shall not exceed 15 working days.)\n\n",
+          "subsections": [],
+          "page": 14
+        },
+        {
+          "title": "Page 6 of 20",
+          "level": 2,
+          "content": "XVIII. New Fund Offer Period This is the period during which a new investment strategy sells its units to the investors.\n\nNFO opens on: NFO closes on: Minimum duration to be 3 working days and will not be kept open for more than 15 days Any changes in dates will be published through notice on AMC SIF website i.e. \u2026\u2026\u2026\u2026..\n\nXIX. New Fund Offer Price: This is the price per unit that the investors have to pay to invest during the NFO.\n\nprice per unit\n\nXX. Segregated portfolio/side pocketing disclosure\n\nConfirmation/disclosure statement only. For Details, kindly refer SAI\n\nXXI. Swing pricing disclosure Confirmation/disclosure statement only. For Details,\n\nkindly refer SAI\n\nXXII. Stock lending/short selling\n\nConfirmation/disclosure statement only. For Details, kindly refer SAI\n\nXXIII. How to Apply Summary of process only. Details in section II\n\nXXIV. Investor services \uf0b7 Contact details for general service requests: \uf0b7 Contact details for complaint resolution:\n\nXXV. Specific attribute of the investment strategy (such as lock-in, duration in case of close ended schemes as applicable)\n\nXXVI. Special product/facility available during the NFO and on ongoing basis\n\nBriefly describe the facilities/products Available Facilities like:\n\n\uf0b7 Systematic Investment Plan \uf0b7 Systematic Transfer Plan \uf0b7 Systematic Withdrawal Plan \uf0b7 For further details of above special products / facilities, For Details, kindly refer SAI\n\n",
+          "subsections": [],
+          "page": 15
+        },
+        {
+          "title": "Page 7 of 20",
+          "level": 2,
+          "content": "XXVII. Weblink A weblink wherein TER for last 6 months, Daily TER as well as investment strategy factsheet shall be made available (when applicable)\n\nDUE DILIGENCE BY THE ASSET MANAGEMENT COMPANY\n\nIt is confirmed that:\n\n(i) The Investment Strategy Information Document submitted to SEBI is in accordance\n\nwith the SEBI (Mutual Funds) Regulations, 1996 and the guidelines and directives issued by SEBI from time to time.\n\n(ii) All legal requirements connected with the launching of the Investment strategy as also\n\nthe guidelines, instructions, etc., issued by the Government and any other competent authority in this behalf, have been duly complied with.\n\n(iii) The disclosures made in the Investment Strategy Information Document are true, fair and\n\nadequate to enable the investors to make a well informed decision regarding investment in the Investment Strategy.\n\n(iv) The intermediaries named in the Investment Strategy Information Document and\n\nStatement of Additional Information are registered with SEBI and their registration is valid, as on date.\n\n(v) The contents of the Investment Strategy Information Document  including figures, data, yields etc. have been checked and are factually correct\n\n(vi) A confirmation that the AMC has complied with the compliance checklist applicable for\n\nInvestment Strategy Information Document other than cited deviations/ that there are no deviations from the regulations\n\n(vii) Notwithstanding anything contained in this Investment Strategy Information Document,\n\nthe provisions of the SEBI (Mutual Funds) Regulations, 1996 and the guidelines there under shall be applicable.\n\n(viii) The Trustees have ensured that the (name of the Investment Strategy) approved by them\n\nis a new product offered by (name of the SIF) and is not a minor modification of any existing Investment Strategy. Date: Name: Place: Designation: PART II. INFORMATION ABOUT THE INVESTMENT STRATEGY\n\nA. HOW WILL THE INVESTMENT STRATEGY ALLOCATE ITS ASSETS?\n\nThis includes asset allocation table giving the broad classification of assets and indicative exposure level in percentage terms. The asset allocation should be consistent with the investment objective of the Investment Strategy and SEBI circular on   Regulatory framework for Specialised Investment Funds (SIF).\n\n",
+          "subsections": [],
+          "page": 16
+        },
+        {
+          "title": "Page 8 of 20",
+          "level": 2,
+          "content": "Instruments\n\nIndicative allocations\n\n(% of total assets)\n\nMinimum Maximum\n\n\uf0b7 Percentage of investment in overseas securities, derivatives for non-hedging purposes, stock lending, securitized debt, Debt instruments with special features (AT 1 and AT 2 Bonds), Debt Instruments with SO / CE, ReITs and InVITs, Tri-party repos, other mutual funds, repo/ reverse repo transactions in corporate debt securities, Credit Default Swaps, covered call option etc). to be indicated. \uf0b7 In case the Investment Strategy does not intend to invest in these securities, negative confirmation in a table format should be provided for securities / instruments in which the Investment Strategy will not invest. \uf0b7 Cumulative gross exposure limits to be adhered in terms of SEBI Circular on Regulatory framework for Specialised Investment Funds (SIF) \uf0b7 Any other information/disclosure to be added as per applicable Consolidated checklist of standard observations. Indicative Table (Actual instrument/percentages may vary subject to applicable SEBI circulars)\n\nSl. no Type of Instrument Percentage of exposure\n\nCircular references*\n\n1. Securities Lending\n\n2. Derivatives for non- hedging and other than for portfolio rebalancing purposes\n\n3. Securitized Debt\n\n4. Overseas Securities\n\n5. ReITS and InVITS\n\n6. Debt instruments with special features (AT1 and AT2 Bonds)\n\n7. Debt Instruments with SO / CE\n\n8. Tri-party repos\n\n9. Repo/ reverse repo transactions in corporate debt securities\n\n10. Credit Default Swaps\n\n",
+          "subsections": [],
+          "page": 17
+        },
+        {
+          "title": "Page 9 of 20",
+          "level": 2,
+          "content": "11. Any other instrument\n\n*SEBI circular references (wherever applicable) in support of exposure limits of different types of asset classes in asset allocation shall be provided. Timelines for deployment of funds collected by Asset Management Companies (AMCs) in New Fund Offer (NFO) as per asset allocation of the scheme as per SEBI circular dated February 27, 2025 Portfolio rebalancing: AMC to refer to Clause 1.14.1.2, Clause 2.9, Clause 3.5.3.11 and Clause 3.6.7 of SEBI Master Circular for Mutual Funds and applicable clause of Consolidated checklist of standard observations for active and passive breach/es.\n\nB. WHERE WILL THE INVESTMENT STRATEGY INVEST?\n\nThis includes only a list of all instruments in which the Investment Strategy will invest. (Detailed definition and applicable regulations/guidelines for each instrument shall be included in Section II) Investment in overseas securities shall be made in accordance with the requirements stipulated by SEBI and RBI from time to time. Any other information/disclosure to be added as per applicable Consolidated checklist of standard observations.\n\nC. WHAT IS THE INVESTMENT APPROACH?\n\nInformation about investment approach and risk control should be included in simple terms. Investment approach shall match the asset allocation pattern of the investment strategy. Further, details on generic concepts such as macroeconomic trends may not be provided unless there are investment approaches derived specifically from these concepts. Disclosure for derivatives to be provided in summary form. For detailed derivative strategies, please refer to SAI. Further, Portfolio turnover policy, particularly for equity oriented investment strategies shall also be disclosed. In discussing the investment approaches, the investment strategy shall briefly discuss in the ISID the probable effect of such approaches on the rate of the total portfolio turnover of the investment strategy, if such effects are significant and also other consequences which will result from the higher portfolio turnover rate e.g. higher brokerage and transaction cost.\n\n",
+          "subsections": [],
+          "page": 18
+        },
+        {
+          "title": "Page 10 of 20",
+          "level": 2,
+          "content": "D. HOW WILL THE INVESTMENT STRATEGY BENCHMARK ITS PERFORMANCE?\n\nBenchmark (Total Returns Index):\n\nThe AMC shall appropriately select any of broad market indices available, as a benchmark\n\nindex depending on the investment objective and portfolio of the investment strategy.\n\n\uf0b7 Equity oriented investment strategies shall be compared against a suitable broad market index such as BSE Sensex or NSE Nifty or BSE 100 or CIRISL 500 etc \uf0b7 Debt oriented investment strategies shall be compared with a suitable broad market index that is a representative of the fund\u2019s portfolio. \uf0b7 Hybrid investment strategies shall be compared with suitable broad market benchmark wherever available The name and the justification (specific to the investment strategy objective) for the use of benchmark index with which the performance of the investment strategy can be compared with.\n\nE. WHO MANAGES THE INVESTMENT STRATEGY?\n\nName, age, educational qualification and experience of the fund manager to the Investment strategy to be disclosed. The experience of the fund manager should include last 10 years\u2019 experience and also the name of other investment strategies under his /her management. Fund manager adequate expertise and experience is required for commodity based investment strategies and overseas investments as per applicable SEBI circulars.\n\nF. HOW IS THE INVESTMENT STRATEGY DIFFERENT FROM EXISTING\n\nINVESTMENT STRATEGIES OF THE SIF?\n\nProvide a reference list of existing investment strategies and a functional website link that\n\ncontains detailed comparative table.\n\nG. HOW HAS THE INVESTMENT STRATEGY PERFORMED (if applicable)\n\n[ In case of a new investment strategy, this is not applicable hence give the statement- \u201cThis\n\nCompounded Annualised Returns\n\nInvestment Strategy  Returns %\n\nBenchmark Returns %\n\nInvestment strategy returns %\n\n",
+          "subsections": [],
+          "page": 19
+        },
+        {
+          "title": "Page 11 of 20",
+          "level": 2,
+          "content": "investment strategy is a new strategy and does not have any performance track record\u201d]\n\nOr [In case of an investment strategy in existence, the return figures shall be given for that investment strategy only. For an investment strategy which is in existence for more than 1 year, the returns given will be Compounded Annualised Returns and for investment strategy which is in existence for less than 1 year, the returns would be absolute returns since inception. Absolute returns for each financial year for the last 5 years shall be represented by means of a bar diagram as per the adjacent format.]\n\nReturns for the last 1 year\n\nReturns for the last 3 years\n\nReturns for the last 5 years\n\nReturns since inception\n\nAbsolute Returns for each financial year for the last 5 years\n\n-20 -15 -10\n\n-5\n\na-b b-c c-d d-e e-f Last 5  financial years\n\n",
+          "subsections": [],
+          "page": 20
+        },
+        {
+          "title": "Page 12 of 20",
+          "level": 2,
+          "content": "H. ADDITIONAL INVESTMENT STRATEGY RELATED DISCLOSURES\n\ni. Investment Strategy\u2019s portfolio holdings (top 10 holdings by issuer and fund allocation towards various sectors to be provided through a functional website link that contains detailed description.) ii. Functional website link for Portfolio Disclosure -. iii. Portfolio Turnover Rate particularly for equity oriented Investment Strategies shall also be disclosed. iv. Aggregate investment in the Investment Strategy by: Sr. No. Category of Persons Net Value\n\n1. Concerned Investment Strategy\u2019s  Fund\n\nManager(s)\n\nUnits NAV per unit\n\nFor any other disclosure w.r.t investments by key personnel and AMC directors including regulatory provisions in this regard kindly refer SAI.\n\nv. Investments of AMC in the Investment Strategy \u2013 Details to be provided vide functional website link. The AMC shall not invest in any of the Investment Strategies unless full disclosure of its intention to invest has been made in the ISID and that the AMC shall not be entitled to charge any fees on such investment PART III- OTHER DETAILS\n\nA. COMPUTATION OF NAV\n\nDisclosure pertaining to illustration on computation of NAV and Methodology for calculation of sale and re-purchase price of the units of Investment Strategy.\n\nDisclosure to the effect that the repurchase price shall not be lower than 95% of the NAV. For other details such as policies w.r.t computation of NAV, rounding off, investment in foreign securities, procedure in case of delay in disclosure of NAV etc. refer to SAI\n\nB. NEW FUND OFFER (NFO) EXPENSES\n\nThese expenses are incurred for the purpose of various activities related to the NFO like sales and distribution fees paid marketing and advertising, registrar expenses, printing and stationary, bank charges etc. Details of source for meeting these expenses may be disclosed. AMC to ensure that no NFO expenses will be / were charged to the Investment Strategy .\n\nC. ANNUAL RECURRING EXPENSES\n\nThese are the fees and expenses for operating the Investment Strategy. These expenses include Investment Management and Advisory Fee charged by the AMC, Registrar and Transfer Agents\u2019 fee, marketing and selling costs etc. as given in the table below:\n\n",
+          "subsections": [],
+          "page": 21
+        },
+        {
+          "title": "Page 13 of 20",
+          "level": 2,
+          "content": "The AMC has estimated that upto _____ % of the daily average net assets of the Investment Strategy will be charged to the Investment Strategy as expenses (Give slab wise break up depending on the assets under management. Give plan/option wise break up if the expense structures are different). For the actual current expenses being charged, the investor should refer to the website of the SIF.\n\nExpense Head\n\n% p.a. of daily Net\n\nAssets* (Estimated\n\np.a.) Investment Management & Advisory Fee\n\nAudit fees/fees and expenses of trustees Custodial Fees Registrar & Transfer Agent Fees including cost of providing account statements / IDCW / redemption cheques/ warrants Marketing & Selling Expenses including Agents Commission and statutory advertisement Costs related to investor communications Costs of fund transfer from location to location Cost towards investor education & awareness Brokerage & transaction cost pertaining to distribution of units Goods & Services Tax on expenses other than investment and advisory fees Goods & Services Tax on brokerage and transaction cost Other Expenses (to be specified as per Reg 52 of SEBI MF Regulations) Maximum Total expenses ratio (TER) permissible under Regulation 52 (6) (c)\n\nAdditional expenses under Regulations 52(6A)(c) Additional expenses for gross new inflows from specified cities *Impact of TER on returns of both Direct plan and Regular plan through an illustration may be provided. Any other information/disclosure to be added as per applicable Consolidated checklist of standard observations.\n\n",
+          "subsections": [],
+          "page": 22
+        },
+        {
+          "title": "Page 14 of 20",
+          "level": 2,
+          "content": "D. LOAD STRUCTURE\n\nExit Load is an amount which is paid by the investor to redeem the units from the Investment Strategy . Load amounts are variable and are subject to change from time to time. For the current applicable structure, please refer to the website of \u2026\u2026..SIF ( www.----- ) or may call at (toll free no.) or your distributor.\n\nType of Load Load chargeable (as %age of NAV)\n\nExit To be prescribed by respective AMC\n\n",
+          "subsections": [],
+          "page": 23
+        },
+        {
+          "title": "Page 15 of 20",
+          "level": 2,
+          "content": "Section II\n\nI. Introduction\n\nA. Definitions/interpretation\n\nFunctional website link that contains detailed description\n\nB. Risk factors\n\n- Investment Strategy specific risk factors\n\nInclude risk factors associated with investment in various instruments in which the investment strategy\n\nintends to invest as indicated in asset allocation section.\n\nC. Risk mitigation strategies\n\nII. Information about the investment strategy:\n\nA. Where will the investment strategy invest \u2013 In terms of Regulation 49Z of SEBI MF Regulations,\n\ndetailed description of the instruments as permitted under Regulation 43(1) for mutual fund schemes (including overview of debt markets in India, if applicable) mentioned in Section I\n\nB. What are the investment restrictions?\n\nAll the investment restrictions as contained in Regulation 49AA and Seventh Schedule to SEBI (Mutual Funds) Regulations, 1996 and circulars issued thereunder, applicable to the investment strategy should be incorporated. Further in case the fund follows any internal norms vis-\u00e0-vis limiting exposure to a particular scrip or sector, etc. apart from the aforementioned investment restrictions the same needs to be disclosed.\n\nC. Fundamental Attributes\n\nFollowing are the Fundamental Attributes of the investment strategy, in terms of Clause 1.14 of SEBI Master Circular for Mutual Funds: (i) Type of  investment strategy: o Open ended/Close ended/Interval investment strategy o Equity Oriented/ Debt Orineted/ Hybrid Investment strategy (ii) Investment Objective\n\no Main Objective - Growth/Income/Both. o Investment pattern - The Tentative Equity/Debt/Money Market portfolio break-up with minimum and maximum asset allocation, while retaining the option to alter the asset allocation for a short term period on defensive considerations. (iii) Terms of Issue\n\n",
+          "subsections": [],
+          "page": 24
+        },
+        {
+          "title": "Page 16 of 20",
+          "level": 2,
+          "content": "o Liquidity provisions such as listing, repurchase, redemption. o Aggregate fees and expenses charged to the investment strategy. o Any safety net or guarantee provided. In accordance with Regulation 18(15A) of the SEBI (MF) Regulations and Clause 1.14.1.4 of SEBI Master Circular for Mutual Funds, the Trustees shall ensure that no change in the fundamental attributes of the investment strategy or the trust or fee and expenses payable or any other change which would modify the investment strategy thereunder and affect the interests of Unitholders is carried out unless: \u2022 SEBI has reviewed and provided its comments on the proposal \u2022 A written communication about the proposed change is sent to each Unitholder and an advertisement is given in one English daily newspaper having nationwide circulation as well as in a newspaper published in the language of the region where the Head Office of the Mutual Fund is situated; and \u2022 The Unitholders are given an option for a period of atleast 30 calendar days to exit at the prevailing Net Asset Value without any exit load.\n\nD. Floors and ceiling within a range of 5% of the intended allocation against each sub class of\n\nasset, as per clause 13.6.2 of SEBI master circular for mutual funds dated June 27, 2024 (only for close ended debt investment strategies- if applicable)\n\nE. Other Investment Strategy Specific Disclosures:\n\nListing and transfer of units Dematerialization of units Minimum Target amount (This is the minimum amount required to operate the investment strategy and if this is not collected during the NFO period, then all the investors would be refunded the amount invested without any return.)\n\nRedemption and subscription frequency of the investment strategy\n\nNotice period of the investment strategy\n\nMaximum Amount to be raised (if any)\n\nDividend Policy (IDCW)\n\nAllotment (Detailed procedure) Mention, the procedure for allotment and dispatch of account statements/unit certificates. Indicate the time period. Mention the number of days within which the statement shall be dispatched to the unitholders who\n\n",
+          "subsections": [],
+          "page": 25
+        },
+        {
+          "title": "Page 17 of 20",
+          "level": 2,
+          "content": "subscribe to the units when the investment strategy  is open for continuous subscription after NFO as per the applicable guidelines. Refund If application is rejected, full amount will be refunded within 5 working days of closure of NFO. If refunded later than 5 working days @ 15% p.a. for delay period will be paid and charged to the AMC. Who can invest This is an indicative list and investors shall consult their financial advisor to ascertain whether the investment strategy is suitable to their risk profile.\n\nWho cannot invest How to Apply (details) Details regarding- availability of application form from either the Investor Service Centers (ISCs)/Official Points of Acceptance (OPAs) of AMC or may be downloaded from the website of AMC (Provide website link)  should be specified. Please refer to the SAI and Application form for the instructions. A link for the list of official points of acceptance, collecting banker details etc. Name, address and contact no. of Registrar and Transfer Agent (R&T), email id of R&T, website address of R&T, official points of acceptance, collecting banker details etc. on back cover page.\n\nTo inform investors that it is mandatory to mention their bank account numbers in their applications/requests for redemption. . The policy regarding reissue of repurchased units, including the maximum extent, the manner of reissue, the entity (the investment strategy or the AMC) involved in the same.\n\nRestrictions, if any, on the right to freely retain or dispose of units being offered.\n\nCut off timing for subscriptions/ redemptions/ switches This is the time before which your application (complete in all\n\n",
+          "subsections": [],
+          "page": 26
+        },
+        {
+          "title": "Page 18 of 20",
+          "level": 2,
+          "content": "respects) should reach the official points of acceptance. Where can the applications for purchase/redemption switches be submitted?\n\nPlease refer the AMC website/ SIF website (Provide website link) at the following link for the list of official points of acceptance, collecting banker details etc.\n\nTo inform investors that it is mandatory to mention their bank account numbers in their applications/requests for redemption.\n\nMinimum amount for purchase/redemption/switches\n\nMinimum threshold requirement and consequences of non- maintenance\n\nAccounts Statements\n\nThe AMC shall send an allotment confirmation specifying the units allotted by way of email and/or SMS within 5 working days of receipt of valid application/transaction to the Unit holders registered e-mail address and/ or mobile number (whether units are held in demat mode or in account statement form). A Consolidated Account Statement (CAS) detailing all the transactions across all SIFs (including transaction charges paid to the distributor) and holding at the end of the month shall be sent to the Unit holders in whose folio(s) transaction(s) have taken place during the month by mail or email on or before 15th of the succeeding month. Half-yearly CAS shall be issued at the end of every six months (i.e. September/ March) on or before 21st day of succeeding month, to all investors providing the prescribed details across all investment strategies of SIFs and securities held in dematerialized form across demat accounts, if applicable For further details, refer SAI. Dividend/ IDCW The payment of dividend/IDCW to the unitholders shall be made within seven working days from the record date. Redemption The redemption or repurchase proceeds shall be dispatched to the unitholders within three working days from the date of redemption or repurchase.\n\nFor list of exceptional circumstances refer Clause 14.1.3 of SEBI Master Circular for Mutual Funds dated June 27, 2024\n\n",
+          "subsections": [],
+          "page": 27
+        },
+        {
+          "title": "Page 19 of 20",
+          "level": 2,
+          "content": "For investment strategies investing atleast 80% of total assets in permissible overseas investments (as per Clause 12.19 of SEBI Master Circular for Mutual Funds), the transfer of redemption or repurchase proceeds to the unitholders shall be made within five working days from the date of redemption or repurchase. Bank Mandate Delay in payment of redemption / repurchase proceeds/dividend\n\nThe Asset Management Company shall be liable to pay interest to the unitholders at rate as specified vide clause 14.2 of SEBI Master Circular for Mutual Funds dated June 27, 2024  for the period of such delay\n\nUnclaimed Redemption and Income Distribution cum Capital Withdrawal Amount\n\nDisclosure w.r.t investment by minors\n\nAny other disclosure in terms of Consolidated Checklist on Standard Observations\n\nIII. Other Details\n\nA. Periodic Disclosures such as Half yearly disclosures, half yearly results, annual\n\nreport\n\n\uf0b7 Specify timelines of these disclosures and details of where they are disclosed. (such as \u201cRefer to AMC website, SIF website, SAI, AMFI website for further details etc. Provide a functional link for each respective field\u201d) \uf0b7 Portfolio disclosures \uf0b7 Any disclosure in terms of Consolidated Checklist on Standard Observations\n\nB. Scenario Analysis for Derivatives Positions (As specified by AMFI)\n\nC. Liquidity risk management tools and its applicability\n\nD. Transparency/NAV Disclosure (Details with reference to information given in\n\nSection I)\n\nE. Transaction charges and stamp duty- Indicate only the amount of transaction charges\n\nand stamp duty applicable. Details to be provided in SAI.\n\nF. Associate Transactions - Please refer to Statement of Additional Information (SAI)\n\nG. Taxation - For details on taxation please refer to the clause on Taxation in the SAI apart\n\n",
+          "subsections": [],
+          "page": 28
+        },
+        {
+          "title": "Page 20 of 20",
+          "level": 2,
+          "content": "from the following:\n\nResident Investors Non resident Investors\n\nMutual Fund/SIF\n\nTax on dividend Capital gain Long Term: Short Term:\n\nH. Rights of Unitholders- Please refer to SAI for details.\n\nI. List of official points of acceptance: Details to be uploaded and updated on a functional\n\nwebsite link to the website of SIF\n\nJ. Penalties, Pending Litigation or Proceedings, Findings of Inspections or\n\nInvestigations For Which Action May Have Been Taken Or Is In The Process Of Being Taken By Any Regulatory Authority\n\n- AMCs to ensure real time updation of data on the said link. - Any disclosure in terms of Consolidated Checklist on Standard Observations\n\n*****\n\n",
+          "subsections": [],
+          "page": 29
+        }
+      ],
+      "page": 1
+    }
+  ],
+  "tables": [
+    {
+      "title": "Table 1 on Page 3",
+      "markdown": "|   1. | Proposed brand name of       |                                                   |\n|      | the SIF                      |                                                   |\n|-----:|:-----------------------------|:--------------------------------------------------|\n|    2 | Name of Mutual Fund          |                                                   |\n|    3 | Assets Under                 | Financial Year (FY) Amount (in crore)             |\n|      | Management (AUM) over        | Average AUM- \u2026\u2026. crore                            |\n|      | the preceding 3 years        |                                                   |\n|      | certified by scheme          |                                                   |\n|      | statutory auditor.           |                                                   |\n|    4 | Details of action initiated/ | Provide complete information of the action taken/ |\n|      | taken against the            | initiated and the current status of the same.     |\n|      | sponsor/asset                |                                                   |\n|      | management company           |                                                   |",
+      "page": 3
+    },
+    {
+      "title": "Table 2 on Page 3",
+      "markdown": "| Financial Year (FY)   | Amount (in crore)   |\n|:----------------------|:--------------------|\n|                       |                     |\n|                       |                     |\n|                       |                     |",
+      "page": 3
+    },
+    {
+      "title": "Table 1 on Page 4",
+      "markdown": "|    | (\u2018AMC\u2019) under section 11,   |                                                       |\n|    | 11B, and/or Section 24 of   |                                                       |\n|    | the SEBI Act, 1992 during   |                                                       |\n|    | the last 3 years.           |                                                       |\n|---:|:----------------------------|:------------------------------------------------------|\n|  5 | Details of Chief            | Name of CIO:                                          |\n|    | Investment Officer (CIO)    | Qualification:                                        |\n|    | proposed to be appointed    | Experience in fund management (brief): Details        |\n|    | for SIF in case applicant   | need to be mentioned in bio data to be submitted in   |\n|    | opts Route 2                | the prescribed format.                                |\n|    | Average AUM managed         | Please mention the value of assets managed by CIO     |\n|    | by the CIO                  | on behalf of clients in India/ abroad, provided the   |\n|    |                             | said assets are regulated by a financial regulator    |\n|    |                             | and/or such assets are located in a country that is a |\n|    |                             | member of Financial Action Task Force (FATF) and      |\n|    |                             | a country that is a signatory to International        |\n|    |                             | Organization of Securities Commission's (IOSCO)       |\n|    |                             | Multilateral Memorandum of Understanding              |\n|    |                             | (MMOU).                                               |\n|  6 | Details of additional fund  | Name of Fund Manager:                                 |\n|    | manager to be appointed     | Qualification:                                        |\n|    | for SIF in case applicant   | Experience in fund management (brief): Details        |\n|    | opts Route 2                | need to be mentioned in bio data to be submitted in   |\n|    | Average AUM managed         | the prescribed format.                                |\n|    | by the additional fund      | Please mention the value of assets managed by         |\n|    | manager                     | fund manager on behalf of clients in India/ abroad,   |\n|    |                             | provided the said assets are regulated by a financial |\n|    |                             | regulator and/or such assets are located in a         |\n|    |                             | country that is a member of Financial Action Task     |\n|    |                             | Force (FATF) and a country that is a signatory to     |",
+      "page": 4
+    },
+    {
+      "title": "Table 1 on Page 5",
+      "markdown": "| 0   | 1   | 2                                               |\n|:----|:----|:------------------------------------------------|\n|     |     | International Organization of Securities        |\n|     |     | Commission's (IOSCO) Multilateral Memorandum of |\n|     |     | Understanding (MMOU).                           |",
+      "page": 5
+    },
+    {
+      "title": "Table 1 on Page 6",
+      "markdown": "|                            | Regulatory Reference to   |    | Justification on how   | Supporting Documents         |\n|                            |                           |    | the Mutual Fund        | (reference can be given to   |\n|                            |                           |    | complies with the      | the list of enclosures:      |\n|                            |                           |    | requirement            | Appendix 2)                  |\n|:---------------------------|:--------------------------|:---|:-----------------------|:-----------------------------|\n|                            | SEBI Circular             |    |                        |                              |\n|                            | SEBI/HO/IMD/IMD           |    |                        |                              |\n|                            | PoD1/P/CIR/2025/26        |    |                        |                              |\n|                            | dated February 27, 2025   |    |                        |                              |\n| Para 1.1.1.1 (i)-          |                           |    |                        | \uf0b7 Copy of certificate of     |\n| Mutual Fund has been in    |                           |    |                        | registration as mutual fund  |\n| operation for a minimum    |                           |    |                        | \uf0b7 Certificate from Scheme    |\n| period of 3 years and has  |                           |    |                        | Statutory Auditor on the     |\n| an average asset under     |                           |    |                        | average Assets Under         |\n| management (\u2018AUM\u2019) of      |                           |    |                        | Management over the          |\n| not less than INR 10,000   |                           |    |                        | preceding 3 financial years  |\n| crores, in immediately     |                           |    |                        |                              |\n| preceding 3 years          |                           |    |                        |                              |\n| Para 1.1.1.1 (ii)-         |                           |    |                        | Undertaking from the Trustee |\n| No action has been         |                           |    |                        | Company of Mutual Fund       |\n| initiated or taken against |                           |    |                        |                              |\n| the sponsor/asset          |                           |    |                        |                              |\n| management company         |                           |    |                        |                              |",
+      "page": 6
+    },
+    {
+      "title": "Table 2 on Page 6",
+      "markdown": "| Justification on how   |\n|:-----------------------|\n| the Mutual Fund        |\n| complies with the      |\n| requirement            |",
+      "page": 6
+    },
+    {
+      "title": "Table 3 on Page 6",
+      "markdown": "| Supporting Documents       |\n|:---------------------------|\n| (reference can be given to |\n| the list of enclosures:    |\n| Appendix 2)                |",
+      "page": 6
+    },
+    {
+      "title": "Table 1 on Page 7",
+      "markdown": "| 0                         | 1   | 2   |\n|:--------------------------|:----|:----|\n| (\u2018AMC\u2019) under section 11, |     |     |\n| 11B, and/or Section 24 of |     |     |\n| the SEBI Act, 1992 during |     |     |\n| the last 3 years.         |     |     |",
+      "page": 7
+    },
+    {
+      "title": "Table 2 on Page 7",
+      "markdown": "| Para 1.1.1.2 (i) (a)           |    | \uf0b7 Bio data of Chief            |\n| A Chief Investment Officer     |    | Investment Officer (CIO) in    |\n| (\u2018CIO\u2019) for the SIF with an    |    | the prescribed format          |\n| experience of fund             |    | \uf0b7 Undertaking from the AMC     |\n| management of at least 10      |    | on average AUM managed         |\n| years and has managed an       |    | by CIO                         |\n| average AUM of not less        |    | \uf0b7 Self-certified undertaking   |\n| than INR 5,000 crores          |    | from the CIO on the            |\n|                                |    | average AUM managed            |\n|:-------------------------------|:---|:-------------------------------|\n| Para 1.1.1.2 (i) (b)           |    | \uf0b7 Bio data of Fund Manager     |\n| An additional Fund Manager     |    | in the prescribed format       |\n| for the SIF with experience of |    | \uf0b7 Undertaking from the AMC     |\n| fund management of at least    |    | on average AUM managed         |\n| 3 years and has managed an     |    | by Fund Manager                |\n| average AUM of not less        |    | \uf0b7 Self-certified undertaking   |\n| than INR 500 crores            |    | from the Fund Manager on       |\n|                                |    | the average AUM                |\n|                                |    | managed                        |\n| Para 1.1.1.2 (ii)              |    | Undertaking from the Trustee   |\n| No action has been initiated   |    | Company of Mutual Fund         |\n| or taken against the           |    |                                |\n| sponsor/AMC under section      |    |                                |\n| 11, 11B, and/or Section 24 of  |    |                                |",
+      "page": 7
+    },
+    {
+      "title": "Table 1 on Page 8",
+      "markdown": "| 0                         | 1   | 2   |\n|:--------------------------|:----|:----|\n| the SEBI Act, 1992 during |     |     |\n| the last 3 years          |     |     |",
+      "page": 8
+    },
+    {
+      "title": "Table 2 on Page 8",
+      "markdown": "| Name of Document            | Particulars                                                    |\n|:----------------------------|:---------------------------------------------------------------|\n| Annexure xx                 | Copy of certificate of registration as mutual fund             |\n| Route 1: Sound Track record |                                                                |\n| Annexure xx                 | Certificate from Scheme Statutory Auditor on the average       |\n|                             | Assets Under Management over the preceding 3 financial         |\n|                             | years                                                          |\n| Annexure xx                 | Undertaking from the Trustee Company of Mutual Fund            |\n|                             | regarding action initiated/ taken against the sponsor/asset    |\n|                             | management company (\u2018AMC\u2019) under section 11, 11B,              |\n|                             | and/or Section 24 of the SEBI Act, 1992 during the last 3      |\n|                             | years.                                                         |\n| Route 2: Alternate Route    |                                                                |\n| Annexure xx                 | Bio data of Chief Investment Officer (CIO) in the format       |\n|                             | prescribed for \u2018Bio data of Key Personnel\u2019 in SEBI Master      |\n|                             | Circular for Mutual Funds dated June 27, 2024 along with       |\n|                             | identity proof.                                                |\n| Annexure xx                 | Undertaking from the AMC that the CIO appointed for SIF        |\n|                             | has managed an average AUM of not less than INR 5,000          |\n|                             | crores.                                                        |\n| Annexure xx                 | Self-certified undertaking from the CIO that he/she has        |\n|                             | managed an average AUM of not less than INR 5,000 crores.      |\n| Annexure xx                 | Self-certified fit and proper person declaration by the CIO as |\n|                             | per Schedule II of the SEBI (Intermediaries) Regulations,      |\n|                             | 2008.                                                          |",
+      "page": 8
+    },
+    {
+      "title": "Table 1 on Page 9",
+      "markdown": "| Annexure xx   | Bio data of additional fund manager of SIF in the format     |\n|               | prescribed for \u2018Bio data of Key Personnel\u2019 in SEBI Master    |\n|               | Circular for Mutual Funds dated June 27, 2024 along with     |\n|               | identity proof                                               |\n|:--------------|:-------------------------------------------------------------|\n| Annexure xx   | Undertaking from the AMC that the Fund manager               |\n|               | appointed for SIF has managed an average AUM of not          |\n|               | less than INR 500 crores.                                    |\n| Annexure xx   | Self-certified undertaking from the Fund manager             |\n|               | appointed for SIF that he/she has managed an average         |\n|               | AUM of not less than INR 500 crores.                         |\n| Annexure xx   | Self-certified fit and proper person declaration by the fund |\n|               | manager as per Schedule II of the SEBI (Intermediaries)      |\n|               | Regulations, 2008.                                           |\n| Annexure xx   | Undertaking from the Trustee Company of Mutual Fund          |\n|               | regarding action initiated/ taken against the sponsor/asset  |\n|               | management company (\u2018AMC\u2019) under section 11, 11B,            |\n|               | and/or Section 24 of the SEBI Act, 1992 during the last 3    |\n|               | years.                                                       |\n| Annexure xx   | Undertaking from AMC that it shall maintain a separate       |\n|               | website/ dedicated webpage exclusively for SIF and that      |\n|               | there would be clear differentiation between the SIF\u2019s       |\n|               | offerings and the regular Mutual Fund Offerings              |\n| Annexure xx   | Organizational structure of SIF indicating details of        |\n|               | resources being shared                                       |",
+      "page": 9
+    },
+    {
+      "title": "Table 1 on Page 10",
+      "markdown": "| This product is          | Risk-band*        | Benchmark Risk-        |\n| suitable for investors   |                   | band (as applicable)   |\n| who are seeking          |                   |                        |\n|:-------------------------|:------------------|:-----------------------|\n|                          | Risk band Level 1 | Risk band Level 1      |\n|                          | ..                | ..                     |\n|                          | ..                | ..                     |\n|                          | ..                | ..                     |\n|                          | Risk band Level 5 | Risk band Level 5      |",
+      "page": 10
+    },
+    {
+      "title": "Table 1 on Page 13",
+      "markdown": "| Sr. No.   | Title                     | Description                                                         |\n|:----------|:--------------------------|:--------------------------------------------------------------------|\n| I.        | Name of the Investment    | \uf0b7 (As per SEBI Circular on Regulatory Framework                     |\n|           | Strategy                  | for Specialised Investment Funds (SIF)                              |\n| II.       | Category of the           | As per SEBI circular on Regulatory Framework for                    |\n|           | Investment Strategy       | Specialised Investment Funds)                                       |\n| III.      | Type of Investment        | \uf0b7 Open ended/ close/interval investment strategy                    |\n|           | Strategy                  | \uf0b7 All Debt oriented investment strategies to include                |\n|           |                           | PRC description in the investment strategy type in                  |\n|           |                           | terms of Clause 17.5 of SEBI Master Circular for                    |\n|           |                           | Mutual Funds dated June 27, 2024.                                   |\n| IV.       | Investment strategy code  | (To be disclosed after obtaining investment strategy code)          |\n| V.        | Investment objective      | \uf0b7 Clear and concise Investment objective to be stated               |\n|           |                           | in ISID and must be true to the investment strategy                 |\n|           |                           | label. It shall contain the following statement                     |\n|           |                           | \u201cThere is no assurance that the investment objective                |\n|           |                           | of the Investment strategy will be achieved.                        |\n| VI.       | Liquidity/listing details | Provide Liquidity provisions on ongoing basis. Listing              |\n|           |                           | details only to be provided if the investment strategy              |\n|           |                           | intends to list immediately after NFO                               |\n| VII.      | Benchmark (Total          | \uf0b7 The name and the justification (specific to the                   |\n|           | Return Index)             | investment strategy objective) for the use of                       |\n|           |                           | benchmark index with which the performance of                       |\n|           |                           | the investment strategy can be compared with.                       |\n|           |                           | \uf0b7 Second Tier benchmark if applicable                               |\n| VIII.     | Subscription frequency    |                                                                     |\n| IX.       | Redemption frequency      | Equity Oriented Investment Strategies-                              |\n|           |                           | Daily or any lesser redemption frequency as may be decided by AMC   |\n|           |                           | Debt Oriented Investment Strategies-                                |\n|           |                           | Once in a week or any lesser redemption frequency as may be decided |\n|           |                           | by AMC                                                              |\n|           |                           | Hybrid Investment Strategies-                                       |\n|           |                           | Two Times in a week or any lesser redemption frequency as may be    |\n|           |                           | decided by AMC                                                      |",
+      "page": 13
+    },
+    {
+      "title": "Table 1 on Page 14",
+      "markdown": "| X.    | NAV disclosure        | Mention only the Daily Disclosure timings on AMFI and   |\n|       |                       | AMC website. Further Details in Section II.             |\n|:------|:----------------------|:--------------------------------------------------------|\n| XI.   | Applicable timelines  | Timeline for                                            |\n|       |                       | \uf0b7 Dispatch of redemption proceeds,                      |\n|       |                       | \uf0b7 Dispatch of IDCW (if applicable) etc.                 |\n| XII.  | Plans and Options     | Plan- Direct Plan/Regular Plan                          |\n|       | Plans/Options and sub | Options under each Plan(s)                              |\n|       | options under the     | Growth                                                  |\n|       | Investment strategy   | Income Distribution cum Capital Withdrawal (IDCW)       |\n|       | \uf0b7                     | (include facilities if applicable)                      |\n|       |                       | \uf0b7 Including Default option/ facility (as applicable)    |\n|       |                       | For detailed disclosure on default plans and options,   |\n|       |                       | kindly refer SAI.                                       |\n| XIII. | Load Structure        | Exit Load:                                              |\n| XIV.  | Minimum Application   | \uf0b7 During NFO:                                           |\n|       | Amount/switch in      | \uf0b7 On continuous basis:                                  |\n| XV.   | Minimum Additional    |                                                         |\n|       | Purchase Amount       |                                                         |\n| XVI.  | Minimum               | Rs. _______                                             |\n|       | Redemption/switch out | The redemption will be subject to compliance with       |\n|       | amount                | provisions mentioned under \u201cMinimum investment          |\n|       |                       | threshold\u201d                                              |\n| XVII. | Notice Period         | (Maximum duration of notice period shall not exceed 15  |\n|       |                       | working days.)                                          |",
+      "page": 14
+    },
+    {
+      "title": "Table 1 on Page 15",
+      "markdown": "| XVIII.   | New Fund Offer Period         | NFO opens on:                                           |                                                   |\n|          | This is the period during     | NFO closes on:                                          |                                                   |\n|          | which a new investment        | Minimum duration to be 3 working days and will not be   |                                                   |\n|          | strategy sells its units to   | kept open for more than 15 days                         |                                                   |\n|          | the investors.                | Any changes in dates will be published through notice   |                                                   |\n|          |                               | on AMC SIF website i.e. \u2026\u2026\u2026\u2026..                          |                                                   |\n|:---------|:------------------------------|:--------------------------------------------------------|:--------------------------------------------------|\n| XIX.     | New Fund Offer Price:         | price per unit                                          |                                                   |\n|          | This is the price per unit    |                                                         |                                                   |\n|          | that the investors have to    |                                                         |                                                   |\n|          | pay to invest during the      |                                                         |                                                   |\n|          | NFO.                          |                                                         |                                                   |\n| XX.      | Segregated                    | Confirmation/disclosure statement only. For Details,    |                                                   |\n|          | portfolio/side pocketing      | kindly refer SAI                                        |                                                   |\n|          | disclosure                    |                                                         |                                                   |\n| XXI.     | Swing pricing disclosure      | Confirmation/disclosure statement only. For Details,    |                                                   |\n|          |                               | kindly refer SAI                                        |                                                   |\n| XXII.    | Stock lending/short           | Confirmation/disclosure statement only. For Details,    |                                                   |\n|          | selling                       | kindly refer SAI                                        |                                                   |\n| XXIII.   | How to Apply                  | Summary of process only. Details in section II          |                                                   |\n| XXIV.    | Investor services             | \uf0b7 Contact details for general service requests:         |                                                   |\n|          |                               | \uf0b7 Contact details for complaint resolution:             |                                                   |\n| XXV.     | Specific attribute of the     |                                                         |                                                   |\n|          | investment strategy           |                                                         |                                                   |\n|          | (such as lock-in,             |                                                         |                                                   |\n|          | duration in case of close     |                                                         |                                                   |\n|          | ended schemes as              |                                                         |                                                   |\n|          | applicable)                   |                                                         |                                                   |\n| XXVI.    | Special product/facility      | Briefly describe the facilities/products Available      |                                                   |\n|          | available during the          |                                                         |                                                   |\n|          | NFO and on ongoing            |                                                         |                                                   |\n|          | basis                         |                                                         |                                                   |\n|          |                               | Facilities like:                                        |                                                   |\n|          |                               | \uf0b7 Systematic Investment Plan                            | \uf0b7 Systematic Investment Plan                      |\n|          |                               | \uf0b7 Systematic Transfer Plan                              |                                                   |\n|          |                               | \uf0b7 Systematic Withdrawal Plan                            |                                                   |\n|          |                               | \uf0b7 For further details of above special products /       |                                                   |\n|          |                               | facilities, For Details, kindly refer SAI               |                                                   |\n|          |                               |                                                         | \uf0b7 Systematic Transfer Plan                        |\n|          |                               |                                                         | \uf0b7 Systematic Withdrawal Plan                      |\n|          |                               |                                                         | \uf0b7 For further details of above special products / |\n|          |                               |                                                         | facilities, For Details, kindly refer SAI         |",
+      "page": 15
+    },
+    {
+      "title": "Table 1 on Page 16",
+      "markdown": "| XXVII.   | Weblink   | A weblink wherein TER for last 6 months, Daily TER as   |\n|:---------|:----------|:--------------------------------------------------------|\n|          |           | well as investment strategy factsheet shall be made     |\n|          |           | available (when applicable)                             |",
+      "page": 16
+    },
+    {
+      "title": "Table 1 on Page 17",
+      "markdown": "| Instruments   | Indicative allocations   |         |\n|               | (% of total assets)      |         |\n|:--------------|:-------------------------|:--------|\n|               | Minimum                  | Maximum |",
+      "page": 17
+    },
+    {
+      "title": "Table 2 on Page 17",
+      "markdown": "|   Sl. no | Type of Instrument         | Percentage of   | Circular references*   |\n|          |                            | exposure        |                        |\n|---------:|:---------------------------|:----------------|:-----------------------|\n|        1 | Securities Lending         |                 |                        |\n|        2 | Derivatives for non-       |                 |                        |\n|          | hedging and other than for |                 |                        |\n|          | portfolio rebalancing      |                 |                        |\n|          | purposes                   |                 |                        |\n|        3 | Securitized Debt           |                 |                        |\n|        4 | Overseas Securities        |                 |                        |\n|        5 | ReITS and InVITS           |                 |                        |\n|        6 | Debt instruments with      |                 |                        |\n|          | special features (AT1 and  |                 |                        |\n|          | AT2 Bonds)                 |                 |                        |\n|        7 | Debt Instruments with SO / |                 |                        |\n|          | CE                         |                 |                        |\n|        8 | Tri-party repos            |                 |                        |\n|        9 | Repo/ reverse repo         |                 |                        |\n|          | transactions in corporate  |                 |                        |\n|          | debt securities            |                 |                        |\n|       10 | Credit Default Swaps       |                 |                        |",
+      "page": 17
+    },
+    {
+      "title": "Table 1 on Page 18",
+      "markdown": "|   0 | 1                    | 2   | 3   |\n|----:|:---------------------|:----|:----|\n|  11 | Any other instrument |     |     |",
+      "page": 18
+    },
+    {
+      "title": "Table 1 on Page 19",
+      "markdown": "| 0                                | 1          | 2                | 3         |\n|:---------------------------------|:-----------|:-----------------|:----------|\n| [In case of a new investment     | Compounded | Investment       | Benchmark |\n| strategy, this is not applicable | Annualised | Strategy Returns | Returns % |\n| hence give the statement- \u201cThis  | Returns    | %                |           |",
+      "page": 19
+    },
+    {
+      "title": "Table 1 on Page 20",
+      "markdown": "| investment strategy is a new          | Returns for the last                                    |    |    |\n| strategy and does not have any        | 1 year                                                  |    |    |\n| performance track record\u201d]            |                                                         |    |    |\n| Or                                    |                                                         |    |    |\n| [In case of an investment             |                                                         |    |    |\n| strategy in existence, the return     |                                                         |    |    |\n| figures shall be given for that       |                                                         |    |    |\n| investment strategy only. For an      |                                                         |    |    |\n| investment strategy which is in       |                                                         |    |    |\n| existence for more than 1 year,       |                                                         |    |    |\n| the returns given will be             |                                                         |    |    |\n| Compounded Annualised                 |                                                         |    |    |\n| Returns and for investment            |                                                         |    |    |\n| strategy which is in existence for    |                                                         |    |    |\n| less than 1 year, the returns         |                                                         |    |    |\n| would be absolute returns since       |                                                         |    |    |\n| inception.                            |                                                         |    |    |\n| Absolute returns for each             |                                                         |    |    |\n| financial year for the last 5 years   |                                                         |    |    |\n| shall be represented by means of      |                                                         |    |    |\n| a bar diagram as per the adjacent     |                                                         |    |    |\n| format.]                              |                                                         |    |    |\n|:--------------------------------------|:--------------------------------------------------------|:---|:---|\n|                                       | Returns for the last                                    |    |    |\n|                                       | 3 years                                                 |    |    |\n|                                       | Returns for the last                                    |    |    |\n|                                       | 5 years                                                 |    |    |\n|                                       | Returns since                                           |    |    |\n|                                       | inception                                               |    |    |\n|                                       | Absolute Returns for each financial year for the last 5 |    |    |\n|                                       | years                                                   |    |    |",
+      "page": 20
+    },
+    {
+      "title": "Table 2 on Page 20",
+      "markdown": "|    |    |\n|:---|:---|\n|    |    |",
+      "page": 20
+    },
+    {
+      "title": "Table 1 on Page 21",
+      "markdown": "|   Sr. No. | Category of Persons                  | Net Value   |              |\n|----------:|:-------------------------------------|:------------|:-------------|\n|         1 | Concerned Investment Strategy\u2019s Fund | Units       | NAV per unit |\n|           | Manager(s)                           |             |              |",
+      "page": 21
+    },
+    {
+      "title": "Table 1 on Page 22",
+      "markdown": "| Expense Head                                                          | % p.a. of    |\n|                                                                       | daily Net    |\n|                                                                       | Assets*      |\n|                                                                       | (Estimated   |\n|                                                                       | p.a.)        |\n|:----------------------------------------------------------------------|:-------------|\n| Investment Management & Advisory Fee                                  |              |\n| Audit fees/fees and expenses of trustees                              |              |\n| Custodial Fees                                                        |              |\n| Registrar & Transfer Agent Fees including cost of providing account   |              |\n| statements / IDCW / redemption cheques/ warrants                      |              |\n| Marketing & Selling Expenses including Agents Commission and          |              |\n| statutory advertisement                                               |              |\n| Costs related to investor communications                              |              |\n| Costs of fund transfer from location to location                      |              |\n| Cost towards investor education & awareness                           |              |\n| Brokerage & transaction cost pertaining to distribution of units      |              |\n| Goods & Services Tax on expenses other than investment and advisory   |              |\n| fees                                                                  |              |\n| Goods & Services Tax on brokerage and transaction cost                |              |\n| Other Expenses (to be specified as per Reg 52 of SEBI MF Regulations) |              |\n| Maximum Total expenses ratio (TER) permissible under Regulation       |              |\n| 52 (6) (c)                                                            |              |\n| Additional expenses under Regulations 52(6A)(c)                       |              |\n| Additional expenses for gross new inflows from specified cities       |              |",
+      "page": 22
+    },
+    {
+      "title": "Table 1 on Page 23",
+      "markdown": "| Type of Load   | Load chargeable (as %age of NAV)   |\n|:---------------|:-----------------------------------|\n| Exit           | To be prescribed by respective AMC |",
+      "page": 23
+    },
+    {
+      "title": "Table 1 on Page 25",
+      "markdown": "| Listing and transfer of units         |                                                         |\n|:--------------------------------------|:--------------------------------------------------------|\n| Dematerialization of units            |                                                         |\n| Minimum Target amount                 |                                                         |\n| (This is the minimum amount           |                                                         |\n| required to operate the investment    |                                                         |\n| strategy and if this is not collected |                                                         |\n| during the NFO period, then all       |                                                         |\n| the investors would be refunded       |                                                         |\n| the amount invested without any       |                                                         |\n| return.)                              |                                                         |\n| Redemption and subscription           |                                                         |\n| frequency of the investment           |                                                         |\n| strategy                              |                                                         |\n| Notice period of the investment       |                                                         |\n| strategy                              |                                                         |\n| Maximum Amount to be raised           |                                                         |\n| (if any)                              |                                                         |\n| Dividend Policy (IDCW)                |                                                         |\n| Allotment (Detailed procedure)        | Mention, the procedure for allotment and dispatch of    |\n|                                       | account statements/unit certificates. Indicate the time |\n|                                       | period. Mention the number of days within which the     |\n|                                       | statement shall be dispatched to the unitholders who    |",
+      "page": 25
+    },
+    {
+      "title": "Table 1 on Page 26",
+      "markdown": "|                                       | subscribe to the units when the investment strategy is open      |\n|                                       | for continuous subscription after NFO as per the applicable      |\n|                                       | guidelines.                                                      |\n|:--------------------------------------|:-----------------------------------------------------------------|\n| Refund                                | If application is rejected, full amount will be refunded within  |\n|                                       | 5 working days of closure of NFO. If refunded later than 5       |\n|                                       | working days @ 15% p.a. for delay period will be paid and        |\n|                                       | charged to the AMC.                                              |\n| Who can invest                        |                                                                  |\n| This is an indicative list and        |                                                                  |\n| investors shall consult their         |                                                                  |\n| financial advisor to ascertain        |                                                                  |\n| whether the investment strategy is    |                                                                  |\n| suitable to their risk profile.       |                                                                  |\n| Who cannot invest                     |                                                                  |\n| How to Apply (details)                | Details regarding-                                               |\n|                                       | availability of application form from either the Investor        |\n|                                       | Service Centers (ISCs)/Official Points of Acceptance (OPAs)      |\n|                                       | of AMC or may be downloaded from the website of AMC              |\n|                                       | (Provide website link) should be specified. Please refer to      |\n|                                       | the SAI and Application form for the instructions.               |\n|                                       | A link for the list of official points of acceptance, collecting |\n|                                       | banker details etc.                                              |\n|                                       | Name, address and contact no. of Registrar and Transfer          |\n|                                       | Agent (R&T), email id of R&T, website address of R&T,            |\n|                                       | official points of acceptance, collecting banker details etc.    |\n|                                       | on back cover page.                                              |\n|                                       | To inform investors that it is mandatory to mention their        |\n|                                       | bank account numbers in their applications/requests for          |\n|                                       | redemption.                                                      |\n|                                       | .                                                                |\n| The policy regarding reissue of       |                                                                  |\n| repurchased units, including the      |                                                                  |\n| maximum extent, the manner of         |                                                                  |\n| reissue, the entity (the investment   |                                                                  |\n| strategy or the AMC) involved in      |                                                                  |\n| the same.                             |                                                                  |\n| Restrictions, if any, on the right to |                                                                  |\n| freely retain or dispose of units     |                                                                  |\n| being offered.                        |                                                                  |\n| Cut off timing for subscriptions/     |                                                                  |\n| redemptions/ switches                 |                                                                  |\n| This is the time before which your    |                                                                  |\n| application (complete in all          |                                                                  |",
+      "page": 26
+    },
+    {
+      "title": "Table 1 on Page 27",
+      "markdown": "| respects) should reach the official   |                                                                 |\n| points of acceptance.                 |                                                                 |\n|:--------------------------------------|:----------------------------------------------------------------|\n| Where can the applications for        | Please refer the AMC website/ SIF website (Provide website      |\n| purchase/redemption switches be       | link) at the following link for the list of official points of  |\n| submitted?                            | acceptance, collecting banker details etc.                      |\n|                                       | To inform investors that it is mandatory to mention their       |\n|                                       | bank account numbers in their applications/requests for         |\n|                                       | redemption.                                                     |\n| Minimum amount for                    |                                                                 |\n| purchase/redemption/switches          |                                                                 |\n| Minimum threshold requirement         |                                                                 |\n| and consequences of non-              |                                                                 |\n| maintenance                           |                                                                 |\n| Accounts Statements                   | The AMC shall send an allotment confirmation specifying the     |\n|                                       | units allotted by way of email and/or SMS within 5 working      |\n|                                       | days of receipt of valid application/transaction to the Unit    |\n|                                       | holders registered e-mail address and/ or mobile number         |\n|                                       | (whether units are held in demat mode or in account             |\n|                                       | statement form).                                                |\n|                                       | A Consolidated Account Statement (CAS) detailing all the        |\n|                                       | transactions across all SIFs (including transaction charges     |\n|                                       | paid to the distributor) and holding at the end of the month    |\n|                                       | shall be sent to the Unit holders in whose folio(s)             |\n|                                       | transaction(s) have taken place during the month by mail or     |\n|                                       | email on or before 15th of the succeeding month.                |\n|                                       | Half-yearly CAS shall be issued at the end of every six         |\n|                                       | months (i.e. September/ March) on or before 21st day of         |\n|                                       | succeeding month, to all investors providing the prescribed     |\n|                                       | details across all investment strategies of SIFs and securities |\n|                                       | held in dematerialized form across demat accounts, if           |\n|                                       | applicable                                                      |\n|                                       | For further details, refer SAI.                                 |\n| Dividend/ IDCW                        | The payment of dividend/IDCW to the unitholders shall be        |\n|                                       | made within seven working days from the record date.            |\n| Redemption                            | The redemption or repurchase proceeds shall be dispatched       |\n|                                       | to the unitholders within three working days from the date      |\n|                                       | of redemption or repurchase.                                    |\n|                                       | For list of exceptional circumstances refer Clause 14.1.3 of    |\n|                                       | SEBI Master Circular for Mutual Funds dated June 27, 2024       |",
+      "page": 27
+    },
+    {
+      "title": "Table 1 on Page 28",
+      "markdown": "|                                    | For investment strategies investing atleast 80% of total assets   |\n|                                    | in permissible overseas investments (as per Clause 12.19 of       |\n|                                    | SEBI Master Circular for Mutual Funds), the transfer of           |\n|                                    | redemption or repurchase proceeds to the unitholders shall        |\n|                                    | be made within five working days from the date of                 |\n|                                    | redemption or repurchase.                                         |\n|:-----------------------------------|:------------------------------------------------------------------|\n| Bank Mandate                       |                                                                   |\n| Delay in payment of redemption /   | The Asset Management Company shall be liable to pay               |\n| repurchase proceeds/dividend       | interest to the unitholders at rate as specified vide clause      |\n|                                    | 14.2 of SEBI Master Circular for Mutual Funds dated June          |\n|                                    | 27, 2024 for the period of such delay                             |\n| Unclaimed Redemption and           |                                                                   |\n| Income Distribution cum Capital    |                                                                   |\n| Withdrawal Amount                  |                                                                   |\n| Disclosure w.r.t investment by     |                                                                   |\n| minors                             |                                                                   |\n| Any other disclosure in terms of   |                                                                   |\n| Consolidated Checklist on Standard |                                                                   |\n| Observations                       |                                                                   |",
+      "page": 28
+    },
+    {
+      "title": "Table 1 on Page 29",
+      "markdown": "|                 | Resident Investors   | Non resident   | Mutual Fund/SIF   |\n|                 |                      | Investors      |                   |\n|:----------------|:---------------------|:---------------|:------------------|\n| Tax on dividend |                      |                |                   |\n| Capital gain    |                      |                |                   |\n| Long Term:      |                      |                |                   |\n| Short Term:     |                      |                |                   |",
+      "page": 29
+    }
+  ],
+  "metadata": {
+    "fund_name": "CIRCULAR SEBI/HO/IMD/IMD-RAC/P/CIR/2025/54 April 11, 2025 To, All Mutual Funds All Asset Management Companies (AMCs) All Trustee",
+    "amc_name": "ITI Mutual Fund",
+    "document_type": null,
+    "strategy_type": null,
+    "category": null,
+    "minimum_investment": null,
+    "benchmark": "should be disclosed 4. In case the investment strategy is listed/proposed to be listed (close ended / interval investment strategies etc.), the Scrip Code issued by the stock exchange after listing to be mentioned below the name of the investment strategy.",
+    "risk_band": null,
+    "fund_manager": "",
+    "exit_load": [
+      {
+        "raw_rule": "Type of Load   | Load chargeable (as %age of NAV)"
+      }
+    ],
+    "subscription_frequency": "Interval",
+    "redemption_frequency": "Interval",
+    "notice_period": null,
+    "effective_date": null,
+    "source_type": null
+  }
+}

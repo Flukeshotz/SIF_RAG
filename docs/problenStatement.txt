@@ -1,0 +1,351 @@
+# Problem Statement
+
+## Problem Statement: SIF Knowledge Assistant (Facts-Based Discovery & Comparison)
+
+### Overview
+
+The objective of this project is to build an AI-powered knowledge assistant for Specialized Investment Funds (SIFs) launched under SEBI's regulatory framework.
+
+The assistant will help users understand, compare, and explore SIF products by retrieving information exclusively from official public sources such as AMC websites, Scheme Information Documents (SIDs), Key Information Memorandums (KIMs), factsheets, investor presentations, and SEBI regulations.
+
+The system should focus on education, transparency, and information discovery while clearly distinguishing factual information from personalized investment advice.
+
+The assistant should enable users to ask natural language questions about SIFs, compare fund strategies, understand risk structures, and navigate regulatory information through a Retrieval-Augmented Generation (RAG) architecture.
+
+---
+
+# Objective
+
+Design and implement a RAG-based SIF Knowledge Assistant that:
+
+- Answers factual queries about Specialized Investment Funds
+- Explains SIF concepts in simple language
+- Compares SIFs based on documented characteristics
+- Retrieves information exclusively from official sources
+- Provides source-backed responses with citations
+- Supports discovery of newly launched SIF products
+- Educates investors about SIF structures, risks, and features
+
+---
+
+# Target Users
+
+### Primary Users
+
+- Retail investors exploring SIFs
+- HNIs evaluating SIF opportunities
+- Wealth management clients
+- Financial advisors seeking product information
+
+### Secondary Users
+
+- Financial content teams
+- Research analysts
+- Customer support teams
+- AMC product specialists
+
+---
+
+# Scope of Work
+
+## 1. Knowledge Corpus Definition
+
+Collect and maintain an official corpus from:
+
+### AMC Sources
+
+- SIF product pages
+- Scheme Information Documents (SID)
+- Key Information Memorandum (KIM)
+- Factsheets
+- Investor presentations
+- Product brochures
+- Risk disclosure documents
+
+### Regulatory Sources
+
+- SEBI SIF Framework
+- SEBI circulars
+- SEBI FAQs
+- AMFI educational content
+
+### Coverage Requirements
+
+Include information for:
+
+- Equity Long-Short Funds
+- Sector Rotation Funds
+- Active Asset Allocation Funds
+- Hybrid Long-Short Funds
+- Debt-Oriented SIFs
+- Any future SEBI-approved SIF categories
+
+---
+
+## 2. Assistant Requirements
+
+The assistant must answer factual and educational questions such as:
+
+### Product Information
+
+- What is the minimum investment requirement for SIFs?
+- What is the investment strategy of a specific SIF?
+- What benchmark does a fund track?
+- What asset allocation limits apply?
+
+### Risk & Structure
+
+- How does a long-short strategy work?
+- What are the risks associated with a SIF?
+- What derivative exposure is permitted?
+
+### Regulatory Questions
+
+- What are SEBI's eligibility requirements?
+- How are SIFs different from mutual funds?
+- How are SIFs different from PMS?
+
+### Comparison Queries
+
+- Compare Fund A and Fund B
+- Compare risk profiles
+- Compare investment strategies
+- Compare liquidity structures
+- Compare fee structures (if disclosed)
+
+### Educational Queries
+
+- Explain long-short investing in simple language
+- What is active asset allocation?
+- How does sector rotation work?
+
+---
+
+## 3. Response Requirements
+
+The assistant must:
+
+### For Factual Queries
+
+- Retrieve information from official documents
+- Generate concise and accurate responses
+- Cite supporting source documents
+- Display source references
+
+### For Comparison Queries
+
+Provide structured comparison tables covering:
+
+- Investment objective
+- Strategy
+- Risk profile
+- Minimum investment
+- Liquidity
+- Benchmark
+- Key differentiators
+
+### For Educational Queries
+
+- Simplify financial concepts
+- Use beginner-friendly language
+- Include references to official documentation
+
+---
+
+## 4. Retrieval-Augmented Generation Architecture
+
+### Data Ingestion
+
+Supported Sources:
+
+- PDFs
+- Factsheets
+- SIDs
+- KIMs
+- HTML pages
+- Regulatory documents
+
+### Processing Pipeline
+
+- Document parsing
+- Metadata extraction
+- Semantic chunking
+- Embedding generation
+- Vector indexing
+
+### Chunking Strategy
+
+Parent Chunks:
+- 1500–2500 tokens
+
+Child Chunks:
+- 300–500 tokens
+
+Metadata:
+
+- Fund Name
+- AMC
+- Category
+- Document Type
+- Section
+- Publication Date
+- Source URL
+
+### Retrieval
+
+Hybrid Retrieval:
+
+- Vector Search
+- Metadata Filtering
+- Keyword Search
+- Reranking
+
+### Vector Database
+
+Recommended:
+
+- Qdrant
+
+### Embedding Model
+
+Recommended:
+
+- BGE-M3
+
+---
+
+## 5. User Interface Requirements
+
+The application should include:
+
+### Home Screen
+
+Welcome message
+
+Example prompts:
+
+- What is a Specialized Investment Fund?
+- Compare SBI Magnum SIF and Bandhan Arudha SIF
+- Explain Hybrid Long-Short Funds
+
+### Navigation Tabs
+
+- Discover SIFs
+- Compare Funds
+- AI Assistant
+- Knowledge Center
+- Regulatory Updates
+
+### Disclaimer
+
+"Information provided is for educational and informational purposes only and does not constitute investment advice, recommendation, or solicitation."
+
+---
+
+# Constraints
+
+## Data Sources
+
+Only official sources:
+
+- AMC websites
+- SEBI
+- AMFI
+- Official scheme documents
+
+Do not use:
+
+- Financial blogs
+- Social media posts
+- User-generated content
+- Unverified third-party sources
+
+---
+
+## Privacy & Security
+
+Do not collect:
+
+- PAN
+- Aadhaar
+- Bank account information
+- OTPs
+- Investment account credentials
+
+---
+
+## Investment Advice Restrictions
+
+The assistant must not:
+
+- Recommend specific funds
+- Provide buy/sell advice
+- Predict returns
+- Guarantee performance
+- Provide personalized financial planning
+
+The assistant may:
+
+- Explain product features
+- Compare documented characteristics
+- Explain risks
+- Explain regulations
+
+---
+
+# Expected Deliverables
+
+## Technical Deliverables
+
+- RAG Pipeline
+- Document Processing Pipeline
+- Vector Database Setup
+- Chat Interface
+- Comparison Engine
+- Source Citation Framework
+
+## Documentation
+
+- Architecture Document
+- Setup Guide
+- Data Source Inventory
+- Evaluation Metrics
+- Known Limitations
+
+---
+
+# Success Criteria
+
+### Retrieval Quality
+
+- Relevant chunk retrieval > 90%
+
+### Response Quality
+
+- Source-backed responses
+- Accurate comparisons
+- Minimal hallucinations
+
+### User Experience
+
+- Response latency < 5 seconds
+- Easy-to-understand explanations
+- Consistent citations
+
+### Product Value
+
+Users should be able to:
+
+- Discover SIF products
+- Understand SIF structures
+- Compare SIF offerings
+- Learn SIF concepts
+- Access regulatory information
+
+without manually reading hundreds of pages of scheme documents.
+
+---
+
+# Summary
+
+The goal is to build a trustworthy AI-powered SIF Knowledge Assistant that simplifies access to Specialized Investment Fund information through Retrieval-Augmented Generation. The system should combine accurate document retrieval, transparent source citations, educational explanations, and structured comparisons while remaining compliant with financial information and regulatory requirements.

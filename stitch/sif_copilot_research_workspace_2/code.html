@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Research Workspace - SIF Copilot V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#d4e4fa",
+                    "tertiary-fixed": "#ffdad7",
+                    "secondary-fixed-dim": "#4edea3",
+                    "background": "#051424",
+                    "inverse-primary": "#005ac2",
+                    "outline": "#8c909f",
+                    "outline-variant": "#424754",
+                    "on-surface": "#d4e4fa",
+                    "surface-dim": "#051424",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-secondary-fixed": "#002113",
+                    "surface-container-highest": "#273647",
+                    "surface-tint": "#adc6ff",
+                    "surface-variant": "#273647",
+                    "on-tertiary": "#68000a",
+                    "surface-bright": "#2c3a4c",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-surface-variant": "#c2c6d6",
+                    "on-primary": "#002e6a",
+                    "primary-container": "#4d8eff",
+                    "on-secondary-container": "#00311f",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-tertiary-fixed": "#410004",
+                    "surface-container-low": "#0d1c2d",
+                    "surface-container-high": "#1c2b3c",
+                    "surface": "#051424",
+                    "on-primary-fixed": "#001a42",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffb3ad",
+                    "primary-fixed": "#d8e2ff",
+                    "on-background": "#d4e4fa",
+                    "error-container": "#93000a",
+                    "on-error": "#690005",
+                    "secondary": "#4edea3",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "on-primary-container": "#00285d",
+                    "surface-container-lowest": "#010f1f",
+                    "tertiary-container": "#ff5451",
+                    "surface-container": "#122131",
+                    "inverse-on-surface": "#233143",
+                    "on-tertiary-container": "#5c0008",
+                    "on-secondary": "#003824",
+                    "secondary-container": "#00a572",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#adc6ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin": "24px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "mono-data": ["Geist"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Geist"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "mono-data": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        .glow-active {
+            box-shadow: 0px 0px 15px rgba(173, 198, 255, 0.15);
+        }
+        .glow-secondary {
+            box-shadow: 0px 0px 15px rgba(78, 222, 163, 0.15);
+        }
+        .glass-panel {
+            background: rgba(7, 17, 34, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-hidden antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-gutter bg-surface/60 backdrop-blur-md shadow-sm border-b border-outline-variant text-primary hidden md:flex">
+<div class="flex items-center gap-md h-full">
+<span class="font-display-lg text-display-lg font-bold tracking-tight text-primary" style="font-size: 20px; line-height: 28px;">SIF Copilot V2</span>
+<div class="relative ml-xl h-8 flex items-center">
+<span class="material-symbols-outlined absolute left-2 text-on-surface-variant text-sm">search</span>
+<input class="bg-[#020617] border border-[#152238] rounded focus:border-primary focus:ring-1 focus:ring-primary/50 text-on-surface text-sm pl-8 pr-4 py-1 w-64 placeholder-on-surface-variant/50 transition-all" placeholder="Search insights..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md h-full">
+<button class="text-on-surface-variant hover:bg-surface-variant/50 transition-colors p-sm rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant/50 transition-colors p-sm rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full z-40 pt-12 flex flex-col w-[280px] bg-surface-container-low border-r border-outline-variant hidden md:flex">
+<div class="p-md border-b border-outline-variant">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-primary text-sm">smart_toy</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-black text-primary" style="font-size: 16px; line-height: 20px;">SIF Terminal</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Institutional Grade</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-body-md py-2 rounded flex items-center justify-center gap-sm hover:bg-primary/90 transition-colors glow-active">
+<span class="material-symbols-outlined text-sm">add</span>
+                + New Research
+            </button>
+</div>
+<nav class="flex-1 overflow-y-auto py-sm px-sm flex flex-col gap-xs mt-sm">
+<a class="flex items-center gap-sm px-md py-2 bg-secondary-container text-on-secondary-container rounded-lg font-semibold opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">search_insights</span>
+<span class="font-label-md text-label-md">Research</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+<span class="font-label-md text-label-md">Funds</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">gavel</span>
+<span class="font-label-md text-label-md">Regulations</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">psychology</span>
+<span class="font-label-md text-label-md">Corpus Intelligence</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">hub</span>
+<span class="font-label-md text-label-md">Knowledge Graph</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">schema</span>
+<span class="font-label-md text-label-md">Architecture</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">monitor_heart</span>
+<span class="font-label-md text-label-md">System Health</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant p-sm flex flex-col gap-xs">
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-[280px] md:pt-12 h-screen overflow-hidden flex flex-col md:flex-row bg-[#020617]">
+<!-- Center Workspace: AI Answer -->
+<div class="flex-1 flex flex-col h-full overflow-y-auto p-md lg:p-lg border-r border-[#152238] bg-[#071122]">
+<!-- Query Header -->
+<div class="mb-lg">
+<div class="flex items-center gap-sm text-on-surface-variant mb-xs">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+<span class="font-mono-data text-mono-data uppercase tracking-wider">Query Active</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">What are the specific exit load regulations for Social Impact Funds (SIF) under SEBI guidelines?</h1>
+<div class="flex gap-sm">
+<span class="px-2 py-1 bg-primary/10 text-primary rounded font-mono-data text-mono-data border border-primary/20">SIF Regulations</span>
+<span class="px-2 py-1 bg-primary/10 text-primary rounded font-mono-data text-mono-data border border-primary/20">SEBI Framework 2023</span>
+</div>
+</div>
+<!-- Answer Card -->
+<div class="bg-surface-container-low border border-[#152238] rounded-lg p-lg mb-lg glow-active relative overflow-hidden glass-panel">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
+<div class="flex items-center justify-between mb-md border-b border-[#152238] pb-sm">
+<div class="flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-md text-headline-md">Synthesized Analysis</h2>
+</div>
+<div class="flex items-center gap-xs text-secondary font-mono-data text-mono-data">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        High Confidence
+                    </div>
+</div>
+<div class="prose prose-invert prose-sm max-w-none text-on-surface-variant font-body-md space-y-md">
+<p class="text-on-surface font-body-lg text-body-lg leading-relaxed">
+                        Under the SEBI (Alternative Investment Funds) Regulations, 2012 (specifically amended for Social Impact Funds), exit loads are strictly regulated to ensure capital remains committed to social outcomes. A Social Impact Fund (SIF) is generally permitted to levy an exit load on investors, provided specific conditions are met and disclosed upfront.
+                    </p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-md border-b border-[#152238] pb-xs mb-sm">Key Findings</h3>
+<ul class="list-disc pl-md space-y-sm">
+<li><strong class="text-on-surface">Maximum Cap:</strong> SEBI regulations do not explicitly mandate a numeric cap on exit loads for SIFs, unlike mutual funds; however, they require the exit load structure to be fully detailed in the Private Placement Memorandum (PPM) <span class="inline-flex items-center justify-center w-4 h-4 rounded text-[10px] bg-surface-variant text-on-surface border border-outline-variant cursor-pointer hover:bg-primary/20 hover:text-primary hover:border-primary transition-colors ml-1">[1]</span>.</li>
+<li><strong class="text-on-surface">Tenure Alignment:</strong> Given SIFs are close-ended funds (minimum tenure of 3 years), premature exits are heavily discouraged. Any exit load levied must be credited back to the fund, not the Investment Manager <span class="inline-flex items-center justify-center w-4 h-4 rounded text-[10px] bg-primary/20 text-primary border border-primary cursor-pointer hover:bg-primary/30 transition-colors ml-1 glow-active">[2]</span>.</li>
+<li><strong class="text-on-surface">Social Impact Caveat:</strong> For grants specifically (a unique feature of SIFs), exit mechanics generally do not apply as grants are non-refundable commitments <span class="inline-flex items-center justify-center w-4 h-4 rounded text-[10px] bg-surface-variant text-on-surface border border-outline-variant cursor-pointer hover:bg-primary/20 hover:text-primary hover:border-primary transition-colors ml-1">[3]</span>.</li>
+</ul>
+<div class="mt-md p-sm bg-[#020617] border border-[#152238] rounded flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-xs">info</span>
+<p class="text-xs text-on-surface-variant">
+<strong>Regulatory Note:</strong> Recent circulars (2023) emphasize that any changes to the exit load structure post-onboarding require consent from at least 75% of investors by value.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Trust / Retrieval Visualization -->
+<div class="mt-auto pt-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">How this answer was generated</h3>
+<div class="flex items-center justify-between bg-surface-container border border-[#152238] rounded-lg p-md overflow-x-auto">
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px]">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center border border-[#152238]">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">keyboard</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant text-center">Query</span>
+</div>
+<div class="flex-1 h-px bg-gradient-to-r from-[#152238] to-primary/50 mx-2"></div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px]">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30 text-primary">
+<span class="material-symbols-outlined text-sm">data_array</span>
+</div>
+<span class="font-label-md text-label-md text-primary text-center">Embedding</span>
+</div>
+<div class="flex-1 h-px bg-gradient-to-r from-primary/50 to-primary/50 mx-2"></div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px]">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/30 text-primary relative glow-active">
+<span class="material-symbols-outlined text-sm">database</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+</div>
+<span class="font-label-md text-label-md text-primary text-center">Qdrant</span>
+</div>
+<div class="flex-1 h-px bg-gradient-to-r from-primary/50 to-secondary/50 mx-2"></div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px]">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30 text-secondary">
+<span class="material-symbols-outlined text-sm">library_books</span>
+</div>
+<span class="font-label-md text-label-md text-secondary text-center">Top 5 Chunks</span>
+</div>
+<div class="flex-1 h-px bg-gradient-to-r from-secondary/50 to-secondary/50 mx-2"></div>
+<!-- Step 5 -->
+<div class="flex flex-col items-center gap-xs min-w-[80px]">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30 text-secondary glow-secondary">
+<span class="material-symbols-outlined text-sm">memory</span>
+</div>
+<span class="font-label-md text-label-md text-secondary text-center">Groq LPU</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Evidence Explorer -->
+<div class="w-full md:w-[380px] h-full bg-[#051424] flex flex-col border-l border-[#152238]">
+<div class="p-md border-b border-[#152238] flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Evidence Explorer</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-md space-y-md">
+<!-- Active Evidence Chunk -->
+<div class="bg-[#071122] border border-primary/50 rounded-lg overflow-hidden glow-active">
+<div class="bg-primary/10 px-sm py-2 border-b border-primary/20 flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded text-xs bg-primary text-on-primary font-bold">[2]</span>
+<span class="font-label-md text-label-md text-primary font-semibold">SEBI SIF Framework</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono-data text-mono-data text-secondary">98% Match</span>
+</div>
+</div>
+<div class="p-sm">
+<div class="text-xs text-on-surface-variant mb-sm font-mono-data flex justify-between">
+<span>Page 42, Section 14.3(b)</span>
+<span>Doc ID: SEBI-AIF-2023</span>
+</div>
+<div class="font-body-md text-on-surface-variant text-sm leading-relaxed bg-[#020617] p-sm rounded border border-[#152238]">
+                            "...Furthermore, concerning the premature withdrawal of commitments from a Social Impact Fund, the Investment Manager must stipulate conditions in the PPM. <mark class="bg-primary/20 text-on-surface px-1 rounded border-b border-primary">If an exit load is levied on investors opting for an early exit, such exit load must be credited back to the corpus of the Social Impact Fund</mark> to ensure the intended social objectives are not financially compromised by individual investor attrition..."
+                        </div>
+<div class="mt-sm flex justify-end gap-xs">
+<button class="px-2 py-1 text-xs font-label-md border border-[#152238] rounded text-on-surface-variant hover:bg-surface-variant transition-colors">View Source</button>
+<button class="px-2 py-1 text-xs font-label-md border border-[#152238] rounded text-on-surface-variant hover:bg-surface-variant transition-colors">Copy Chunk</button>
+</div>
+</div>
+</div>
+<!-- Inactive Evidence Chunk 1 -->
+<div class="bg-[#071122] border border-[#152238] rounded-lg overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+<div class="bg-surface-variant/30 px-sm py-2 border-b border-[#152238] flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded text-xs bg-surface-variant text-on-surface border border-outline-variant">[1]</span>
+<span class="font-label-md text-label-md text-on-surface">AIF Regulations 2012</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary/50"></span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">85% Match</span>
+</div>
+</div>
+<div class="p-sm text-xs text-on-surface-variant font-mono-data">
+                        Section 2(1)(p) - Definition and structuring of Private Placement Memorandum...
+                    </div>
+</div>
+<!-- Inactive Evidence Chunk 2 -->
+<div class="bg-[#071122] border border-[#152238] rounded-lg overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+<div class="bg-surface-variant/30 px-sm py-2 border-b border-[#152238] flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded text-xs bg-surface-variant text-on-surface border border-outline-variant">[3]</span>
+<span class="font-label-md text-label-md text-on-surface">SIF Grant Provisions</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">72% Match</span>
+</div>
+</div>
+<div class="p-sm text-xs text-on-surface-variant font-mono-data">
+                        Clause 4.1 regarding non-refundable nature of social grants...
+                    </div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

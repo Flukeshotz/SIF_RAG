@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fund Intelligence - SIF Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for high-density data look */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #051424; }
+        ::-webkit-scrollbar-thumb { background: #273647; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #424754; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#d4e4fa", "tertiary-fixed": "#ffdad7", "secondary-fixed-dim": "#4edea3", "background": "#051424", "inverse-primary": "#005ac2", "outline": "#8c909f", "outline-variant": "#424754", "on-surface": "#d4e4fa", "surface-dim": "#051424", "primary-fixed-dim": "#adc6ff", "on-secondary-fixed": "#002113", "surface-container-highest": "#273647", "surface-tint": "#adc6ff", "surface-variant": "#273647", "on-tertiary": "#68000a", "surface-bright": "#2c3a4c", "on-secondary-fixed-variant": "#005236", "on-surface-variant": "#c2c6d6", "on-primary": "#002e6a", "primary-container": "#4d8eff", "on-secondary-container": "#00311f", "tertiary-fixed-dim": "#ffb3ad", "secondary-fixed": "#6ffbbe", "on-primary-fixed-variant": "#004395", "on-tertiary-fixed": "#410004", "surface-container-low": "#0d1c2d", "surface-container-high": "#1c2b3c", "surface": "#051424", "on-primary-fixed": "#001a42", "error": "#ffb4ab", "tertiary": "#ffb3ad", "primary-fixed": "#d8e2ff", "on-background": "#d4e4fa", "error-container": "#93000a", "on-error": "#690005", "secondary": "#4edea3", "on-tertiary-fixed-variant": "#930013", "on-primary-container": "#00285d", "surface-container-lowest": "#010f1f", "tertiary-container": "#ff5451", "surface-container": "#122131", "inverse-on-surface": "#233143", "on-tertiary-container": "#5c0008", "on-secondary": "#003824", "secondary-container": "#00a572", "on-error-container": "#ffdad6", "primary": "#adc6ff"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"
+                    },
+                    spacing: {
+                        base: "4px", gutter: "16px", xl: "32px", sm: "8px", xs: "4px", md: "16px", margin: "24px", lg: "24px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Inter"], "mono-data": ["Geist"], "headline-lg-mobile": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "label-md": ["Geist"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "mono-data": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-gutter bg-surface/60 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-md">
+<span class="font-display-lg text-display-lg font-bold tracking-tight text-primary whitespace-nowrap overflow-hidden">SIF Copilot V2</span>
+<div class="hidden md:flex items-center bg-surface-container-highest border border-outline-variant rounded-full px-sm py-base focus-within:border-primary transition-colors ml-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-base">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant w-48 py-0" placeholder="Search commands, funds..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm text-primary">
+<button class="p-base hover:bg-surface-variant/50 transition-colors rounded-full opacity-80 hover:opacity-100 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-base hover:bg-surface-variant/50 transition-colors rounded-full opacity-80 hover:opacity-100 flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full z-40 pt-12 flex-col w-[280px] bg-surface-container-low border-r border-outline-variant">
+<div class="p-margin border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md font-black text-primary">SIF Terminal</h2>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs tracking-wider uppercase">Institutional Grade</p>
+<div class="mt-md flex items-center gap-sm text-on-surface">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant overflow-hidden">
+<span class="material-symbols-outlined text-[20px] text-primary">smart_toy</span>
+</div>
+<span class="font-body-md text-body-md font-medium">System Operator</span>
+</div>
+<button class="mt-md w-full py-sm bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg flex items-center justify-center gap-xs hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                + New Research
+            </button>
+</div>
+<nav class="flex-1 overflow-y-auto p-md space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">search_insights</span> Research
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm bg-secondary-container text-on-secondary-container rounded-lg font-semibold active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">account_balance</span> Funds
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">gavel</span> Regulations
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span> Corpus Intelligence
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">hub</span> Knowledge Graph
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">schema</span> Architecture
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">monitor_heart</span> System Health
+            </a>
+</nav>
+<div class="p-md border-t border-outline-variant space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span> Settings
+            </a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-100 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span> Help
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-12 md:pl-[280px] pb-32">
+<div class="p-margin max-w-[1600px] mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg md:font-display-lg text-on-surface">Fund Intelligence</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-2xl">Specialized analysis of Alternative Investment Funds (AIFs) and complex structured products. Data updated in real-time.</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-md py-sm border border-outline-variant text-on-surface-variant rounded-lg hover:border-primary hover:text-primary transition-colors flex items-center gap-xs font-label-md text-label-md bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Filters
+                    </button>
+<button class="px-md py-sm border border-outline-variant text-on-surface-variant rounded-lg hover:border-primary hover:text-primary transition-colors flex items-center gap-xs font-label-md text-label-md bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">sort</span> Sort
+                    </button>
+</div>
+</header>
+<!-- Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-md">
+<!-- Fund Card 1 -->
+<article class="bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col hover:border-primary/50 transition-colors relative group">
+<div class="absolute top-md right-md">
+<label class="flex items-center cursor-pointer">
+<input class="form-checkbox h-5 w-5 text-primary rounded border-outline-variant bg-surface-dim focus:ring-primary focus:ring-offset-surface-container" type="checkbox"/>
+</label>
+</div>
+<div class="mb-md border-b border-outline-variant pb-sm">
+<span class="font-label-md text-label-md text-primary bg-primary/10 px-xs py-base rounded mb-xs inline-block uppercase tracking-wider">Quant</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-base pr-8">AQR Absolute Return</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">AQR Capital Management</p>
+</div>
+<div class="grid grid-cols-2 gap-sm mb-lg flex-1">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Risk Band</p>
+<span class="inline-flex items-center px-sm py-base rounded-full text-[11px] font-medium bg-error-container text-on-error-container">High Volatility</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Min Investment</p>
+<p class="font-mono-data text-mono-data text-on-surface">$5,000,000</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Exit Load</p>
+<p class="font-mono-data text-mono-data text-on-surface">2% <span class="text-on-surface-variant text-[11px]">&lt; 1yr</span></p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">YTD Return</p>
+<p class="font-mono-data text-mono-data text-secondary">+14.2%</p>
+</div>
+</div>
+<button class="w-full py-sm border border-outline-variant text-primary rounded-lg font-label-md text-label-md hover:bg-primary/5 hover:border-primary transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">compare_arrows</span> Compare
+                    </button>
+</article>
+<!-- Fund Card 2 -->
+<article class="bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col hover:border-primary/50 transition-colors relative group">
+<div class="absolute top-md right-md">
+<label class="flex items-center cursor-pointer">
+<input checked="" class="form-checkbox h-5 w-5 text-primary rounded border-outline-variant bg-surface-dim focus:ring-primary focus:ring-offset-surface-container" type="checkbox"/>
+</label>
+</div>
+<div class="mb-md border-b border-outline-variant pb-sm">
+<span class="font-label-md text-label-md text-secondary bg-secondary/10 px-xs py-base rounded mb-xs inline-block uppercase tracking-wider">Credit</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-base pr-8">Oaktree Special Sits</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Oaktree Capital</p>
+</div>
+<div class="grid grid-cols-2 gap-sm mb-lg flex-1">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Risk Band</p>
+<span class="inline-flex items-center px-sm py-base rounded-full text-[11px] font-medium bg-tertiary-container text-on-tertiary-container">Medium-High</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Min Investment</p>
+<p class="font-mono-data text-mono-data text-on-surface">$10,000,000</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Exit Load</p>
+<p class="font-mono-data text-mono-data text-on-surface">Lock-up <span class="text-on-surface-variant text-[11px]">3yr</span></p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">YTD Return</p>
+<p class="font-mono-data text-mono-data text-secondary">+8.7%</p>
+</div>
+</div>
+<button class="w-full py-sm border border-outline-variant text-primary rounded-lg font-label-md text-label-md hover:bg-primary/5 hover:border-primary transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">compare_arrows</span> Compare
+                    </button>
+</article>
+<!-- Fund Card 3 -->
+<article class="bg-surface-container border border-outline-variant rounded-xl p-md flex flex-col hover:border-primary/50 transition-colors relative group">
+<div class="absolute top-md right-md">
+<label class="flex items-center cursor-pointer">
+<input checked="" class="form-checkbox h-5 w-5 text-primary rounded border-outline-variant bg-surface-dim focus:ring-primary focus:ring-offset-surface-container" type="checkbox"/>
+</label>
+</div>
+<div class="mb-md border-b border-outline-variant pb-sm">
+<span class="font-label-md text-label-md text-primary-fixed-dim bg-primary-fixed-dim/10 px-xs py-base rounded mb-xs inline-block uppercase tracking-wider">Multi-Asset</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-base pr-8">ICICI Pru SIF III</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">ICICI Prudential AMC</p>
+</div>
+<div class="grid grid-cols-2 gap-sm mb-lg flex-1">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Risk Band</p>
+<span class="inline-flex items-center px-sm py-base rounded-full text-[11px] font-medium bg-secondary-container text-on-secondary-container">Moderate</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Min Investment</p>
+<p class="font-mono-data text-mono-data text-on-surface">₹1,00,00,000</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">Exit Load</p>
+<p class="font-mono-data text-mono-data text-on-surface">1% <span class="text-on-surface-variant text-[11px]">&lt; 2yr</span></p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-base">YTD Return</p>
+<p class="font-mono-data text-mono-data text-secondary">+11.4%</p>
+</div>
+</div>
+<button class="w-full py-sm border border-outline-variant text-primary rounded-lg font-label-md text-label-md hover:bg-primary/5 hover:border-primary transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">compare_arrows</span> Compare
+                    </button>
+</article>
+</div>
+</div>
+</main>
+<!-- Bottom Compare Drawer -->
+<div class="fixed bottom-0 left-0 md:left-[280px] w-full md:w-[calc(100%-280px)] bg-surface-container-highest/90 backdrop-blur-xl border-t border-outline-variant z-50 transform transition-transform duration-300 translate-y-0">
+<div class="p-md flex items-center justify-between max-w-[1600px] mx-auto">
+<div class="flex items-center gap-md">
+<div class="flex -space-x-2">
+<!-- Selected item markers -->
+<div class="w-10 h-10 rounded-lg bg-surface border border-primary flex items-center justify-center text-xs font-mono-data text-on-surface shadow-[0_0_10px_rgba(173,198,255,0.1)]">OA</div>
+<div class="w-10 h-10 rounded-lg bg-surface border border-primary flex items-center justify-center text-xs font-mono-data text-on-surface shadow-[0_0_10px_rgba(173,198,255,0.1)]">IC</div>
+</div>
+<div>
+<p class="font-headline-md text-headline-md text-on-surface m-0 leading-tight">2 Funds Selected</p>
+<p class="font-label-md text-label-md text-on-surface-variant m-0">Select up to 4 funds to compare</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface px-sm py-xs transition-colors">Clear</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded-lg hover:bg-primary-fixed transition-colors flex items-center gap-xs shadow-[0_0_15px_rgba(173,198,255,0.2)]">
+<span class="material-symbols-outlined text-[18px]">insert_chart</span>
+                    Compare Analytics
+                </button>
+</div>
+</div>
+</div>
+</body></html>

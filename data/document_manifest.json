@@ -1,0 +1,95 @@
+{
+  "manifest_id": "sif-copilot-manifest-v1",
+  "generated_at": "2026-06-04T12:00:00Z",
+  "summary": {
+    "total_expected_documents": 12,
+    "ready_for_ingestion": 12,
+    "pending_review": 0
+  },
+  "sources": [
+    {
+      "source_id": "sebi-circular-2025",
+      "expected_documents": 1,
+      "source_ownership": "SEBI",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "amfi-circular-arn29",
+      "expected_documents": 1,
+      "source_ownership": "AMFI",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "tata-titanium-isid",
+      "expected_documents": 1,
+      "source_ownership": "Tata Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "edelweiss-altiva-kim",
+      "expected_documents": 1,
+      "source_ownership": "Edelweiss MF",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "sbi-magnum-brochure",
+      "expected_documents": 1,
+      "source_ownership": "SBI Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "quant-qsif-isid",
+      "expected_documents": 1,
+      "source_ownership": "Quant Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "quant-qsif-factsheet-2026-05",
+      "expected_documents": 1,
+      "source_ownership": "Quant Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "icici-pru-isif-kim",
+      "expected_documents": 1,
+      "source_ownership": "ICICI Prudential",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "hsbc-redhex-faq",
+      "expected_documents": 1,
+      "source_ownership": "HSBC Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "360-one-dynasif-isid",
+      "expected_documents": 1,
+      "source_ownership": "360 ONE Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "dsp-endurance-website",
+      "expected_documents": 1,
+      "source_ownership": "DSP Mutual Fund",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    },
+    {
+      "source_id": "mirae-platinum-website",
+      "expected_documents": 1,
+      "source_ownership": "Mirae Asset",
+      "status": "ready",
+      "ingestion_readiness": "high"
+    }
+  ]
+}

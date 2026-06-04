@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Research Command Center - SIF Terminal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;family=Geist:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        ticker: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        }
+                    },
+                    "colors": {
+                        "inverse-surface": "#d4e4fa",
+                        "tertiary-fixed": "#ffdad7",
+                        "secondary-fixed-dim": "#4edea3",
+                        "background": "#051424",
+                        "inverse-primary": "#005ac2",
+                        "outline": "#8c909f",
+                        "outline-variant": "#424754",
+                        "on-surface": "#d4e4fa",
+                        "surface-dim": "#051424",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-highest": "#273647",
+                        "surface-tint": "#adc6ff",
+                        "surface-variant": "#273647",
+                        "on-tertiary": "#68000a",
+                        "surface-bright": "#2c3a4c",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-surface-variant": "#c2c6d6",
+                        "on-primary": "#002e6a",
+                        "primary-container": "#4d8eff",
+                        "on-secondary-container": "#00311f",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-container-low": "#0d1c2d",
+                        "surface-container-high": "#1c2b3c",
+                        "surface": "#051424",
+                        "on-primary-fixed": "#001a42",
+                        "error": "#ffb4ab",
+                        "tertiary": "#ffb3ad",
+                        "primary-fixed": "#d8e2ff",
+                        "on-background": "#d4e4fa",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "secondary": "#4edea3",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-primary-container": "#00285d",
+                        "surface-container-lowest": "#010f1f",
+                        "tertiary-container": "#ff5451",
+                        "surface-container": "#122131",
+                        "inverse-on-surface": "#233143",
+                        "on-tertiary-container": "#5c0008",
+                        "on-secondary": "#003824",
+                        "secondary-container": "#00a572",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#adc6ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin": "24px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "mono-data": ["Geist"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom scrollbar for high-density feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #273647;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #424754;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-gutter bg-surface/60 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-md flex-1 overflow-hidden">
+<div class="md:hidden font-display-lg text-display-lg font-bold tracking-tight text-primary">SIF Copilot V2</div>
+<!-- Market Ticker -->
+<div class="hidden md:flex overflow-hidden w-full max-w-2xl items-center border-l border-r border-outline-variant px-md h-full">
+<div class="motion-safe:animate-[ticker_20s_linear_infinite] flex gap-xl whitespace-nowrap font-mono-data text-mono-data text-on-surface-variant w-full">
+<span><span class="text-secondary">NIFTY</span> 22,450.50 ▲ +0.4%</span>
+<span><span class="text-error">SENSEX</span> 73,810.15 ▼ -0.1%</span>
+<span><span class="text-secondary">USDINR</span> 83.20 ▲ +0.05%</span>
+<span><span class="text-secondary">NIFTY</span> 22,450.50 ▲ +0.4%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-md pl-md">
+<!-- System Status & Live Corpus -->
+<div class="hidden lg:flex items-center gap-md border-r border-outline-variant pr-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-secondary motion-safe:animate-[pulse_2s_ease-in-out_infinite] shadow-[0_0_8px_rgba(78,222,163,0.6)]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">System Status</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-primary motion-safe:animate-[pulse_2s_ease-in-out_infinite_0.5s] shadow-[0_0_8px_rgba(173,198,255,0.6)]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Live Corpus</span>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-full flex items-center justify-center opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-full flex items-center justify-center opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full z-40 pt-12 flex flex-col w-[280px] bg-surface-container-low border-r border-outline-variant">
+<div class="p-margin flex flex-col gap-xs border-b border-outline-variant">
+<h1 class="font-headline-md text-headline-md font-black text-primary">SIF Terminal</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Institutional Grade</p>
+</div>
+<div class="px-md py-md">
+<button class="w-full flex items-center justify-center gap-sm bg-primary text-on-primary font-label-md text-label-md py-sm rounded-lg hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                + New Research
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-sm py-sm flex flex-col gap-base">
+<!-- Active Tab -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-lg font-semibold scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">search_insights</span>
+<span class="font-label-md text-label-md">Research</span>
+</a>
+<!-- Inactive Tabs -->
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+<span class="font-label-md text-label-md">Funds</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span class="font-label-md text-label-md">Regulations</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="font-label-md text-label-md">Corpus Intelligence</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+<span class="font-label-md text-label-md">Knowledge Graph</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">schema</span>
+<span class="font-label-md text-label-md">Architecture</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">monitor_heart</span>
+<span class="font-label-md text-label-md">System Health</span>
+</a>
+</div>
+<div class="p-sm flex flex-col gap-base border-t border-outline-variant">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas Layout -->
+<main class="pt-12 md:pl-[280px] h-full flex flex-col md:flex-row w-full">
+<!-- Central Command Area -->
+<div class="flex-1 flex flex-col items-center pt-[102px] px-margin overflow-y-auto">
+<div class="w-full max-w-[900px] flex flex-col items-center text-center mb-xl opacity-0 motion-safe:animate-[fadeUp_0.8s_ease-out_forwards]">
+<h2 class="font-display-lg text-display-lg font-bold text-on-surface mb-sm tracking-tight">What would you like to research?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Search across SEBI circulars, SIF documentation, fund disclosures, and verified regulatory sources.</p>
+</div>
+<!-- Perplexity-style Input -->
+<div class="w-full max-w-[900px] relative group mb-md opacity-0 motion-safe:animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-lg pl-[52px] pr-lg text-body-lg text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-0 outline-none transition-all duration-300 shadow-[0_0_0_rgba(77,142,255,0)] focus:shadow-[0_0_15px_rgba(77,142,255,0.15)]" placeholder="Ask anything..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-sm flex items-center">
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-on-primary p-sm rounded-lg transition-colors border border-primary/20">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Suggestions / Chips -->
+<div class="w-full max-w-[900px] flex flex-wrap justify-center gap-sm mb-xl opacity-0 motion-safe:animate-[fadeUp_0.8s_ease-out_0.3s_forwards]">
+<button class="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+                    Compare Quant vs Tata
+                </button>
+<button class="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">update</span>
+                    Latest SEBI changes
+                </button>
+<button class="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">article</span>
+                    Exit load methodologies
+                </button>
+</div>
+<!-- Daily Intelligence Feed -->
+<div class="w-full max-w-[900px] flex flex-col gap-md mt-lg pb-margin opacity-0 motion-safe:animate-[fadeUp_0.8s_ease-out_0.4s_forwards]">
+<div class="flex items-center gap-sm mb-sm border-b border-outline-variant pb-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Daily Intelligence Feed</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Intelligence Card 1 -->
+<div class="bg-surface rounded-xl border border-outline-variant p-md hover:border-primary/40 transition-colors flex flex-col gap-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-primary bg-primary/10 px-xs py-[2px] rounded uppercase tracking-wider">Regulatory Update</span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">2h ago</span>
+</div>
+<h4 class="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">SEBI clarifies exit load methodology for Tier 2 funds</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">New circular outlines specific calculation models required for mid-cap oriented schemes effective Q3.</p>
+</div>
+<!-- Intelligence Card 2 -->
+<div class="bg-surface rounded-xl border border-outline-variant p-md hover:border-secondary/40 transition-colors flex flex-col gap-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-secondary bg-secondary/10 px-xs py-[2px] rounded uppercase tracking-wider">Market Insight</span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">4h ago</span>
+</div>
+<h4 class="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">Tata Asset Management AUM crosses threshold</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Internal corpus analysis detects anomalous inflows matching institutional reallocation patterns.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Evidence Explorer -->
+<aside class="hidden xl:flex w-[320px] h-full border-l border-outline-variant bg-surface-container-low flex-col">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-headline-md text-[16px] font-semibold text-on-surface">Evidence Explorer</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">close_fullscreen</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col p-margin gap-md overflow-y-auto">
+<div class="w-full border border-outline-variant rounded-lg p-md bg-surface flex flex-col gap-sm">
+<h4 class="font-headline-md text-[14px] text-on-surface mb-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+            Answer Trust Verification
+        </h4>
+<div class="flex flex-col gap-sm relative">
+<div class="absolute left-[9px] top-4 bottom-4 w-[2px] bg-outline-variant/30"></div>
+<div class="flex items-start gap-sm relative z-10 opacity-0 motion-safe:animate-[fadeUp_0.5s_ease-out_1s_forwards]">
+<div class="w-5 h-5 rounded-full bg-surface-container-high border-2 border-primary flex items-center justify-center mt-[2px] shrink-0">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Source Retrieval</span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">Parsing 4M+ SEBI docs</span>
+</div>
+</div>
+<div class="flex items-start gap-sm relative z-10 opacity-0 motion-safe:animate-[fadeUp_0.5s_ease-out_2s_forwards]">
+<div class="w-5 h-5 rounded-full bg-surface-container-high border-2 border-secondary flex items-center justify-center mt-[2px] shrink-0">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Fact Extraction</span>
+<span class="font-mono-data text-mono-data text-on-surface-variant">Cross-referencing entities</span>
+</div>
+</div>
+<div class="flex items-start gap-sm relative z-10 opacity-0 motion-safe:animate-[fadeUp_0.5s_ease-out_3s_forwards]">
+<div class="w-5 h-5 rounded-full bg-surface-container-high border-2 border-outline-variant flex items-center justify-center mt-[2px] shrink-0">
+<span class="material-symbols-outlined text-[12px] text-outline-variant motion-safe:animate-spin">sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline-variant">Synthesizing Answer</span>
+<span class="font-mono-data text-mono-data text-outline-variant">Awaiting completion...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</body></html>
