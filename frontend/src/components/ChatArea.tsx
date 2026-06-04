@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import type { Message } from '../types';
 import type { Citation } from '../api';
 
@@ -56,35 +58,60 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
   };
 
   const renderFormattedText = (text: string, citations?: any[]) => {
-    const boldParsed = text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-on-surface">$1</strong>');
-    const parts = boldParsed.split(/(\[Source \d+\])/g);
+    // Convert [Source X] to markdown links to be intercepted by custom link component
+    const processedText = text.replace(/\[Source (\d+)\]/g, '[Source $1](#citation-$1)');
     
-    return parts.map((part, index) => {
-      const match = part.match(/\[Source (\d+)\]/);
-      if (match && citations) {
-        const sourceIndex = parseInt(match[1]) - 1;
-        const citation = citations[sourceIndex];
-        const chunkId = citation?.chunk_id || 'unknown';
-        
-        return (
-          <button 
-            key={index} 
-            onClick={() => onCitationClick(chunkId)}
-            onMouseEnter={(e) => citation && handleMouseEnter(e, citation)}
-            onMouseLeave={handleMouseLeave}
-            className="inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative tour-citation"
-            aria-label={`View Source ${sourceIndex + 1}`}
-          >
-            {part}
-          </button>
-        );
-      }
-      return <span key={index} dangerouslySetInnerHTML={{ __html: part }} />;
-    });
+    return (
+      <ReactMarkdown 
+        remarkPlugins={[remarkGfm]}
+        className="w-full text-on-surface font-body-lg text-body-lg leading-relaxed space-y-4"
+        components={{
+          a: ({ node, href, children, ...props }: any) => {
+            if (href?.startsWith('#citation-')) {
+              const sourceIndex = parseInt(href.split('-')[1]) - 1;
+              const citation = citations?.[sourceIndex];
+              const chunkId = citation?.chunk_id || 'unknown';
+              
+              return (
+                <button 
+                  onClick={() => onCitationClick(chunkId)}
+                  onMouseEnter={(e) => citation && handleMouseEnter(e, citation)}
+                  onMouseLeave={handleMouseLeave}
+                  className="inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative tour-citation"
+                  aria-label={`View Source ${sourceIndex + 1}`}
+                >
+                  {children}
+                </button>
+              );
+            }
+            return <a href={href} className="text-primary hover:underline" {...props}>{children}</a>;
+          },
+          table: ({node, ...props}: any) => (
+            <div className="overflow-x-auto my-6 bg-surface-container border border-outline-variant rounded-xl shadow-lg">
+              <table className="w-full text-left border-collapse min-w-[600px]" {...props} />
+            </div>
+          ),
+          thead: ({node, ...props}: any) => <thead className="bg-[#020617] border-b border-outline-variant" {...props} />,
+          th: ({node, ...props}: any) => <th className="p-4 font-label-md text-on-surface-variant font-semibold tracking-wide border-r border-[#152238] last:border-r-0" {...props} />,
+          td: ({node, ...props}: any) => <td className="p-4 font-body-md text-on-surface border-b border-outline-variant/50 border-r border-[#152238]/30 last:border-r-0 align-top" {...props} />,
+          tr: ({node, ...props}: any) => <tr className="hover:bg-surface-container-lowest transition-colors" {...props} />,
+          p: ({node, ...props}: any) => <p className="mb-4 last:mb-0" {...props} />,
+          ul: ({node, ...props}: any) => <ul className="list-disc list-outside ml-6 mb-4 space-y-2" {...props} />,
+          ol: ({node, ...props}: any) => <ol className="list-decimal list-outside ml-6 mb-4 space-y-2" {...props} />,
+          li: ({node, ...props}: any) => <li className="pl-1" {...props} />,
+          h1: ({node, ...props}: any) => <h1 className="font-headline-lg text-headline-lg text-on-surface mb-4 mt-8" {...props} />,
+          h2: ({node, ...props}: any) => <h2 className="font-headline-md text-headline-md text-on-surface mb-3 mt-6" {...props} />,
+          h3: ({node, ...props}: any) => <h3 className="font-headline-sm text-lg font-bold text-on-surface mb-2 mt-4" {...props} />,
+          strong: ({node, ...props}: any) => <strong className="font-bold text-on-surface" {...props} />,
+        }}
+      >
+        {processedText}
+      </ReactMarkdown>
+    );
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full min-h-0 overflow-y-auto p-md lg:p-lg pb-32 scroll-smooth" id="printable-area">
+    <div className="absolute inset-0 overflow-y-auto p-md lg:p-lg pb-32 scroll-smooth" id="printable-area">
       {/* Tooltip Portal / Overlay */}
       {hoveredCitation && (
         <div 
@@ -162,7 +189,7 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
                     <LoadingAnimation />
                   ) : (
                     <>
-                      <div className="text-on-surface font-body-lg text-body-lg leading-relaxed whitespace-pre-wrap">
+                      <div className="w-full">
                         {renderFormattedText(msg.text, msg.citations)}
                       </div>
                       
