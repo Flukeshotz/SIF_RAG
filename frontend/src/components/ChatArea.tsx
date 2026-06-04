@@ -84,7 +84,7 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full overflow-y-auto p-md lg:p-lg pb-32 scroll-smooth" id="printable-area">
+    <div className="flex-1 flex flex-col h-full min-h-0 overflow-y-auto p-md lg:p-lg pb-32 scroll-smooth" id="printable-area">
       {/* Tooltip Portal / Overlay */}
       {hoveredCitation && (
         <div 

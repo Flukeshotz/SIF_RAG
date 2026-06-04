@@ -18,7 +18,7 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [currentView, setCurrentView] = useState<'chat' | 'architecture' | 'insights' | 'scheduler'>('chat');
+  const [currentView, setCurrentView] = useState<'chat' | 'architecture' | 'insights' | 'scheduler' | 'coming_soon'>('chat');
   
   // App State Toggles
   const [isDemoMode, setIsDemoMode] = useState(false);
@@ -154,7 +154,7 @@ function App() {
                   />
                   
                   {/* Input Area */}
-                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-[#020617] via-[#071122] to-transparent tour-search-box">
+                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-[#020617] via-[#071122] to-transparent tour-search-box z-10">
                     <form onSubmit={handleSubmit} className="flex gap-2 max-w-4xl mx-auto bg-[#051424] p-2 rounded-xl border border-[#152238] shadow-2xl focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/50 transition-all">
                       <input
                         type="text"
@@ -207,6 +207,22 @@ function App() {
           {currentView === 'scheduler' && (
             <div className="flex-1 flex flex-col h-full relative border-r border-[#152238] bg-[#071122] overflow-y-auto">
               <SchedulerDashboard />
+            </div>
+          )}
+
+          {currentView === 'coming_soon' && (
+            <div className="flex-1 flex flex-col items-center justify-center h-full relative border-r border-[#152238] bg-[#071122]">
+              <div className="text-center">
+                <span className="material-symbols-outlined text-6xl text-primary mb-4">construction</span>
+                <h2 className="text-2xl font-headline-md text-on-surface mb-2">Under Construction</h2>
+                <p className="text-on-surface-variant max-w-md mx-auto">This module is currently being developed and will be available in the next release.</p>
+                <button 
+                  onClick={() => setCurrentView('chat')}
+                  className="mt-6 px-6 py-2 bg-primary/10 text-primary border border-primary/30 rounded-lg hover:bg-primary/20 transition-colors"
+                >
+                  Return to Research
+                </button>
+              </div>
             </div>
           )}
         </Suspense>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface SideNavBarProps {
-    onViewChange: (view: 'chat' | 'architecture' | 'insights' | 'scheduler') => void;
+    onViewChange: (view: 'chat' | 'architecture' | 'insights' | 'scheduler' | 'coming_soon') => void;
     currentView: string;
 }
 
@@ -29,11 +29,11 @@ const SideNavBar: React.FC<SideNavBarProps> = ({ onViewChange, currentView }) =>
                     <span className="font-label-md text-label-md">Research</span>
                 </button>
                 
-                <button className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all w-full text-left">
+                <button onClick={() => onViewChange('coming_soon')} className={`flex items-center gap-md px-md py-sm rounded-lg transition-all w-full text-left ${currentView === 'coming_soon' ? 'bg-surface-variant text-on-surface' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-variant'}`}>
                     <span className="material-symbols-outlined text-[20px]">account_balance</span>
                     <span className="font-label-md text-label-md">Funds</span>
                 </button>
-                <button className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all w-full text-left">
+                <button onClick={() => onViewChange('coming_soon')} className={`flex items-center gap-md px-md py-sm rounded-lg transition-all w-full text-left ${currentView === 'coming_soon' ? 'bg-surface-variant text-on-surface' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-variant'}`}>
                     <span className="material-symbols-outlined text-[20px]">gavel</span>
                     <span className="font-label-md text-label-md">Regulations</span>
                 </button>
@@ -41,7 +41,7 @@ const SideNavBar: React.FC<SideNavBarProps> = ({ onViewChange, currentView }) =>
                     <span className="material-symbols-outlined text-[20px]">psychology</span>
                     <span className="font-label-md text-label-md">Corpus Intelligence</span>
                 </button>
-                <button className="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-variant rounded-lg transition-all w-full text-left">
+                <button onClick={() => onViewChange('coming_soon')} className={`flex items-center gap-md px-md py-sm rounded-lg transition-all w-full text-left ${currentView === 'coming_soon' ? 'bg-surface-variant text-on-surface' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-variant'}`}>
                     <span className="material-symbols-outlined text-[20px]">hub</span>
                     <span className="font-label-md text-label-md">Knowledge Graph</span>
                 </button>
