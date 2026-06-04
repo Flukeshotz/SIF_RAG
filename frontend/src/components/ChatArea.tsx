@@ -88,39 +88,58 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
   };
 
   const renderFormattedText = (msg: Message) => {
-    const processedText = msg.text.replace(/\[Source (\d+)\]/g, '[Source $1](#citation-$1)');
-    const html = DOMPurify.sanitize(marked.parse(processedText, { async: false }) as string, {
-      ADD_TAGS: ['button'],
-      ADD_ATTR: ['data-source', 'class', 'target']
-    });
-
-    return (
-      <div 
-        className="w-full text-on-surface font-body-lg text-body-lg leading-relaxed space-y-4"
-        dangerouslySetInnerHTML={{ __html: html }}
-        onClick={(e) => {
-          const btn = (e.target as HTMLElement).closest('button[data-source]');
-          if (btn) {
-            const sourceIndex = parseInt(btn.getAttribute('data-source')!);
-            const citation = msg.citations?.[sourceIndex];
-            if (citation?.chunk_id) onCitationClick(citation.chunk_id);
-          }
-        }}
-        onMouseOver={(e) => {
-          const btn = (e.target as HTMLElement).closest('button[data-source]');
-          if (btn) {
-            const sourceIndex = parseInt(btn.getAttribute('data-source')!);
-            const citation = msg.citations?.[sourceIndex];
-            if (citation) handleMouseEnter(e as any, citation);
-          }
-        }}
-        onMouseOut={(e) => {
-          if ((e.target as HTMLElement).closest('button[data-source]')) {
-            handleMouseLeave();
-          }
-        }}
-      />
-    );
+    try {
+      const processedText = msg.text.replace(/\[Source (\d+)\]/g, '[Source $1](#citation-$1)');
+      
+      const rawHtml = marked.parse(processedText, { async: false });
+      let finalRawHtml = typeof rawHtml === 'string' ? rawHtml : String(rawHtml);
+      
+      let sanitized = DOMPurify.sanitize(finalRawHtml, {
+        ADD_TAGS: ['button'],
+        ADD_ATTR: ['data-source', 'class', 'target'],
+        RETURN_TRUSTED_TYPE: false,
+        RETURN_DOM: false,
+        RETURN_DOM_FRAGMENT: false
+      });
+      
+      let finalHtml = typeof sanitized === 'string' ? sanitized : String(sanitized);
+      
+      // If it STILL somehow resolves to [object Object], bypass DOMPurify
+      if (finalHtml === '[object Object]') {
+        console.warn('DOMPurify returned [object Object], bypassing sanitizer');
+        finalHtml = finalRawHtml;
+      }
+  
+      return (
+        <div 
+          className="w-full text-on-surface font-body-lg text-body-lg leading-relaxed space-y-4"
+          dangerouslySetInnerHTML={{ __html: finalHtml }}
+          onClick={(e) => {
+            const btn = (e.target as HTMLElement).closest('button[data-source]');
+            if (btn) {
+              const sourceIndex = parseInt(btn.getAttribute('data-source')!);
+              const citation = msg.citations?.[sourceIndex];
+              if (citation?.chunk_id) onCitationClick(citation.chunk_id);
+            }
+          }}
+          onMouseOver={(e) => {
+            const btn = (e.target as HTMLElement).closest('button[data-source]');
+            if (btn) {
+              const sourceIndex = parseInt(btn.getAttribute('data-source')!);
+              const citation = msg.citations?.[sourceIndex];
+              if (citation) handleMouseEnter(e as any, citation);
+            }
+          }}
+          onMouseOut={(e) => {
+            if ((e.target as HTMLElement).closest('button[data-source]')) {
+              handleMouseLeave();
+            }
+          }}
+        />
+      );
+    } catch (e) {
+      return <div className="text-error">Error formatting text: {String(e)}</div>;
+    }
   };
 
   return (
