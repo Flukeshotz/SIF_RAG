@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
+import type { Message } from '../types';
 import type { Message } from '../types';
 import type { Citation } from '../api';
 
@@ -10,6 +11,36 @@ interface ChatAreaProps {
   onClear: () => void;
   isPresentationMode?: boolean;
 }
+
+const renderer = new marked.Renderer();
+renderer.table = (header, body) => `<div class="overflow-x-auto my-6 bg-surface-container border border-outline-variant rounded-xl shadow-lg"><table class="w-full text-left border-collapse min-w-[600px]"><thead class="bg-[#020617] border-b border-outline-variant">${header}</thead><tbody>${body}</tbody></table></div>`;
+renderer.tablerow = (content) => `<tr class="hover:bg-surface-container-lowest transition-colors border-b border-outline-variant/50">${content}</tr>`;
+renderer.tablecell = (content, flags) => {
+  const type = flags.header ? 'th' : 'td';
+  const className = flags.header 
+    ? "p-4 font-label-md text-on-surface-variant font-semibold tracking-wide border-r border-[#152238] last:border-r-0" 
+    : "p-4 font-body-md text-on-surface border-r border-[#152238]/30 last:border-r-0 align-top";
+  return `<${type} class="${className}">${content}</${type}>`;
+};
+renderer.paragraph = (text) => `<p class="mb-4 last:mb-0">${text}</p>`;
+renderer.list = (body, ordered) => ordered 
+  ? `<ol class="list-decimal list-outside ml-6 mb-4 space-y-2">${body}</ol>`
+  : `<ul class="list-disc list-outside ml-6 mb-4 space-y-2">${body}</ul>`;
+renderer.listitem = (text) => `<li class="pl-1">${text}</li>`;
+renderer.heading = (text, level) => {
+  if (level === 1) return `<h1 class="font-headline-lg text-headline-lg text-on-surface mb-4 mt-8">${text}</h1>`;
+  if (level === 2) return `<h2 class="font-headline-md text-headline-md text-on-surface mb-3 mt-6">${text}</h2>`;
+  return `<h3 class="font-headline-sm text-lg font-bold text-on-surface mb-2 mt-4">${text}</h3>`;
+};
+renderer.strong = (text) => `<strong class="font-bold text-on-surface">${text}</strong>`;
+renderer.link = (href, title, text) => {
+  if (href?.startsWith('#citation-')) {
+    const sourceIndex = parseInt(href.split('-')[1]) - 1;
+    return `<button class="tour-citation inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative" data-source="${sourceIndex}">${text}</button>`;
+  }
+  return `<a href="${href}" class="text-primary hover:underline">${text}</a>`;
+};
+marked.use({ renderer });
 
 const LoadingAnimation = () => {
   const [phase, setPhase] = useState(0);
@@ -57,56 +88,39 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
     window.print();
   };
 
-  const renderFormattedText = (text: string, citations?: any[]) => {
-    // Convert [Source X] to markdown links to be intercepted by custom link component
-    const processedText = text.replace(/\[Source (\d+)\]/g, '[Source $1](#citation-$1)');
-    
+  const renderFormattedText = (msg: Message) => {
+    const processedText = msg.text.replace(/\[Source (\d+)\]/g, '[Source $1](#citation-$1)');
+    const html = DOMPurify.sanitize(marked.parse(processedText, { async: false }) as string, {
+      ADD_TAGS: ['button'],
+      ADD_ATTR: ['data-source', 'class', 'target']
+    });
+
     return (
-      <ReactMarkdown 
-        remarkPlugins={[remarkGfm]}
+      <div 
         className="w-full text-on-surface font-body-lg text-body-lg leading-relaxed space-y-4"
-        components={{
-          a: ({ node, href, children, ...props }: any) => {
-            if (href?.startsWith('#citation-')) {
-              const sourceIndex = parseInt(href.split('-')[1]) - 1;
-              const citation = citations?.[sourceIndex];
-              const chunkId = citation?.chunk_id || 'unknown';
-              
-              return (
-                <button 
-                  onClick={() => onCitationClick(chunkId)}
-                  onMouseEnter={(e) => citation && handleMouseEnter(e, citation)}
-                  onMouseLeave={handleMouseLeave}
-                  className="inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative tour-citation"
-                  aria-label={`View Source ${sourceIndex + 1}`}
-                >
-                  {children}
-                </button>
-              );
-            }
-            return <a href={href} className="text-primary hover:underline" {...props}>{children}</a>;
-          },
-          table: ({node, ...props}: any) => (
-            <div className="overflow-x-auto my-6 bg-surface-container border border-outline-variant rounded-xl shadow-lg">
-              <table className="w-full text-left border-collapse min-w-[600px]" {...props} />
-            </div>
-          ),
-          thead: ({node, ...props}: any) => <thead className="bg-[#020617] border-b border-outline-variant" {...props} />,
-          th: ({node, ...props}: any) => <th className="p-4 font-label-md text-on-surface-variant font-semibold tracking-wide border-r border-[#152238] last:border-r-0" {...props} />,
-          td: ({node, ...props}: any) => <td className="p-4 font-body-md text-on-surface border-b border-outline-variant/50 border-r border-[#152238]/30 last:border-r-0 align-top" {...props} />,
-          tr: ({node, ...props}: any) => <tr className="hover:bg-surface-container-lowest transition-colors" {...props} />,
-          p: ({node, ...props}: any) => <p className="mb-4 last:mb-0" {...props} />,
-          ul: ({node, ...props}: any) => <ul className="list-disc list-outside ml-6 mb-4 space-y-2" {...props} />,
-          ol: ({node, ...props}: any) => <ol className="list-decimal list-outside ml-6 mb-4 space-y-2" {...props} />,
-          li: ({node, ...props}: any) => <li className="pl-1" {...props} />,
-          h1: ({node, ...props}: any) => <h1 className="font-headline-lg text-headline-lg text-on-surface mb-4 mt-8" {...props} />,
-          h2: ({node, ...props}: any) => <h2 className="font-headline-md text-headline-md text-on-surface mb-3 mt-6" {...props} />,
-          h3: ({node, ...props}: any) => <h3 className="font-headline-sm text-lg font-bold text-on-surface mb-2 mt-4" {...props} />,
-          strong: ({node, ...props}: any) => <strong className="font-bold text-on-surface" {...props} />,
+        dangerouslySetInnerHTML={{ __html: html }}
+        onClick={(e) => {
+          const btn = (e.target as HTMLElement).closest('button[data-source]');
+          if (btn) {
+            const sourceIndex = parseInt(btn.getAttribute('data-source')!);
+            const citation = msg.citations?.[sourceIndex];
+            if (citation?.chunk_id) onCitationClick(citation.chunk_id);
+          }
         }}
-      >
-        {processedText}
-      </ReactMarkdown>
+        onMouseOver={(e) => {
+          const btn = (e.target as HTMLElement).closest('button[data-source]');
+          if (btn) {
+            const sourceIndex = parseInt(btn.getAttribute('data-source')!);
+            const citation = msg.citations?.[sourceIndex];
+            if (citation) handleMouseEnter(e as any, citation);
+          }
+        }}
+        onMouseOut={(e) => {
+          if ((e.target as HTMLElement).closest('button[data-source]')) {
+            handleMouseLeave();
+          }
+        }}
+      />
     );
   };
 
@@ -190,7 +204,7 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
                   ) : (
                     <>
                       <div className="w-full">
-                        {renderFormattedText(msg.text, msg.citations)}
+                        {renderFormattedText(msg)}
                       </div>
                       
                       {/* Generation Metrics Panel */}
