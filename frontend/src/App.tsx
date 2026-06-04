@@ -154,8 +154,8 @@ function App() {
                   />
                   
                   {/* Input Area */}
-                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-[#020617] via-[#071122] to-transparent tour-search-box z-10">
-                    <form onSubmit={handleSubmit} className="flex gap-2 max-w-4xl mx-auto bg-[#051424] p-2 rounded-xl border border-[#152238] shadow-2xl focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/50 transition-all">
+                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-[#020617] via-[#071122] to-transparent tour-search-box z-10 pointer-events-none">
+                    <form onSubmit={handleSubmit} className="flex gap-2 max-w-4xl mx-auto bg-[#051424] p-2 rounded-xl border border-[#152238] shadow-2xl focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/50 transition-all pointer-events-auto">
                       <input
                         type="text"
                         value={input}

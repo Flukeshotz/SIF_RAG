@@ -20,7 +20,11 @@ renderer.link = function(token) {
   }
   return `<a href="${token.href}" class="text-primary hover:underline">${token.text}</a>`;
 };
-marked.use({ renderer });
+marked.use({ 
+  renderer,
+  gfm: true,
+  breaks: true // Preserves newlines in malformed LLM tables
+});
 
 const LoadingAnimation = () => {
   const [phase, setPhase] = useState(0);
