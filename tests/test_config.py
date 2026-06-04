@@ -25,11 +25,10 @@ def test_config_has_postgres_uri():
     assert settings.POSTGRES_DB in uri
 
 
-def test_config_has_qdrant_url():
-    """Settings must have a Qdrant URL configured."""
+def test_config_has_qdrant_path():
+    """Settings must have a Qdrant path configured."""
     from core.config import settings
-    assert settings.QDRANT_URL is not None
-    assert settings.QDRANT_URL.startswith("http")
+    assert settings.QDRANT_PATH is not None
 
 
 def test_config_fails_without_groq_key():
