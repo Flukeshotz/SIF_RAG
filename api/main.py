@@ -9,12 +9,25 @@ from datetime import datetime, timezone
 
 from retrieval.engine import answer_query_structured
 from db.qdrant_connection import get_client
+from core.config import settings
+from jobs.scheduler import start_scheduler, get_scheduler_status
+
+# Explicit startup validation logs
+print(f"Starting SIF Copilot API in {settings.ENVIRONMENT} mode...")
+if not settings.GROQ_API_KEY or len(settings.GROQ_API_KEY) < 10:
+    print("CRITICAL ERROR: GROQ_API_KEY is missing or invalid.")
+    raise ValueError("GROQ_API_KEY environment variable is required.")
+print("Configuration validated successfully.")
 
 app = FastAPI(title="SIF Copilot API")
 
+@app.on_event("startup")
+def startup_event():
+    start_scheduler()
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[origin.strip() for origin in settings.ALLOWED_ORIGINS.split(",")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -102,14 +115,7 @@ def metrics_endpoint():
 
 @app.get("/scheduler/status")
 def scheduler_status_endpoint():
-    # Mocking actual scheduler values since we don't have Airflow/Cron hooked up
-    return {
-        "last_refresh": "2026-06-04T02:00:00Z",
-        "next_refresh": "2026-06-05T02:00:00Z",
-        "status": "healthy",
-        "documents_processed": 14,
-        "chunks_generated": 2001
-    }
+    return get_scheduler_status()
 
 @app.get("/analytics")
 def analytics_endpoint():

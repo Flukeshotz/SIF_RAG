@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     # App Config
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
+    ALLOWED_ORIGINS: str = "http://localhost:5173,http://localhost:3000"
 
     # API Keys
     GROQ_API_KEY: str
