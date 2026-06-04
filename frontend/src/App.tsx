@@ -2,6 +2,7 @@ import { useState, useEffect, Suspense, lazy } from 'react';
 import TopNavBar from './components/TopNavBar';
 import SideNavBar from './components/SideNavBar';
 import ChatArea from './components/ChatArea';
+import CommandCenter from './components/CommandCenter';
 import EvidenceExplorer from './components/EvidenceExplorer';
 import Tour from './components/Tour';
 import { submitQuery } from './api';
@@ -21,7 +22,7 @@ function App() {
   
   // App State Toggles
   const [isDemoMode, setIsDemoMode] = useState(false);
-  const [isPresentationMode, setIsPresentationMode] = useState(false);
+
   
   // Tour State
   const [showTour, setShowTour] = useState(false);
@@ -129,8 +130,6 @@ function App() {
       <TopNavBar 
         isDemoMode={isDemoMode} 
         setIsDemoMode={setIsDemoMode} 
-        isPresentationMode={isPresentationMode} 
-        setIsPresentationMode={setIsPresentationMode} 
       />
       <SideNavBar onViewChange={setCurrentView} currentView={currentView} />
       
@@ -138,34 +137,38 @@ function App() {
         {currentView === 'chat' && (
           <>
             <div className="flex-1 flex flex-col h-full relative border-r border-[#152238] bg-[#071122]">
-              <ChatArea 
-                messages={messages} 
-                onCitationClick={handleCitationClick} 
-                onClear={clearChat}
-                onSuggestedQuery={(q) => executeQuery(q)}
-                isPresentationMode={isPresentationMode}
-              />
-              
-              {/* Input Area */}
-              <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-[#020617] via-[#071122] to-transparent tour-search-box">
-                <form onSubmit={handleSubmit} className="flex gap-2 max-w-4xl mx-auto bg-[#051424] p-2 rounded-xl border border-[#152238] shadow-2xl focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/50 transition-all">
-                  <input
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask a question about SIF regulations or compare funds..."
-                    className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface p-3 placeholder-on-surface-variant/50 outline-none"
-                    aria-label="Research Query Input"
+              {messages.length === 0 ? (
+                <CommandCenter onSearch={executeQuery} />
+              ) : (
+                <>
+                  <ChatArea 
+                    messages={messages} 
+                    onCitationClick={handleCitationClick} 
+                    onClear={clearChat}
                   />
-                  <button 
-                    type="submit" 
-                    disabled={isLoading}
-                    className="bg-primary text-on-primary px-6 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 shadow-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-[#020617]"
-                  >
-                    {isLoading ? 'Searching...' : 'Send'}
-                  </button>
-                </form>
-              </div>
+                  
+                  {/* Input Area */}
+                  <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-[#020617] via-[#071122] to-transparent tour-search-box">
+                    <form onSubmit={handleSubmit} className="flex gap-2 max-w-4xl mx-auto bg-[#051424] p-2 rounded-xl border border-[#152238] shadow-2xl focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/50 transition-all">
+                      <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        placeholder="Ask a question about SIF regulations or compare funds..."
+                        className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface p-3 placeholder-on-surface-variant/50 outline-none"
+                        aria-label="Research Query Input"
+                      />
+                      <button 
+                        type="submit" 
+                        disabled={isLoading}
+                        className="bg-primary text-on-primary px-6 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 shadow-md focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-[#020617]"
+                      >
+                        {isLoading ? 'Searching...' : 'Send'}
+                      </button>
+                    </form>
+                  </div>
+                </>
+              )}
             </div>
             
             {activeCitationId && (

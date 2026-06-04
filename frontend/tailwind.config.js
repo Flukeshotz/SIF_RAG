@@ -73,14 +73,14 @@ export default {
         "lg": "24px"
       },
       fontFamily: {
-        "display-lg": ["Inter"],
-        "mono-data": ["Geist"],
-        "headline-lg-mobile": ["Inter"],
-        "headline-md": ["Inter"],
-        "body-lg": ["Inter"],
-        "headline-lg": ["Inter"],
-        "body-md": ["Inter"],
-        "label-md": ["Geist"]
+        "display-lg": ["Inter", "sans-serif"],
+        "mono-data": ["Geist", "monospace"],
+        "headline-lg-mobile": ["Inter", "sans-serif"],
+        "headline-md": ["Inter", "sans-serif"],
+        "body-lg": ["Inter", "sans-serif"],
+        "headline-lg": ["Inter", "sans-serif"],
+        "body-md": ["Inter", "sans-serif"],
+        "label-md": ["Geist", "monospace"]
       },
       fontSize: {
         "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
@@ -104,12 +104,22 @@ export default {
         "pulse-text": {
             "0%, 100%": { opacity: "1" },
             "50%": { opacity: "0.75" }
+        },
+        "fadeUp": {
+            "0%": { opacity: "0", transform: "translateY(20px)" },
+            "100%": { opacity: "1", transform: "translateY(0)" }
+        },
+        "ticker": {
+            "0%": { transform: "translateX(100%)" },
+            "100%": { transform: "translateX(-100%)" }
         }
       },
       animation: {
         "slide-in-right": "slide-in-right 0.4s ease-out forwards",
         "slide-in-up": "slide-in-up 0.5s ease-out forwards",
-        "pulse-text": "pulse-text 2.5s ease-in-out infinite"
+        "pulse-text": "pulse-text 2.5s ease-in-out infinite",
+        "fade-up": "fadeUp 0.8s ease-out forwards",
+        "ticker": "ticker 20s linear infinite"
       }
     },
   },

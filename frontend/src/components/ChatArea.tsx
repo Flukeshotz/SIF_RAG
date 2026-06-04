@@ -6,7 +6,6 @@ interface ChatAreaProps {
   messages: Message[];
   onCitationClick: (citationId: string) => void;
   onClear: () => void;
-  onSuggestedQuery?: (query: string) => void;
   isPresentationMode?: boolean;
 }
 
@@ -33,16 +32,9 @@ const LoadingAnimation = () => {
   );
 };
 
-export default function ChatArea({ messages, onCitationClick, onClear, onSuggestedQuery, isPresentationMode }: ChatAreaProps) {
+export default function ChatArea({ messages, onCitationClick, onClear, isPresentationMode }: ChatAreaProps) {
   const [hoveredCitation, setHoveredCitation] = useState<Citation | null>(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
-
-  const suggestedQueries = [
-    { q: "What is the minimum investment for SIFs?", icon: "payments" },
-    { q: "Compare Quant and Tata SIF.", icon: "compare_arrows" },
-    { q: "Explain leverage limits.", icon: "balance" },
-    { q: "Latest SEBI changes affecting SIFs.", icon: "update" }
-  ];
 
   const handleMouseEnter = (e: React.MouseEvent, citation: Citation) => {
     const rect = (e.target as HTMLElement).getBoundingClientRect();
@@ -125,48 +117,6 @@ export default function ChatArea({ messages, onCitationClick, onClear, onSuggest
         )}
       </div>
 
-      {messages.length === 0 && (
-        <div className="flex-1 flex flex-col items-center justify-center max-w-3xl mx-auto w-full pt-10">
-          <div className="bg-surface-container-low border border-[#152238] rounded-2xl p-8 w-full shadow-2xl">
-            <div className="flex items-center gap-4 mb-6 border-b border-[#152238] pb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30">
-                <span className="material-symbols-outlined text-2xl text-primary">auto_awesome</span>
-              </div>
-              <div>
-                <h2 className="text-2xl font-headline-md text-on-surface">What would you like to research?</h2>
-                <p className="text-on-surface-variant text-sm mt-1">Grounded in 2,000+ verified SEBI documents and AMC factsheets.</p>
-              </div>
-            </div>
-            
-            <div className="mb-6">
-              <h3 className="text-xs font-mono-data text-on-surface-variant uppercase tracking-wider mb-4">Suggested Questions</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {suggestedQueries.map((q, i) => (
-                  <button 
-                    key={i}
-                    onClick={() => onSuggestedQuery && onSuggestedQuery(q.q)}
-                    className="bg-[#020617] border border-[#152238] hover:border-primary/50 hover:bg-[#071122] transition-all p-3 rounded-lg text-left text-sm text-on-surface hover:text-primary group shadow-sm flex items-start gap-3"
-                  >
-                    <span className="material-symbols-outlined text-primary/70 group-hover:text-primary">{q.icon}</span>
-                    <span className="flex-1">{q.q}</span>
-                    <span className="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-[#020617] border border-secondary/30 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="material-symbols-outlined text-secondary text-sm">update</span>
-                <span className="text-sm font-semibold text-secondary">Recent Updates</span>
-              </div>
-              <p className="text-xs text-on-surface-variant">
-                The corpus was recently updated with the latest SEBI Master Circular on AIFs (May 2026).
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Message Feed */}
       <div className="space-y-lg max-w-4xl mx-auto w-full">
