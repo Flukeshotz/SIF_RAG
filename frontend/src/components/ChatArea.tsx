@@ -12,32 +12,13 @@ interface ChatAreaProps {
 }
 
 const renderer = new marked.Renderer();
-renderer.table = (header, body) => `<div class="overflow-x-auto my-6 bg-surface-container border border-outline-variant rounded-xl shadow-lg"><table class="w-full text-left border-collapse min-w-[600px]"><thead class="bg-[#020617] border-b border-outline-variant">${header}</thead><tbody>${body}</tbody></table></div>`;
-renderer.tablerow = (content) => `<tr class="hover:bg-surface-container-lowest transition-colors border-b border-outline-variant/50">${content}</tr>`;
-renderer.tablecell = (content, flags) => {
-  const type = flags.header ? 'th' : 'td';
-  const className = flags.header 
-    ? "p-4 font-label-md text-on-surface-variant font-semibold tracking-wide border-r border-[#152238] last:border-r-0" 
-    : "p-4 font-body-md text-on-surface border-r border-[#152238]/30 last:border-r-0 align-top";
-  return `<${type} class="${className}">${content}</${type}>`;
-};
-renderer.paragraph = (text) => `<p class="mb-4 last:mb-0">${text}</p>`;
-renderer.list = (body, ordered) => ordered 
-  ? `<ol class="list-decimal list-outside ml-6 mb-4 space-y-2">${body}</ol>`
-  : `<ul class="list-disc list-outside ml-6 mb-4 space-y-2">${body}</ul>`;
-renderer.listitem = (text) => `<li class="pl-1">${text}</li>`;
-renderer.heading = (text, level) => {
-  if (level === 1) return `<h1 class="font-headline-lg text-headline-lg text-on-surface mb-4 mt-8">${text}</h1>`;
-  if (level === 2) return `<h2 class="font-headline-md text-headline-md text-on-surface mb-3 mt-6">${text}</h2>`;
-  return `<h3 class="font-headline-sm text-lg font-bold text-on-surface mb-2 mt-4">${text}</h3>`;
-};
-renderer.strong = (text) => `<strong class="font-bold text-on-surface">${text}</strong>`;
-renderer.link = (href, title, text) => {
-  if (href?.startsWith('#citation-')) {
-    const sourceIndex = parseInt(href.split('-')[1]) - 1;
-    return `<button class="tour-citation inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative" data-source="${sourceIndex}">${text}</button>`;
+
+renderer.link = function(token) {
+  if (token.href?.startsWith('#citation-')) {
+    const sourceIndex = parseInt(token.href.split('-')[1]) - 1;
+    return `<button class="tour-citation inline-flex items-center justify-center min-w-[20px] h-5 rounded text-xs bg-primary/20 text-primary border border-primary cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-primary/30 hover:shadow-[0_0_10px_rgba(173,198,255,0.6)] ml-1 glow-active px-1 relative" data-source="${sourceIndex}">${token.text}</button>`;
   }
-  return `<a href="${href}" class="text-primary hover:underline">${text}</a>`;
+  return `<a href="${token.href}" class="text-primary hover:underline">${token.text}</a>`;
 };
 marked.use({ renderer });
 
