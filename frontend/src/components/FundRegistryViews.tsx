@@ -10,24 +10,28 @@ export const FundCards = ({ funds }: { funds: any[] }) => {
         <div key={idx} className="bg-surface-container-low border border-[#152238] rounded-xl p-4 shadow-lg hover:border-primary/50 transition-colors flex flex-col h-full">
           <div className="flex justify-between items-start mb-3 border-b border-[#152238] pb-3">
             <div>
-              <span className="text-[10px] font-mono-data text-primary uppercase tracking-wider bg-primary/10 px-1.5 py-0.5 rounded">{fund.category}</span>
+              {fund.status && <span className="text-[10px] font-mono-data text-primary uppercase tracking-wider bg-primary/10 px-1.5 py-0.5 rounded">{fund.status}</span>}
               <h3 className="font-headline-md text-on-surface mt-1">{fund.fund_name}</h3>
               <p className="text-xs text-on-surface-variant">{fund.amc}</p>
             </div>
             <div className="flex flex-col items-end">
               <span className="text-[10px] font-mono-data text-on-surface-variant uppercase mb-1">Risk</span>
-              <span className="w-6 h-6 rounded-full bg-[#152238] flex items-center justify-center text-xs font-bold text-secondary border border-secondary/30 shadow-sm">{fund.risk_band}</span>
+              <span className="w-6 h-6 rounded-full bg-[#152238] flex items-center justify-center text-xs font-bold text-secondary border border-secondary/30 shadow-sm">{fund.risk_band || 'N/A'}</span>
             </div>
           </div>
           
           <div className="grid grid-cols-2 gap-3 mb-4 flex-1">
             <div className="bg-[#020617] rounded p-2 border border-[#152238]/50">
               <span className="block text-[10px] text-on-surface-variant uppercase mb-0.5">Strategy</span>
-              <span className="text-xs font-semibold text-on-surface">{fund.strategy_type}</span>
+              <span className="text-xs font-semibold text-on-surface">{fund.strategy || 'Unknown'}</span>
             </div>
             <div className="bg-[#020617] rounded p-2 border border-[#152238]/50">
               <span className="block text-[10px] text-on-surface-variant uppercase mb-0.5">Min Investment</span>
-              <span className="text-xs font-semibold text-on-surface">{fund.minimum_investment}</span>
+              <span className="text-xs font-semibold text-on-surface">
+                {fund.minimum_investment >= 10000000 ? `₹${fund.minimum_investment / 10000000} Cr` : 
+                 fund.minimum_investment >= 100000 ? `₹${fund.minimum_investment / 100000} L` : 
+                 `₹${fund.minimum_investment}`}
+              </span>
             </div>
           </div>
           
@@ -49,9 +53,9 @@ export const ComparisonTable = ({ funds }: { funds: any[] }) => {
   
   const properties = [
     { key: 'amc', label: 'AMC' },
-    { key: 'strategy_type', label: 'Strategy' },
+    { key: 'strategy', label: 'Strategy' },
     { key: 'risk_band', label: 'Risk Band' },
-    { key: 'benchmark', label: 'Benchmark' },
+    { key: 'status', label: 'Status' },
     { key: 'minimum_investment', label: 'Min Investment' },
   ];
   
@@ -75,9 +79,15 @@ export const ComparisonTable = ({ funds }: { funds: any[] }) => {
               {funds.map((fund, idx) => (
                 <td key={idx} className="p-4 font-body-md text-on-surface border-r border-[#152238]/30 last:border-r-0 text-center align-middle">
                   {prop.key === 'risk_band' ? (
-                    <span className="inline-flex w-6 h-6 rounded-full bg-[#152238] items-center justify-center text-xs font-bold text-secondary border border-secondary/30">{fund[prop.key]}</span>
+                    <span className="inline-flex w-6 h-6 rounded-full bg-[#152238] items-center justify-center text-xs font-bold text-secondary border border-secondary/30">{fund[prop.key] || 'N/A'}</span>
+                  ) : prop.key === 'minimum_investment' ? (
+                    <span className="font-semibold">
+                      {fund[prop.key] >= 10000000 ? `₹${fund[prop.key] / 10000000} Cr` : 
+                       fund[prop.key] >= 100000 ? `₹${fund[prop.key] / 100000} L` : 
+                       `₹${fund[prop.key]}`}
+                    </span>
                   ) : (
-                    fund[prop.key]
+                    fund[prop.key] || 'Unknown'
                   )}
                 </td>
               ))}

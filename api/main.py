@@ -57,6 +57,8 @@ class QueryResponse(BaseModel):
     answer: str
     citations: List[CitationModel]
     retrieval: RetrievalMetrics
+    query_type: Optional[str] = None
+    structured_data: Optional[Any] = None
 
 ANALYTICS_FILE = "data/analytics.jsonl"
 

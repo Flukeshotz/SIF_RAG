@@ -22,6 +22,8 @@ export interface QueryResponse {
   answer: string;
   citations: Citation[];
   retrieval: RetrievalMetrics;
+  query_type?: 'rag' | 'discovery' | 'comparison';
+  structured_data?: any;
 }
 
 export interface MetricsResponse {

@@ -104,7 +104,15 @@ function App() {
       const response = await submitQuery(query);
       setMessages(prev => prev.map(msg => 
         msg.id === loadingMessage.id 
-          ? { ...msg, text: response.answer, citations: response.citations, retrieval: response.retrieval, loading: false }
+          ? { 
+              ...msg, 
+              text: response.answer, 
+              citations: response.citations, 
+              retrieval: response.retrieval, 
+              query_type: response.query_type,
+              structured_data: response.structured_data,
+              loading: false 
+            }
           : msg
       ));
     } catch (error) {

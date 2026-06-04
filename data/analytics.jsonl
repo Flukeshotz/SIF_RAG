@@ -17,3 +17,10 @@
 {"query": "all the sifs available in the market and what are their strategies?", "timestamp": "2026-06-04T18:13:02.856149+00:00", "latency": 201, "sources_used": 5}
 {"query": "which is the most low risk sif", "timestamp": "2026-06-04T18:13:38.593989+00:00", "latency": 78, "sources_used": 5}
 {"query": "what sifs exist", "timestamp": "2026-06-04T18:20:16.995746+00:00", "latency": 260, "sources_used": 5}
+{"query": "what all sifs are there curently", "timestamp": "2026-06-04T19:36:36.290550+00:00", "latency": 6, "sources_used": 32}
+{"query": "what all sifs are there?", "timestamp": "2026-06-04T19:40:39.068656+00:00", "latency": 1, "sources_used": 32}
+{"query": "what all sifs are there?", "timestamp": "2026-06-04T19:40:53.393280+00:00", "latency": 0, "sources_used": 32}
+{"query": "what all sifs are there?", "timestamp": "2026-06-04T19:41:08.065484+00:00", "latency": 0, "sources_used": 32}
+{"query": "what all sifs are there", "timestamp": "2026-06-04T19:41:20.684149+00:00", "latency": 0, "sources_used": 32}
+{"query": "what all sifs are there", "timestamp": "2026-06-04T19:41:41.435605+00:00", "latency": 2, "sources_used": 32}
+{"query": "what all sifs are there", "timestamp": "2026-06-04T19:42:16.372204+00:00", "latency": 1, "sources_used": 32}
