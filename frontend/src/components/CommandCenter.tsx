@@ -21,7 +21,7 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
 
     return (
         <div className="flex-1 flex flex-col items-center pt-[102px] px-margin overflow-y-auto">
-            <div className="w-full max-w-[900px] flex flex-col items-center text-center mb-xl opacity-0 animate-fade-up">
+            <div className="w-full max-w-[900px] flex flex-col items-center text-center mb-xl animate-fade-up">
                 <h2 className="font-display-lg text-display-lg font-bold text-on-surface mb-sm tracking-tight">
                     What would you like to research?
                 </h2>
@@ -31,7 +31,7 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
             </div>
 
             {/* Input */}
-            <div className="w-full max-w-[900px] relative group mb-md opacity-0 animate-fade-up" style={{ animationDelay: '200ms' }}>
+            <div className="w-full max-w-[900px] relative group mb-md animate-fade-up" style={{ animationDelay: '200ms' }}>
                 <form onSubmit={handleSubmit}>
                     <div className="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
                         <span className="material-symbols-outlined text-outline">search</span>
@@ -55,7 +55,7 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
             </div>
 
             {/* Suggestions */}
-            <div className="w-full max-w-[900px] flex flex-wrap justify-center gap-sm mb-xl opacity-0 animate-fade-up" style={{ animationDelay: '300ms' }}>
+            <div className="w-full max-w-[900px] flex flex-wrap justify-center gap-sm mb-xl animate-fade-up" style={{ animationDelay: '300ms' }}>
                 <button 
                     onClick={() => handleSuggestionClick("Compare Quant vs Tata")}
                     className="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md"
@@ -80,7 +80,7 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
             </div>
 
             {/* Daily Intelligence Feed */}
-            <div className="w-full max-w-[900px] flex flex-col gap-md mt-lg pb-margin opacity-0 animate-fade-up" style={{ animationDelay: '400ms' }}>
+            <div className="w-full max-w-[900px] flex flex-col gap-md mt-lg pb-margin animate-fade-up" style={{ animationDelay: '400ms' }}>
                 <div className="flex items-center gap-sm mb-sm border-b border-outline-variant pb-xs">
                     <span className="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
                     <h3 className="font-headline-md text-headline-md text-on-surface">Daily Intelligence Feed</h3>

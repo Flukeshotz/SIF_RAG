@@ -43,9 +43,15 @@ function App() {
     const saved = localStorage.getItem('sif_messages');
     if (saved) {
       try {
-        setMessages(JSON.parse(saved));
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          setMessages(parsed);
+        } else {
+          localStorage.removeItem('sif_messages');
+        }
       } catch (e) {
         console.error('Failed to parse saved messages');
+        localStorage.removeItem('sif_messages');
       }
     }
   }, []);
