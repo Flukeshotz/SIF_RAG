@@ -48,7 +48,7 @@ def sanitize_factsheets():
             count += 1
             
     # Generate Factsheet Sanitization Report
-    report_path = Path("docs/factsheet_sanitization_report.md")
+    report_path = Path("docs/reports/factsheet_sanitization_report.md")
     with open(report_path, "w") as f:
         f.write("# Phase 3.6 — Factsheet Sanitization Report\n\n")
         f.write(f"Successfully sanitized {count} documents (factsheets filtered, ISID/KIM passed through).\n\n")

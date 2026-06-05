@@ -100,7 +100,7 @@ def generate_audits():
     step4_lines.append("- Duplicate %: ~35% (Estimated based on standard SEBI disclosures across AMCs)\n")
     step4_lines.append("- Redundancy %: ~40% (Historical data in factsheets)\n")
     step4_lines.append("- Estimated Vector Waste: High. Embedding 163 pages of factsheet data will pollute semantic search space.\n")
-    with open("docs/duplicate_content_report.md", "w") as f:
+    with open("docs/reports/duplicate_content_report.md", "w") as f:
         f.writelines(step4_lines)
 
     # --- STEP 5: OCR Gap Analysis ---
@@ -153,7 +153,7 @@ def generate_audits():
     step7_lines.append("| Taxation? | FAIL | Taxation details are general and often missing from standard ISIDs. |\n")
     step7_lines.append("| Fund manager? | PASS | Present. |\n")
     step7_lines.append("| Strategy comparison? | PASS | Strategy types correctly parsed. |\n")
-    with open("docs/golden_coverage_report.md", "w") as f:
+    with open("docs/reports/golden_coverage_report.md", "w") as f:
         f.writelines(step7_lines)
 
     # --- STEP 8: Phase 4 Gate Review ---

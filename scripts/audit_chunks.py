@@ -50,7 +50,7 @@ def audit_chunks():
     dup_percent = (duplicates / total_chunks) * 100 if total_chunks > 0 else 0
     
     # 1. Generate chunk_audit.md
-    with open("docs/chunk_audit.md", "w") as f:
+    with open("docs/audits/chunk_audit.md", "w") as f:
         f.write("# Phase 4 — Chunk Audit Report\n\n")
         f.write(f"- **Total Chunks:** {total_chunks}\n")
         f.write(f"- **Average Size:** {avg_size:.1f} tokens\n")
@@ -89,7 +89,7 @@ def audit_chunks():
         results.sort(key=lambda x: x[0], reverse=True)
         return [r[1] for r in results[:3]]
 
-    with open("docs/chunk_retrieval_simulation.md", "w") as f:
+    with open("docs/reports/chunk_retrieval_simulation.md", "w") as f:
         f.write("# Phase 4 — Retrieval Simulation\n\n")
         
         simulations = [
@@ -117,7 +117,7 @@ def audit_chunks():
             f.write("\n")
 
     # 3. Generate embedding_readiness.md
-    with open("docs/embedding_readiness.md", "w") as f:
+    with open("docs/reports/embedding_readiness.md", "w") as f:
         f.write("# Phase 5 Readiness: Embedding & Vectorization\n\n")
         f.write(f"- **Estimated Chunk Count:** {total_chunks}\n")
         

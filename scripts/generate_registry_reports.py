@@ -38,7 +38,7 @@ def generate_reports():
         f.write("\nAll funds successfully mapped to the new Canonical Schema and deduplicated across platforms.\n")
 
     # 2. coverage_report.md
-    with open("docs/coverage_report.md", "w") as f:
+    with open("docs/reports/coverage_report.md", "w") as f:
         f.write("# Platform Coverage Report\n\n")
         f.write(f"- Funds on Groww: {groww_count}\n")
         f.write(f"- Funds on INDmoney: {indmoney_count}\n")
@@ -46,7 +46,7 @@ def generate_reports():
         f.write("\nDeduplication Engine successfully merged overlapping instances into single entities.\n")
 
     # 3. amc_coverage_report.md
-    with open("docs/amc_coverage_report.md", "w") as f:
+    with open("docs/reports/amc_coverage_report.md", "w") as f:
         f.write("# AMC Coverage Report\n\n")
         for k, v in sorted(amcs.items(), key=lambda item: item[1], reverse=True):
             f.write(f"- **{k}**: {v} Funds\n")

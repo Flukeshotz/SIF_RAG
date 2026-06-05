@@ -8,7 +8,7 @@ def main():
     os.makedirs("docs", exist_ok=True)
     
     # 1. GitHub Verification
-    with open("docs/github_verification.md", "w") as f:
+    with open("docs/audits/github_verification.md", "w") as f:
         f.write("# GitHub Verification\n\n")
         f.write("- **Repository Status**: Push-ready\n")
         f.write("- **README**: Rendered correctly\n")
@@ -17,7 +17,7 @@ def main():
         f.write("- **Deployment Instructions**: Verified (`render.yaml` & `vercel.json` generated)\n")
 
     # 2. Backend Deployment Report
-    with open("docs/backend_deployment_report.md", "w") as f:
+    with open("docs/deployment/backend_deployment_report.md", "w") as f:
         f.write("# Backend Deployment Report\n\n")
         f.write("- **Platform**: Render\n")
         f.write("- **Configuration**: `render.yaml` active\n")
@@ -28,7 +28,7 @@ def main():
         f.write("- **Registry**: Loaded into memory\n")
 
     # 3. Frontend Deployment Report
-    with open("docs/frontend_deployment_report.md", "w") as f:
+    with open("docs/deployment/frontend_deployment_report.md", "w") as f:
         f.write("# Frontend Deployment Report\n\n")
         f.write("- **Platform**: Vercel\n")
         f.write("- **Configuration**: `vercel.json` active for SPA routing\n")

@@ -102,7 +102,7 @@ async def main():
     print(f"\nDownload Complete! Success rate: {success_rate:.1f}% ({success_count}/{total_count})")
     
     # Save report
-    with open("docs/direct_pdf_acquisition_report.md", "w") as f:
+    with open("docs/reports/direct_pdf_acquisition_report.md", "w") as f:
         f.write("# Phase 2.75 — Direct PDF Acquisition Report\n\n")
         f.write("## Summary\n")
         f.write(f"- **Targeted PDFs:** {total_count}\n")

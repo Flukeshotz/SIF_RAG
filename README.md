@@ -4,48 +4,90 @@
   <p><strong>Institutional-Grade AI Research Desk for Specialized Investment Funds</strong></p>
 
   <p>
+    <a href="https://your-vercel-url.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-Available-success?style=for-the-badge" alt="Live Demo" /></a>
+  </p>
+
+  <p>
     <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python" />
     <img src="https://img.shields.io/badge/FastAPI-0.103+-009688.svg" alt="FastAPI" />
     <img src="https://img.shields.io/badge/React-18+-61DAFB.svg" alt="React" />
     <img src="https://img.shields.io/badge/Qdrant-Vector_DB-8B5CF6.svg" alt="Qdrant" />
     <img src="https://img.shields.io/badge/Groq-LPU_Inference-F56565.svg" alt="Groq" />
-    <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License" />
   </p>
 </div>
 
 ---
 
-## 📖 Product Overview
+## 📖 The Problem
 
-Financial analysts spend hours navigating dense 100-page SEBI circulars, AMC factsheets, and Scheme Information Documents to verify compliance limits, compare funds, or check regulatory changes. 
+Financial analysts spend hours navigating dense 100-page SEBI circulars, AMC factsheets, and Scheme Information Documents to verify compliance limits, compare funds, or check regulatory changes. Standard ChatGPT wrappers fail in finance because they hallucinate numbers and cannot prove their claims.
 
-**SIF Copilot** is a high-performance, hallucination-free Retrieval-Augmented Generation (RAG) workspace. It indexes over 2,000 verifiable documents and uses Llama-3.1 on Groq LPUs to synthesize instant, source-backed answers.
+## 💡 The Solution
 
-### Why this exists?
-Standard ChatGPT wrappers fail in finance because they hallucinate numbers and cannot prove their claims. SIF Copilot implements a "Hybrid Imperative" architecture that preserves exact table structures, sanitizes noise, and forces the LLM to output verifiable `[Source N]` citations mapped to a 4-bar confidence meter.
+**SIF Copilot** is a high-performance, hallucination-free Retrieval-Augmented Generation (RAG) workspace designed specifically for India's new Specialized Investment Funds (SIF) framework.
 
-## ✨ Features
-
-- 🕵️‍♂️ **100% Verifiable Citations**: Every claim points to a specific document, page number, and paragraph via the sliding **Evidence Explorer**.
+- 🕵️‍♂️ **100% Verifiable Citations**: Every claim points to a specific document, page number, and paragraph via the sliding Evidence Explorer.
 - ⚡ **Sub-second Retrieval**: Powered by Groq LPUs and local Qdrant Vector search for <1.5s total generation latency.
 - 📊 **Dynamic Trust Metrics**: Instantly view the underlying chunk count, search latency, and cosine-similarity confidence score for every AI response.
 - 🎓 **Strict Compliance Guardrails**: Prompt engineering strictly prohibits the model from offering financial advice.
-- 🎨 **Bloomberg-Meets-Perplexity UI**: A high-density, dark-mode glassmorphism interface built for power users.
-- 🚀 **Presentation Mode**: Built-in Demo Mode and Presentation Mode for flawless, offline-capable live demos.
+
+## 📸 Product Tour
+
+### Market Explorer
+![Market Explorer](docs/screenshots/market_explorer.png)
+*A zero-LLM deterministic routing interface that instantly queries the internal JSON registry for fund discovery.*
+
+### Evidence Explorer & Citations
+![Evidence Explorer](docs/screenshots/evidence_explorer.png)
+*Side-by-side RAG answer and source document verification. Users can trace every claim back to the exact paragraph in a SEBI circular or ISID.*
 
 ## 🏗️ Architecture
 
-SIF Copilot splits the pipeline into asynchronous ingestion and real-time retrieval. 
+SIF Copilot uses a **Hybrid Imperative** architecture. Qualitative text is processed normally, but quantitative tables are extracted and preserved as atomic units to prevent data tearing. It relies on deterministic routing before falling back to the LLM.
 
-*View the full [Architecture Diagram](docs/architecture_diagram.md).*
+```mermaid
+graph TD
+    %% Define Styles
+    classDef source fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#e2e8f0;
+    classDef db fill:#1e1b4b,stroke:#8b5cf6,stroke-width:2px,color:#e2e8f0;
+    classDef llm fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#e2e8f0;
+    classDef output fill:#020617,stroke:#f59e0b,stroke-width:2px,color:#f59e0b;
+
+    UserQuery("User Query"):::source
+
+    %% Routing
+    Router{"Query Router\n(Deterministic, <10ms)"}
+    
+    UserQuery --> Router
+
+    %% Paths
+    Router -- "'Show all SIFs'\n(Market Discovery)" --> Registry[("Registry JSON\n(Instant)")]:::db
+    Router -- "'Compare A vs B'\n(Comparison)" --> Registry
+    Router -- "'Should I invest?'\n(Advisory)" --> Refusal("Compliance Refusal"):::output
+    Router -- "'Explain exit load'\n(Regulatory)" --> Qdrant[("Qdrant RAG\n(Semantic Search)")]:::db
+
+    %% RAG Path
+    Qdrant --> Groq("Groq LLM (Llama 3.1)"):::llm
+    Groq --> FinalAnswer("Cited Answer +\nEvidence Panel"):::output
+    Registry --> FinalAnswer
+```
+
+## 🧠 Key PM Decisions
+
+- **Deterministic Routing over Pure LLM**: By parsing intents heuristically *before* hitting the LLM, the app answers "Show me all funds" in <10ms by querying a JSON registry. This drastically reduces token costs, eliminates hallucination for structured data, and provides a snappier UX.
+- **Source Authority Ranking**: The retrieval engine weights official SEBI regulatory documents higher than marketing factsheets. This prevents the LLM from prioritizing sales copy over legal realities when answering questions about risk bands or exit loads.
+- **Aggressive Sanitization**: 163-page factsheets contained massive amounts of historical performance data that overwhelmed the semantic search space. The ingestion pipeline explicitly strips "Performance" and "Historical NAV" sections to guarantee high-precision retrieval on core compliance questions.
 
 ## 💻 Tech Stack
 
-- **Frontend**: React 18, Vite, TailwindCSS (Vanilla CSS for aesthetic tokens).
-- **Backend**: Python, FastAPI, Pydantic.
-- **AI/ML**: BAAI/bge-small-en-v1.5 (Embeddings), Groq Llama-3.1-8b-instant (Inference).
-- **Database**: Qdrant (Vector Store).
-- **Deployment**: Vercel (Frontend), Render/Docker (Backend).
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Frontend** | React 18, Vite, TailwindCSS | High-density, Bloomberg-style UI |
+| **Backend** | Python, FastAPI, Pydantic | Asynchronous API layer |
+| **Vector DB** | Qdrant | Local semantic search |
+| **Embeddings** | BAAI/bge-small-en-v1.5 | Fast, compact document vectorization |
+| **Inference** | Groq Llama-3.1-8b-instant | Ultra-low latency generation |
+| **Ingestion** | PyMuPDF, pdfplumber, OCRmyPDF | Table-preserving PDF extraction |
 
 ## 🚀 Local Setup
 
@@ -90,6 +132,3 @@ docker-compose up --build -d
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-Designed and Engineered as an end-to-end PM & AI showcase.

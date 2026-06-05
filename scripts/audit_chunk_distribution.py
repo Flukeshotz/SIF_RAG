@@ -36,7 +36,7 @@ def audit_distribution():
             else:
                 seen_texts[text] = doc_id
 
-    with open("docs/chunk_distribution_report.md", "w") as f:
+    with open("docs/reports/chunk_distribution_report.md", "w") as f:
         f.write("# Phase 5A — Chunk Distribution Audit\n\n")
         f.write(f"**Total Chunks:** {total_chunks}\n\n")
         

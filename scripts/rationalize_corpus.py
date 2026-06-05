@@ -83,7 +83,7 @@ def run():
     print(f"Original: {len(data)}, MVP: {len(mvp)}")
     
     # Generate the report
-    with open("docs/corpus_rationalization_report.md", "w") as f:
+    with open("docs/reports/corpus_rationalization_report.md", "w") as f:
         f.write("# Phase 2.65 — Corpus Rationalization Report\n\n")
         
         essential = sum(1 for d in classified if d.get("class") == "Essential")

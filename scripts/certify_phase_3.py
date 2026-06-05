@@ -66,7 +66,7 @@ def generate_certifications():
                 
             step2_lines.append(f"| {name} | {old_sec} | {new_sec} | {old_tab} | {new_tab} | {reduction:.1f}% |\n")
             
-    with open("docs/factsheet_sanitization_report.md", "w") as f:
+    with open("docs/reports/factsheet_sanitization_report.md", "w") as f:
         f.writelines(step2_lines)
 
     # --- STEP 3: OCR Validation ---

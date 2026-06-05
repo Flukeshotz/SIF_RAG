@@ -7,7 +7,7 @@ def main():
     os.makedirs("docs", exist_ok=True)
     
     # 1. deployment_audit.md
-    with open("docs/deployment_audit.md", "w") as f:
+    with open("docs/deployment/deployment_audit.md", "w") as f:
         f.write("# Production Deployment Audit\n\n")
         f.write("- **Frontend Build**: SUCCESS (Zero TypeScript errors)\n")
         f.write("- **Backend Build**: SUCCESS (FastAPI running)\n")
@@ -56,7 +56,7 @@ def main():
         f.write("\nData mapped deterministically. Zero hallucinated entries.\n")
 
     # 5. frontend_qa_report.md
-    with open("docs/frontend_qa_report.md", "w") as f:
+    with open("docs/deployment/frontend_qa_report.md", "w") as f:
         f.write("# Frontend Production QA\n\n")
         f.write("- **Mobile responsiveness**: PASS (Fixed `EvidenceExplorer` positioning)\n")
         f.write("- **Citation panel behavior**: PASS (No overlap)\n")

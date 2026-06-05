@@ -130,7 +130,7 @@ def main():
     overall_score = (total_passed / total_queries) * 100 if total_queries else 0
     
     # Save Report
-    with open("docs/evaluation_report.md", "w") as f:
+    with open("docs/reports/evaluation_report.md", "w") as f:
         f.write("# Phase 9.5 — Comprehensive Product Evaluation Report\n\n")
         f.write(f"**Overall Score:** {overall_score:.1f} / 100\n\n")
         f.write(f"**Total Queries Evaluated:** {total_queries}\n\n")
