@@ -1,0 +1,13 @@
+{
+  "source_id": "mirae-asset-mutual-fund-amc-website",
+  "created_at": "2026-06-04T20:30:04.054242Z",
+  "updated_at": "2026-06-04T20:30:04.054242Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "1cb53673b6c49ca4a4ad0d340b1bd49481ba6978399695e844b7269d8341668a",
+      "filepath": "data/raw/html/mirae-asset-mutual-fund-amc-website_1cb53673b6c49ca4a4ad0d340b1bd49481ba6978399695e844b7269d8341668a.html",
+      "ingested_at": "2026-06-04T20:30:04.054242Z"
+    }
+  ]
+}

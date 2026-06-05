@@ -1,0 +1,13 @@
+{
+  "source_id": "sebi-sebi-circular-4",
+  "created_at": "2026-06-04T20:30:40.040835Z",
+  "updated_at": "2026-06-04T20:30:40.040835Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "b627f8b91e86e3746955b44dfc33be534675b98a409439861bb3cd8cfeccbce5",
+      "filepath": "data/raw/html/sebi-sebi-circular-4_b627f8b91e86e3746955b44dfc33be534675b98a409439861bb3cd8cfeccbce5.html",
+      "ingested_at": "2026-06-04T20:30:40.040835Z"
+    }
+  ]
+}

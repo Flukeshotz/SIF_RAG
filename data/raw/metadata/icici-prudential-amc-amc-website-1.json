@@ -1,0 +1,13 @@
+{
+  "source_id": "icici-prudential-amc-amc-website-1",
+  "created_at": "2026-06-04T20:36:34.338171Z",
+  "updated_at": "2026-06-04T20:36:34.338171Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "99327754aa1f87adc1be9d23e3072e1aff1fc17c536921a51073ce765287957c",
+      "filepath": "data/raw/html/icici-prudential-amc-amc-website-1_99327754aa1f87adc1be9d23e3072e1aff1fc17c536921a51073ce765287957c.html",
+      "ingested_at": "2026-06-04T20:36:34.338171Z"
+    }
+  ]
+}

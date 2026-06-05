@@ -1,0 +1,13 @@
+{
+  "source_id": "tata-mutual-fund-amc-website-3",
+  "created_at": "2026-06-04T20:36:22.320288Z",
+  "updated_at": "2026-06-04T20:36:22.320288Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "ec8fc46dbc8b51d4421358465ee5403f42932fd9a76b7a0a2be8e773222497e8",
+      "filepath": "data/raw/html/tata-mutual-fund-amc-website-3_ec8fc46dbc8b51d4421358465ee5403f42932fd9a76b7a0a2be8e773222497e8.html",
+      "ingested_at": "2026-06-04T20:36:22.320288Z"
+    }
+  ]
+}

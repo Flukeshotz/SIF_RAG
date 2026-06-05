@@ -1,0 +1,13 @@
+{
+  "source_id": "the-wealth-company-kim",
+  "created_at": "2026-06-04T20:36:24.119535Z",
+  "updated_at": "2026-06-04T20:36:24.119535Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "52bbb0cfbdc40530b7837213790f9a425defe95edb899336fa83b82559d92df0",
+      "filepath": "data/raw/html/the-wealth-company-kim_52bbb0cfbdc40530b7837213790f9a425defe95edb899336fa83b82559d92df0.html",
+      "ingested_at": "2026-06-04T20:36:24.119535Z"
+    }
+  ]
+}

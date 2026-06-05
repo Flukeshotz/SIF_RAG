@@ -1,0 +1,13 @@
+{
+  "source_id": "360-one-mutual-fund-amc-website-1",
+  "created_at": "2026-06-04T20:36:14.590196Z",
+  "updated_at": "2026-06-04T20:36:14.590196Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "50212e2a0a8e784e6c8bf335fc446615fa1c288b2effa8c2aa589960e52b23d5",
+      "filepath": "data/raw/html/360-one-mutual-fund-amc-website-1_50212e2a0a8e784e6c8bf335fc446615fa1c288b2effa8c2aa589960e52b23d5.html",
+      "ingested_at": "2026-06-04T20:36:14.590196Z"
+    }
+  ]
+}

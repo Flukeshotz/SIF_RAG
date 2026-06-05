@@ -1,0 +1,13 @@
+{
+  "source_id": "dsp-mutual-fund-amc-website",
+  "created_at": "2026-06-04T20:31:21.392210Z",
+  "updated_at": "2026-06-04T20:31:21.392210Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "afa69f036ba7a7e5609d96355d042e0deaed381f5094bcad8fdb38ff35ef6d9b",
+      "filepath": "data/raw/html/dsp-mutual-fund-amc-website_afa69f036ba7a7e5609d96355d042e0deaed381f5094bcad8fdb38ff35ef6d9b.html",
+      "ingested_at": "2026-06-04T20:31:21.392210Z"
+    }
+  ]
+}

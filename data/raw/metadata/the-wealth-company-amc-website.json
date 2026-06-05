@@ -1,0 +1,13 @@
+{
+  "source_id": "the-wealth-company-amc-website",
+  "created_at": "2026-06-04T20:31:29.691901Z",
+  "updated_at": "2026-06-04T20:31:29.691901Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "5800d9ef466238bf05bd0a9dde4faef814e6da96a3e47884f9bf76fe53934052",
+      "filepath": "data/raw/html/the-wealth-company-amc-website_5800d9ef466238bf05bd0a9dde4faef814e6da96a3e47884f9bf76fe53934052.html",
+      "ingested_at": "2026-06-04T20:31:29.691901Z"
+    }
+  ]
+}

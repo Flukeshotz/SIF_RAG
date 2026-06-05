@@ -1,0 +1,13 @@
+{
+  "source_id": "the-wealth-company-factsheet",
+  "created_at": "2026-06-04T20:36:13.221571Z",
+  "updated_at": "2026-06-04T20:36:13.221571Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "00ceb29e39fbb37990f396bd4ae0a518476c4d272940023118f7a6d891e54c81",
+      "filepath": "data/raw/html/the-wealth-company-factsheet_00ceb29e39fbb37990f396bd4ae0a518476c4d272940023118f7a6d891e54c81.html",
+      "ingested_at": "2026-06-04T20:36:13.221571Z"
+    }
+  ]
+}

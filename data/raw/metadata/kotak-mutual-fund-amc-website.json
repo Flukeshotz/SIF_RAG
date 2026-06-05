@@ -1,0 +1,13 @@
+{
+  "source_id": "kotak-mutual-fund-amc-website",
+  "created_at": "2026-06-04T20:31:23.069781Z",
+  "updated_at": "2026-06-04T20:31:23.069781Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "2e443041a6d63785bb49c83d2a8bc220b9721ae42282c4002607945789466e24",
+      "filepath": "data/raw/html/kotak-mutual-fund-amc-website_2e443041a6d63785bb49c83d2a8bc220b9721ae42282c4002607945789466e24.html",
+      "ingested_at": "2026-06-04T20:31:23.069781Z"
+    }
+  ]
+}

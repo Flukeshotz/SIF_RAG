@@ -1,0 +1,13 @@
+{
+  "source_id": "quant-mutual-fund-sid",
+  "created_at": "2026-06-04T20:34:51.093559Z",
+  "updated_at": "2026-06-04T20:34:51.093559Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "3cb6ac4575edde72254d6d221f388c4d2b5727bb0de1badc0e827e08f7e0507c",
+      "filepath": "data/raw/html/quant-mutual-fund-sid_3cb6ac4575edde72254d6d221f388c4d2b5727bb0de1badc0e827e08f7e0507c.html",
+      "ingested_at": "2026-06-04T20:34:51.093559Z"
+    }
+  ]
+}

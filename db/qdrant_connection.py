@@ -9,11 +9,14 @@ def get_client() -> QdrantClient:
     db_path.mkdir(parents=True, exist_ok=True)
     return QdrantClient(path=str(db_path))
 
-def init_collection(client: QdrantClient, collection_name: str = "sif_documents"):
-    """Recreates the collection with proper vector schema."""
+def init_collection(client: QdrantClient, collection_name: str = "sif_documents", recreate: bool = False):
+    """Recreates the collection with proper vector schema if needed."""
     if client.collection_exists(collection_name):
-        client.delete_collection(collection_name)
-        
+        if recreate:
+            client.delete_collection(collection_name)
+        else:
+            return
+            
     client.create_collection(
         collection_name=collection_name,
         vectors_config=VectorParams(size=384, distance=Distance.COSINE)

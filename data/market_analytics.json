@@ -1,0 +1,13 @@
+{
+  "funds": {
+    "isif-equity-ex-top-100-long-short-fund": 1,
+    "qsif-equity-ex-top-100-long-short-fund": 1
+  },
+  "amcs": {
+    "ICICI Prudential": 1,
+    "quant Mutual Fund": 1
+  },
+  "strategies": {
+    "Equity Ex-Top 100 Long-Short": 2
+  }
+}

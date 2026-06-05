@@ -1,0 +1,13 @@
+{
+  "source_id": "amfi-amfi-circular-2",
+  "created_at": "2026-06-04T20:37:35.250353Z",
+  "updated_at": "2026-06-04T20:37:35.250353Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "362399e2772bf3e97ffd0a49a5177ab5fa9c38fc52d3a2bfb6ae6b3ef323e368",
+      "filepath": "data/raw/html/amfi-amfi-circular-2_362399e2772bf3e97ffd0a49a5177ab5fa9c38fc52d3a2bfb6ae6b3ef323e368.html",
+      "ingested_at": "2026-06-04T20:37:35.250353Z"
+    }
+  ]
+}

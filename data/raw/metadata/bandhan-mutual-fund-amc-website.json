@@ -1,0 +1,13 @@
+{
+  "source_id": "bandhan-mutual-fund-amc-website",
+  "created_at": "2026-06-04T20:36:23.603278Z",
+  "updated_at": "2026-06-04T20:36:23.603278Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "0288a5d6db0cb226b38c9b428b5b187de5ef14a35787642cd4caf8ce15c88726",
+      "filepath": "data/raw/html/bandhan-mutual-fund-amc-website_0288a5d6db0cb226b38c9b428b5b187de5ef14a35787642cd4caf8ce15c88726.html",
+      "ingested_at": "2026-06-04T20:36:23.603278Z"
+    }
+  ]
+}

@@ -1,6 +1,12 @@
 import os
-from groq import Groq
-from dotenv import load_dotenv
+try:
+    from groq import Groq
+except ImportError:
+    Groq = None
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    load_dotenv = lambda: None
 from generation.prompts import MASTER_SYSTEM_PROMPT, format_user_prompt
 
 load_dotenv()

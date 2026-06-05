@@ -24,3 +24,6 @@
 {"query": "what all sifs are there", "timestamp": "2026-06-04T19:41:20.684149+00:00", "latency": 0, "sources_used": 32}
 {"query": "what all sifs are there", "timestamp": "2026-06-04T19:41:41.435605+00:00", "latency": 2, "sources_used": 32}
 {"query": "what all sifs are there", "timestamp": "2026-06-04T19:42:16.372204+00:00", "latency": 1, "sources_used": 32}
+{"query": "what all sifs are there?", "timestamp": "2026-06-04T19:42:49.508721+00:00", "latency": 1, "sources_used": 32}
+{"query": "What are the specific exit load regulations for Social Impact Funds (SIF) under SEBI guidelines?", "timestamp": "2026-06-05T09:04:51.780696+00:00", "latency": 5056, "sources_used": 5}
+{"query": "Compare Quant vs Tata", "timestamp": "2026-06-05T16:43:23.104770+00:00", "latency": 5424, "sources_used": 5}

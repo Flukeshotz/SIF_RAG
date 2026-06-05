@@ -98,5 +98,53 @@
     "source": "Groww",
     "status": "Active",
     "last_updated": "2026-06-04T18:30:42.212215+00:00"
+  },
+  {
+    "fund_name": "Tata Innovation Theme SIF",
+    "amc": "Tata",
+    "strategy_type": "Innovation Theme",
+    "risk_band": 6,
+    "benchmark": "NIFTY IT",
+    "minimum_investment": "\u20b91 Crore",
+    "category": "Alternative Investment Fund",
+    "document_sources": [
+      "tata-mutual-fund-amc-website-3",
+      "tata-mutual-fund-amc-website-1",
+      "tata-mutual-fund-amc-website",
+      "external--uncategorized-amc-website-2",
+      "tata-mutual-fund-amc-website-2"
+    ]
+  },
+  {
+    "fund_name": "Quant Long-Short SIF",
+    "amc": "Quant",
+    "strategy_type": "Long-Short",
+    "risk_band": 5,
+    "benchmark": "NIFTY 500",
+    "minimum_investment": "\u20b91 Crore",
+    "category": "Alternative Investment Fund",
+    "document_sources": [
+      "quant-mutual-fund-amc-website-1",
+      "quant-mutual-fund-sid",
+      "360-one-mutual-fund-amc-website",
+      "360-one-mutual-fund-amc-website-1",
+      "quant-mutual-fund-amc-website"
+    ]
+  },
+  {
+    "fund_name": "ICICI Prudential Equity-Oriented SIF",
+    "amc": "ICICI Prudential",
+    "strategy_type": "Equity-Oriented",
+    "risk_band": 4,
+    "benchmark": "NIFTY 100",
+    "minimum_investment": "\u20b91 Crore",
+    "category": "Alternative Investment Fund",
+    "document_sources": [
+      "icici-prudential-amc-sebi-circular",
+      "icici-prudential-amc-amc-website",
+      "icici-prudential-amc-amc-website-1",
+      "the-wealth-company-amc-website-2",
+      "sebi-sebi-circular-7"
+    ]
   }
 ]

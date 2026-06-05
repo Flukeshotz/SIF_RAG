@@ -1,0 +1,13 @@
+{
+  "source_id": "iti-mutual-fund-amc-website",
+  "created_at": "2026-06-04T20:31:20.135800Z",
+  "updated_at": "2026-06-04T20:31:20.135800Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "6a36e643fc9a180024b8c5de1fafb6b91ff3e8e45fe6d8909fd92042724bd2c3",
+      "filepath": "data/raw/html/iti-mutual-fund-amc-website_6a36e643fc9a180024b8c5de1fafb6b91ff3e8e45fe6d8909fd92042724bd2c3.html",
+      "ingested_at": "2026-06-04T20:31:20.135800Z"
+    }
+  ]
+}

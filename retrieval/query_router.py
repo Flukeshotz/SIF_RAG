@@ -1,103 +1,188 @@
-import logging
+import os
 import json
-from typing import Dict, Any, Tuple
-from generation.llm import get_groq_client
+import logging
+import time
+from typing import Dict, Any, Tuple, List
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-INTENT_SYSTEM_PROMPT = """You are an Intent Classifier for the SIF Copilot.
-Classify the user's query into exactly ONE of these categories:
-1. MARKET_INVENTORY (Questions about what funds exist, listing funds, counting funds, AMCs, or filtering by live/nfo status)
-2. MARKET_COMPARISON (Questions explicitly asking to compare two or more specific funds)
-3. REGULATORY (Questions about SEBI rules, limits, definitions, and frameworks)
-4. PRODUCT_DETAIL (Questions asking to explain a specific fund's strategy, documents, or details)
-5. ADVISORY (Questions asking for recommendations, advice, or predictions)
+# ------------------------------------------------------------
+# Intent pattern sets (case‑insensitive)
+# ------------------------------------------------------------
+INVENTORY_ACTIONS = {"show", "list", "display", "give", "which", "what", "how many"}
+INVENTORY_OBJECTS = {"sif", "sifs", "fund", "funds", "strategy", "strategies", "amc", "amcs"}
+COMPARISON_ACTIONS = {"compare", "vs", "versus", "difference", "different", "better"}
+ADVISORY_PHRASES = {"should i", "recommend", "advice", "what should i do", "which fund should i pick", "can you advise"}
+MARKET_DISCOVERY_TRIGGERS = {"newest", "latest", "recent", "popular", "entered", "launched"}
 
-Also extract any entities like 'amc' (e.g. Quant, Tata, ICICI), 'strategy' (e.g. Hybrid Long Short), or 'status' (e.g. Live, NFO).
+# ------------------------------------------------------------
+# Dynamic entity dictionaries – loaded once at import time
+# ------------------------------------------------------------
+REGISTRY_PATH = Path(__file__).resolve().parents[2] / "data" / "sif_registry.json"
+KNOWN_AMCS: set = set()
+KNOWN_FUNDS: set = set()
+KNOWN_STRATEGIES: set = set()
 
-Return your response strictly as JSON:
-{
-    "intent": "CATEGORY_NAME",
-    "entities": {
-        "amc": "value or null",
-        "strategy": "value or null",
-        "status": "value or null"
-    }
-}
-"""
+def _load_registry() -> None:
+    global KNOWN_AMCS, KNOWN_FUNDS, KNOWN_STRATEGIES
+    if not REGISTRY_PATH.is_file():
+        logger.warning(f"Registry file not found at {REGISTRY_PATH}, entity extraction will be limited.")
+        return
+    try:
+        with REGISTRY_PATH.open() as f:
+            data = json.load(f)
+        # Expected structure: {"amcs": [{"name": "..."}], "funds": [{"name": "..."}], "strategies": [{"name": "..."}]}
+        KNOWN_AMCS = {item["name"].lower() for item in data.get("amcs", [])}
+        KNOWN_FUNDS = {item["name"].lower() for item in data.get("funds", [])}
+        KNOWN_STRATEGIES = {item["name"].lower() for item in data.get("strategies", [])}
+    except Exception as e:
+        logger.error(f"Failed to load SIF registry for entity extraction: {e}")
 
+_load_registry()
+
+# ------------------------------------------------------------
+# Helper utilities
+# ------------------------------------------------------------
+def _tokenise(text: str) -> List[str]:
+    return [t.strip() for t in text.lower().split() if t.strip()]
+
+def _match_pattern(tokens: List[str], actions: set, objects: set) -> bool:
+    # Look for any action token followed later by any object token (allow "all" in between)
+    for i, tok in enumerate(tokens):
+        if tok in actions:
+            # Scan remaining tokens for an object
+            for later in tokens[i+1:]:
+                if later in objects:
+                    return True
+                if later == "all":
+                    continue
+    return False
+
+def extract_entities(query: str) -> Dict[str, str]:
+    """Simple entity extraction based on the dynamically loaded registry sets.
+    Returns a dict with possible keys: 'amc', 'fund', 'strategy'.
+    """
+    result = {}
+    lowered = query.lower()
+    tokens = _tokenise(query)
+    # Find first matching amc/fund/strategy token present in registry sets
+    for token in tokens:
+        if token in KNOWN_AMCS:
+            result["amc"] = token
+        if token in KNOWN_FUNDS:
+            result["fund"] = token
+        if token in KNOWN_STRATEGIES:
+            result["strategy"] = token
+    return result
+
+# CSV logging – ensure directory exists
+LOG_DIR = Path(__file__).resolve().parents[2] / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+LOG_FILE = LOG_DIR / "routing_audit.csv"
+if not LOG_FILE.is_file():
+    LOG_FILE.write_text("query,matched_rule,confidence,route,groq_called\n")
+
+def log_decision(query: str, matched_rule: str, confidence: float, route: str, groq_called: bool) -> None:
+    line = f"\"{query}\",{matched_rule},{confidence:.3f},{route},{groq_called}\n"
+    with LOG_FILE.open("a", encoding="utf-8") as f:
+        f.write(line)
+
+# ------------------------------------------------------------
+# Core routing function
+# ------------------------------------------------------------
 def route_query(query: str) -> Tuple[str, Dict[str, Any]]:
+    """Routes a user query to one of the categories:
+    inventory, comparison, advisory, market_discovery, or rag (fallback).
+    Returns a tuple (route, params) where params may contain extracted entities.
     """
-    Classifies a query using deterministic heuristics first, falling back to Groq Intent Classification.
-    """
-    lower_q = query.lower()
-    
-    # 1. Deterministic Heuristics (Bypass LLM)
-    discovery_exact_matches = [
-        "what sifs exist", "show all sifs", "list all sifs", "how many sifs", 
-        "which sifs", "show funds", "all sifs"
-    ]
-    is_deterministic_discovery = any(m in lower_q for m in discovery_exact_matches) or lower_q.startswith("show all")
-    
-    if is_deterministic_discovery:
-        params = {}
-        if "quant" in lower_q: params["filter_amc"] = "Quant"
-        if "tata" in lower_q: params["filter_amc"] = "Tata"
-        if "icici" in lower_q: params["filter_amc"] = "ICICI"
-        if "hybrid" in lower_q: params["filter_strategy"] = "Hybrid Long-Short"
-        if "equity" in lower_q and "ex" not in lower_q: params["filter_strategy"] = "Equity Long-Short"
-        if "ex-top 100" in lower_q or "ex top 100" in lower_q: params["filter_strategy"] = "Equity Ex-Top 100 Long-Short"
-        if "live" in lower_q: params["filter_status"] = "Live"
-        if "nfo" in lower_q: params["filter_status"] = "NFO"
-        return "discovery", params
-        
-    if "compare" in lower_q or "vs" in lower_q:
-        funds_to_compare = []
-        if "quant" in lower_q: funds_to_compare.append("Quant")
-        if "tata" in lower_q: funds_to_compare.append("Tata")
-        if "icici" in lower_q: funds_to_compare.append("ICICI")
-        if "hybrid" in lower_q: funds_to_compare.append("Hybrid Long-Short")
-        if "equity" in lower_q: funds_to_compare.append("Equity Long-Short")
-        if funds_to_compare:
-            return "comparison", {"funds": funds_to_compare}
+    start_time = time.perf_counter()
+    tokens = _tokenise(query)
+    lowered = query.lower()
 
-    # 2. LLM Fallback (if deterministic fails)
+    # 1. Inventory detection (deterministic, highest priority)
+    if _match_pattern(tokens, INVENTORY_ACTIONS, INVENTORY_OBJECTS):
+        # Avoid false positives where a comparison action appears earlier – inventory wins per rule A.
+        confidence = 1.0
+        params = extract_entities(query)
+        log_decision(query, "inventory", confidence, "inventory", False)
+        return "inventory", params
+
+    # 2. Comparison detection
+    if any(tok in COMPARISON_ACTIONS for tok in tokens):
+        # Simple heuristic: need at least two recognizable entities (amc/fund/strategy)
+        entities = extract_entities(query)
+        if len(entities) >= 2:
+            confidence = 1.0
+            log_decision(query, "comparison", confidence, "comparison", False)
+            return "comparison", entities
+        # Fallback to advisory if not enough entities
+        if any(phrase in lowered for phrase in ADVISORY_PHRASES):
+            confidence = 1.0
+            log_decision(query, "advisory", confidence, "advisory", False)
+            return "advisory", {}
+
+    # 3. Advisory detection (stand‑alone phrases)
+    if any(phrase in lowered for phrase in ADVISORY_PHRASES):
+        confidence = 1.0
+        log_decision(query, "advisory", confidence, "advisory", False)
+        return "advisory", {}
+
+    # 4. Market discovery detection
+    if any(tok in MARKET_DISCOVERY_TRIGGERS for tok in tokens):
+        confidence = 1.0
+        params = extract_entities(query)
+        log_decision(query, "market_discovery", confidence, "market_discovery", False)
+        return "market_discovery", params
+
+    # 5. LLM fallback – may invoke Groq
+    from generation.llm import get_groq_client
     client = get_groq_client()
     if not client:
+        # No Groq available – treat as rag with empty params
+        log_decision(query, "llm_fallback", 0.0, "rag", False)
         return "rag", {}
-
     try:
         response = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[
-                {"role": "system", "content": INTENT_SYSTEM_PROMPT},
+                {"role": "system", "content": "Classify the user query into one of the predefined categories and extract entities if possible."},
                 {"role": "user", "content": query}
             ],
             temperature=0.0,
             max_tokens=100,
             response_format={"type": "json_object"}
         )
-        
         result = json.loads(response.choices[0].message.content)
-        intent = result.get("intent", "REGULATORY")
+        intent = result.get("intent", "rag").lower()
         entities = result.get("entities", {})
-        
-        params = {}
-        if entities.get("amc"): params["filter_amc"] = entities["amc"]
-        if entities.get("strategy"): params["filter_strategy"] = entities["strategy"]
-        if entities.get("status"): params["filter_status"] = entities["status"]
-        
-        if intent == "MARKET_INVENTORY":
-            return "discovery", params
-        elif intent == "MARKET_COMPARISON":
-            return "comparison", params
-        elif intent == "PRODUCT_DETAIL" or intent == "REGULATORY":
-            return "rag", params
-        elif intent == "ADVISORY":
-            return "rag", params
-        else:
-            return "rag", params
-            
+        confidence = result.get("confidence", 0.5) if isinstance(result.get("confidence"), (int, float)) else 0.5
+        log_decision(query, "llm_fallback", confidence, intent, True)
+        # Map intents to our internal route names
+        intent_map = {
+            "market_inventory": "inventory",
+            "market_comparison": "comparison",
+            "advisory": "advisory",
+            "market_discovery": "market_discovery",
+            "regulatory": "rag",
+            "product_detail": "rag",
+            "risk": "rag"
+        }
+        route = intent_map.get(intent, "rag")
+        return route, entities
     except Exception as e:
-        logger.error(f"Intent classification failed: {e}")
+        logger.error(f"LLM routing failed: {e}")
+        log_decision(query, "llm_error", 0.0, "rag", True)
         return "rag", {}
+
+def print_decision_tree() -> str:
+    """Returns a human‑readable representation of the routing decision order."""
+    tree = (
+        "Routing Decision Tree\n"
+        "├─ Inventory (deterministic) → inventory\n"
+        "├─ Comparison (deterministic) → comparison\n"
+        "├─ Advisory (deterministic) → advisory\n"
+        "├─ Market Discovery (deterministic) → market_discovery\n"
+        "└─ LLM fallback (Groq) → rag / regulatory / product / risk"
+    )
+    return tree

@@ -38,7 +38,7 @@ def answer_query_structured(query: str) -> dict:
     
     # --- PHASE 7.6: QUERY ROUTING ---
     from retrieval.query_router import route_query
-    from registry.service import get_all_funds, get_funds_by_amc, get_funds_by_strategy, get_live_funds, get_nfo_funds
+    from registry.service import get_all_funds, get_funds_by_amc, get_funds_by_strategy, get_live_funds, get_nfo_funds, compare_funds
     
     route_type, params = route_query(query)
     

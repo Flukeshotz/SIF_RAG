@@ -1,0 +1,193 @@
+{
+  "total_processed": 79,
+  "success": 42,
+  "new_versions": 42,
+  "errors": 37,
+  "error_details": [
+    {
+      "source_id": "sebi-sebi-circular",
+      "status": "error",
+      "error": "'versions'"
+    },
+    {
+      "source_id": "sebi-sebi-circular-2",
+      "status": "error",
+      "error": "HTTP 429"
+    },
+    {
+      "source_id": "sebi-sebi-circular-3",
+      "status": "error",
+      "error": "'versions'"
+    },
+    {
+      "source_id": "edelweiss-mutual-fund-amc-website",
+      "status": "error",
+      "error": "Request failed: HTTP 403"
+    },
+    {
+      "source_id": "icici-prudential-amc-factsheet",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.icicipruamc.com/blob/sebi-repo/Advertisements/2026/April/Filing%20date%2017-04-2026/Release%20date%2014-04-2026/Advertisements/Annexure%206%20-%20iSIF%20Factsheet.PDF\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "hsbc-mutual-fund-brochure",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.assetmanagement.hsbc.co.in/en/redhex-sif/-/media/Files/attachments/india/redhex-sif/nfo-deck-redhex-hybrid-long-short-fund\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "hsbc-mutual-fund-amc-website",
+      "status": "error",
+      "error": "Request failed: Timeout"
+    },
+    {
+      "source_id": "sebi-sebi-circular-5",
+      "status": "error",
+      "error": "'versions'"
+    },
+    {
+      "source_id": "amfi-amfi-circular",
+      "status": "error",
+      "error": "'versions'"
+    },
+    {
+      "source_id": "edelweiss-mutual-fund-isid",
+      "status": "error",
+      "error": "Request failed: HTTP 403"
+    },
+    {
+      "source_id": "external--uncategorized-kim",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.qsif.com/Admin/SIDPdf/KIM-qsif_Sector_Rotation_Long_Short_fund.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "external--uncategorized-isid",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.qsif.com/Admin/SIDPdf/ISID_qsif_Sector_Rotation_Long-Short_Fund.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "tata-mutual-fund-kim",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.tatamutualfund.com/system/files/2025-11/Titanium%20Hybrid%20Long-Short%20Fund-KIM.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "external--uncategorized-factsheet",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.qsif.com/Admin/Factsheet/qsif-Factsheet_March_2026.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "external--uncategorized-factsheet-1",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.qsif.com/Admin/Factsheet/qsif%20_Factsheet_February%202026.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "external--uncategorized-factsheet-2",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.qsif.com/Admin/Factsheet/qsif_Factsheet_May_2026.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "edelweiss-mutual-fund-factsheet",
+      "status": "error",
+      "error": "Request failed: HTTP 403"
+    },
+    {
+      "source_id": "franklin-templeton-kim",
+      "status": "error",
+      "error": "'versions'"
+    },
+    {
+      "source_id": "external--uncategorized-isid-1",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.qsif.com/Admin/SIDPdf/ISID_qsif_Equity_Ex-Top_100_Long-Short_Fund.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "icici-prudential-amc-kim",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.icicipruamc.com/blob/sif/downloads/Launch%20KIM%20-%20iSIF%20Equity%20Ex-Top%20100%20Long-Short%20Fund.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "hsbc-mutual-fund-faq",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.assetmanagement.hsbc.co.in/-/media/Files/attachments/india/redhex-sif/faqs-redhex-sif-by-hsbc-mf.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "edelweiss-mutual-fund-amc-website-1",
+      "status": "error",
+      "error": "Request failed: HTTP 403"
+    },
+    {
+      "source_id": "hsbc-mutual-fund-amc-website-1",
+      "status": "error",
+      "error": "Page.goto: Download is starting\nCall log:\n  - navigating to \"https://www.assetmanagement.hsbc.co.in/assets/documents/mutual-funds/en/4d80a847-9b32-4971-b0bf-e525cb05466e/sif-product-note.pdf\", waiting until \"networkidle\"\n"
+    },
+    {
+      "source_id": "edelweiss-mutual-fund-brochure",
+      "status": "error",
+      "error": "Request failed: HTTP 403"
+    },
+    {
+      "source_id": "dsp-mutual-fund-factsheet",
+      "status": "error",
+      "error": "'versions'"
+    },
+    {
+      "source_id": "sebi-sebi-circular-8",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "amfi-amfi-circular-3",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "tata-mutual-fund-isid",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "edelweiss-mutual-fund-kim",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "sbi-mutual-fund-amc-website-2",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "quant-mutual-fund-isid",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "quant-mutual-fund-factsheet",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "icici-prudential-amc-kim-1",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "hsbc-mutual-fund-faq-1",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "360-one-mutual-fund-kim",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "dsp-mutual-fund-amc-website-2",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    },
+    {
+      "source_id": "mirae-asset-mutual-fund-amc-website-2",
+      "status": "error",
+      "error": "Request failed: Request URL is missing an 'http://' or 'https://' protocol."
+    }
+  ]
+}

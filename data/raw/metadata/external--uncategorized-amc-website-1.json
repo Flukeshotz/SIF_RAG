@@ -1,0 +1,13 @@
+{
+  "source_id": "external--uncategorized-amc-website-1",
+  "created_at": "2026-06-04T20:31:20.886465Z",
+  "updated_at": "2026-06-04T20:31:20.886465Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "bcba91e6af753edebe665487db220e721bcad9ecbcd6806de2ac153f9bd8c03c",
+      "filepath": "data/raw/pdf/external--uncategorized-amc-website-1_bcba91e6af753edebe665487db220e721bcad9ecbcd6806de2ac153f9bd8c03c.pdf",
+      "ingested_at": "2026-06-04T20:31:20.886465Z"
+    }
+  ]
+}

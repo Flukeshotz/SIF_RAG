@@ -1,0 +1,13 @@
+{
+  "source_id": "quant-mutual-fund-amc-website",
+  "created_at": "2026-06-04T20:31:15.324556Z",
+  "updated_at": "2026-06-04T20:31:15.324556Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "d50223c5b980fc630d323d9168dc5787c45de9f30b1c1b64d6bacc5b4f02c123",
+      "filepath": "data/raw/html/quant-mutual-fund-amc-website_d50223c5b980fc630d323d9168dc5787c45de9f30b1c1b64d6bacc5b4f02c123.html",
+      "ingested_at": "2026-06-04T20:31:15.324556Z"
+    }
+  ]
+}

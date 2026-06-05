@@ -1,0 +1,13 @@
+{
+  "source_id": "aditya-birla-sun-life-amc-website",
+  "created_at": "2026-06-04T20:34:49.287204Z",
+  "updated_at": "2026-06-04T20:34:49.287204Z",
+  "versions": [
+    {
+      "version_id": 1,
+      "content_hash": "890c37dcf8d39553efda491809fa36083a28446911b74f220143646ff16750f5",
+      "filepath": "data/raw/html/aditya-birla-sun-life-amc-website_890c37dcf8d39553efda491809fa36083a28446911b74f220143646ff16750f5.html",
+      "ingested_at": "2026-06-04T20:34:49.287204Z"
+    }
+  ]
+}
