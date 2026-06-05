@@ -8,10 +8,11 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/badge/Python-3.9+-blue.svg" alt="Python" />
-    <img src="https://img.shields.io/badge/FastAPI-0.103+-009688.svg" alt="FastAPI" />
-    <img src="https://img.shields.io/badge/React-18+-61DAFB.svg" alt="React" />
-    <img src="https://img.shields.io/badge/Qdrant-Vector_DB-8B5CF6.svg" alt="Qdrant" />
+    <img src="https://img.shields.io/badge/Python-3.11-blue.svg" alt="Python" />
+    <img src="https://img.shields.io/badge/FastAPI-Backend-green.svg" alt="FastAPI" />
+    <img src="https://img.shields.io/badge/React-Frontend-blue.svg" alt="React" />
+    <img src="https://img.shields.io/badge/Qdrant-VectorDB-red.svg" alt="Qdrant" />
+    <img src="https://img.shields.io/badge/RAG-Enabled-purple.svg" alt="RAG" />
     <img src="https://img.shields.io/badge/Groq-LPU_Inference-F56565.svg" alt="Groq" />
   </p>
 </div>
