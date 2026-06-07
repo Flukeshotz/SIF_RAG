@@ -70,7 +70,8 @@ def answer_query_structured(query: str) -> dict:
         }
         
     if route_type == "comparison":
-        funds = compare_funds(params.get("funds", []))
+        funds_to_compare = params.get("fund", params.get("funds", []))
+        funds = compare_funds(funds_to_compare)
         search_time_ms = int((time.perf_counter() - start_time) * 1000)
         return {
             "answer": f"Here is the comparison between the requested funds.",
