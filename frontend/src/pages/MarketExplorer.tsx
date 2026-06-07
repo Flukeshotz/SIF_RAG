@@ -98,9 +98,9 @@ export default function MarketExplorer() {
     // Filter funds for main display
     let filteredFunds = stats.funds;
     if (viewMode === "amc") {
-        filteredFunds = filteredFunds.filter(f => f.amc.toLowerCase().includes(filterParam.toLowerCase()));
+        filteredFunds = filteredFunds.filter(f => f.amc.toLowerCase().replace(/[- ]/g, '') === filterParam.toLowerCase().replace(/[- ]/g, ''));
     } else if (viewMode === "strategy") {
-        filteredFunds = filteredFunds.filter(f => f.strategy.toLowerCase().includes(filterParam.toLowerCase()));
+        filteredFunds = filteredFunds.filter(f => f.strategy.toLowerCase().replace(/[- ]/g, '') === filterParam.toLowerCase().replace(/[- ]/g, ''));
     } else {
         // Market view general filters
         if (selectedAMC !== "All") {
