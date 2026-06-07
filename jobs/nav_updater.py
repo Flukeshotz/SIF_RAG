@@ -57,7 +57,21 @@ def update_navs():
         # Map deterministically to a real scheme code
         scheme_code = REAL_SCHEME_CODES[i % len(REAL_SCHEME_CODES)]
         
-        nav, change = fetch_real_nav(scheme_code)
+        real_nav, change = fetch_real_nav(scheme_code)
+        
+        if real_nav is None:
+            # Fallback if API fails
+            synthetic_nav, change = 10.0, 0.0
+        else:
+            # Create a synthetic base around 10.00 for NFOs (newly launched funds)
+            # using the scheme_code to make it deterministic.
+            synthetic_base = 10.0 + (scheme_code % 100) / 100.0
+            
+            # The synthetic NAV uses the base and applies the real market change percentage.
+            # We don't compound it over history here, we just simulate today's price.
+            synthetic_nav = round(synthetic_base * (1 + change / 100.0), 2)
+            
+        nav = synthetic_nav
         
         if nav is None:
             # Fallback if API fails

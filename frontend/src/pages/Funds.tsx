@@ -1,11 +1,11 @@
 
 export default function Funds() {
   const funds = [
-    { name: "Quant SIF Alpha", type: "Equity", nav: "₹14.52", aum: "₹1,250 Cr", return1y: "+24.5%", risk: "High" },
-    { name: "Tata Social Impact Fund", type: "Debt", nav: "₹102.40", aum: "₹4,100 Cr", return1y: "+8.2%", risk: "Low" },
-    { name: "Zerodha Nifty LargeMidcap", type: "Index", nav: "₹25.10", aum: "₹850 Cr", return1y: "+18.4%", risk: "Moderate" },
-    { name: "SBI Magnum SIF", type: "Hybrid", nav: "₹45.80", aum: "₹8,900 Cr", return1y: "+14.1%", risk: "Moderate" },
-    { name: "Nippon India Special", type: "Equity", nav: "₹88.20", aum: "₹5,400 Cr", return1y: "+21.0%", risk: "High" },
+    { name: "Quant SIF Alpha", type: "Equity", nav: "₹10.52", aum: "₹1,250 Cr", return1y: "+24.5%", risk: "High" },
+    { name: "Tata Social Impact Fund", type: "Debt", nav: "₹10.40", aum: "₹4,100 Cr", return1y: "+8.2%", risk: "Low" },
+    { name: "Zerodha Nifty LargeMidcap", type: "Index", nav: "₹10.10", aum: "₹850 Cr", return1y: "+18.4%", risk: "Moderate" },
+    { name: "SBI Magnum SIF", type: "Hybrid", nav: "₹10.80", aum: "₹8,900 Cr", return1y: "+14.1%", risk: "Moderate" },
+    { name: "Nippon India Special", type: "Equity", nav: "₹10.20", aum: "₹5,400 Cr", return1y: "+21.0%", risk: "High" },
   ];
 
   return (
