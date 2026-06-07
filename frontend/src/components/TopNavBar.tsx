@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { fetchNavs, NavData } from '../api';
+import { fetchNavs } from '../api';
+import type { NavData } from '../api';
 
 interface TopNavBarProps {
     isDemoMode: boolean;
