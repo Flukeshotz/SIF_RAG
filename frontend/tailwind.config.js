@@ -110,7 +110,7 @@ export default {
             "100%": { opacity: "1", transform: "translateY(0)" }
         },
         "ticker": {
-            "0%": { transform: "translateX(100%)" },
+            "0%": { transform: "translateX(100vw)" },
             "100%": { transform: "translateX(-100%)" }
         }
       },
