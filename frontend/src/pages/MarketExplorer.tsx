@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 export default function MarketExplorer() {
     const [stats, setStats] = useState({
         total_funds: 0,
@@ -29,9 +31,9 @@ export default function MarketExplorer() {
             try {
                 // Fetch basic endpoints concurrently
                 const [fundsRes, strategiesRes, categoriesRes] = await Promise.all([
-                    fetch('http://localhost:8000/funds').then(res => res.json()),
-                    fetch('http://localhost:8000/funds/strategies').then(res => res.json()),
-                    fetch('http://localhost:8000/funds/categories').then(res => res.json())
+                    fetch(`${API_BASE_URL}/funds`).then(res => res.json()),
+                    fetch(`${API_BASE_URL}/funds/strategies`).then(res => res.json()),
+                    fetch(`${API_BASE_URL}/funds/categories`).then(res => res.json())
                 ]);
 
                 // Compute total AMCs uniquely
@@ -55,7 +57,7 @@ export default function MarketExplorer() {
 
     const trackFundView = async (fund: any) => {
         try {
-            await fetch('http://localhost:8000/analytics/view_fund', {
+            await fetch(`${API_BASE_URL}/analytics/view_fund`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
