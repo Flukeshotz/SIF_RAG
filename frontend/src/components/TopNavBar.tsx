@@ -5,9 +5,10 @@ import type { NavData } from '../api';
 interface TopNavBarProps {
     isDemoMode: boolean;
     setIsDemoMode: (val: boolean) => void;
+    toggleSidebar?: () => void;
 }
 
-const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
+const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode, toggleSidebar }) => {
     const [navs, setNavs] = useState<NavData[]>([]);
 
     useEffect(() => {
@@ -35,9 +36,17 @@ const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-gutter bg-surface/60 backdrop-blur-md border-b border-outline-variant shadow-sm">
-            <div className="flex items-center gap-md flex-1 overflow-hidden">
-                <div className="font-display-lg text-headline-md font-bold tracking-tight text-primary ml-4">SIF Copilot V2</div>
+        <nav className="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-4 md:px-gutter bg-surface/60 backdrop-blur-md border-b border-outline-variant shadow-sm">
+            <div className="flex items-center gap-2 md:gap-md flex-1 overflow-hidden">
+                {toggleSidebar && (
+                    <button 
+                        onClick={toggleSidebar}
+                        className="md:hidden p-1 text-on-surface hover:bg-surface-variant/50 rounded-lg flex items-center justify-center transition-colors"
+                    >
+                        <span className="material-symbols-outlined">menu</span>
+                    </button>
+                )}
+                <div className="font-display-lg text-headline-sm md:text-headline-md font-bold tracking-tight text-primary">SIF Copilot V2</div>
                 <div className="w-px h-6 bg-outline-variant hidden md:block"></div>
                 
                 {/* SIF NAV Ticker */}
@@ -56,7 +65,7 @@ const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
                 </div>
             </div>
 
-            <div className="flex items-center gap-md pl-md">
+            <div className="flex items-center gap-2 md:gap-md pl-2 md:pl-md">
                 {/* Toggles */}
                 <div className="hidden lg:flex items-center gap-xs mr-4 border-r border-outline-variant pr-md">
                     <label className="flex items-center cursor-pointer gap-2 mr-2">
@@ -79,12 +88,12 @@ const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
                         <span className="font-label-md text-label-md text-on-surface-variant">Live Corpus</span>
                     </div>
                 </div>
-                <div className="flex items-center gap-sm mr-4">
+                <div className="flex items-center gap-2 md:gap-sm mr-2 md:mr-4">
                     <button className="p-xs text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-full flex items-center justify-center opacity-80">
-                        <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>notifications</span>
+                        <span className="material-symbols-outlined text-[20px] md:text-[24px]" style={{fontVariationSettings: "'FILL' 0"}}>notifications</span>
                     </button>
                     <button className="p-xs text-on-surface-variant hover:bg-surface-variant/50 transition-colors rounded-full flex items-center justify-center opacity-80">
-                        <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0"}}>account_circle</span>
+                        <span className="material-symbols-outlined text-[20px] md:text-[24px]" style={{fontVariationSettings: "'FILL' 0"}}>account_circle</span>
                     </button>
                 </div>
             </div>

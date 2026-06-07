@@ -147,7 +147,7 @@ export default function MarketExplorer() {
     );
 
     return (
-        <div className="w-full h-full p-8 overflow-y-auto">
+        <div className="w-full h-full p-4 md:p-8 overflow-y-auto">
             {/* Header Navigation Area */}
             <header className="mb-8 border-b border-[#152238] pb-6">
                 <div className="flex gap-4 items-center mb-4 text-sm text-on-surface-variant">

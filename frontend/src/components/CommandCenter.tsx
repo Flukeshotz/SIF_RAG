@@ -55,12 +55,12 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
     };
 
     return (
-        <div className="flex-1 flex flex-col items-center pt-[102px] px-margin overflow-y-auto">
-            <div className="w-full max-w-[900px] flex flex-col items-center text-center mb-xl animate-fade-up">
-                <h2 className="font-display-lg text-display-lg font-bold text-on-surface mb-sm tracking-tight">
+        <div className="flex-1 flex flex-col items-center pt-[80px] md:pt-[102px] px-4 md:px-margin overflow-y-auto">
+            <div className="w-full max-w-[900px] flex flex-col items-center text-center mb-8 md:mb-xl animate-fade-up">
+                <h2 className="font-display-lg text-headline-lg md:text-display-lg font-bold text-on-surface mb-sm tracking-tight">
                     What would you like to research?
                 </h2>
-                <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                <p className="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-2xl px-2">
                     Search across SEBI circulars, SIF documentation, fund disclosures, and verified regulatory sources.
                 </p>
             </div>
@@ -81,7 +81,7 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
                     <div className="absolute inset-y-0 right-0 pr-sm flex items-center">
                         <button 
                             type="submit"
-                            className="bg-primary/10 text-primary hover:bg-primary hover:text-on-primary p-sm rounded-lg transition-colors border border-primary/20"
+                            className="bg-primary/10 text-primary hover:bg-primary hover:text-on-primary min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition-colors border border-primary/20"
                         >
                             <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
                         </button>

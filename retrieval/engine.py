@@ -42,11 +42,11 @@ def answer_query_structured(query: str) -> dict:
     
     route_type, params = route_query(query)
     
-    if route_type == "discovery":
-        if "filter_amc" in params:
-            funds = get_funds_by_amc(params["filter_amc"])
-        elif "filter_strategy" in params:
-            funds = get_funds_by_strategy(params["filter_strategy"])
+    if route_type in ("inventory", "discovery", "market_discovery"):
+        if "amc" in params and params["amc"]:
+            funds = get_funds_by_amc(params["amc"][0])
+        elif "strategy" in params and params["strategy"]:
+            funds = get_funds_by_strategy(params["strategy"][0])
         elif "filter_status" in params:
             if params["filter_status"] == "Live":
                 funds = get_live_funds()
@@ -58,7 +58,7 @@ def answer_query_structured(query: str) -> dict:
         search_time_ms = int((time.perf_counter() - start_time) * 1000)
         return {
             "answer": f"We currently have structured information for {len(funds)} funds matching your criteria.",
-            "query_type": "discovery",
+            "query_type": "inventory",
             "structured_data": funds,
             "citations": [],
             "retrieval": {

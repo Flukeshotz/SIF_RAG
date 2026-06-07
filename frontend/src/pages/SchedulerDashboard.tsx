@@ -151,31 +151,33 @@ export default function SchedulerDashboard() {
         <span className="material-symbols-outlined text-on-surface-variant">history</span> Recent Runs
       </h2>
       <div className="bg-surface-container-low border border-[#152238] rounded-xl overflow-hidden">
-        <table className="w-full text-left text-sm text-on-surface-variant font-body-md">
-          <thead className="bg-[#152238]/50 text-xs uppercase font-mono-data">
-            <tr>
-              <th className="px-4 py-3">Run ID</th>
-              <th className="px-4 py-3">State</th>
-              <th className="px-4 py-3">Duration</th>
-              <th className="px-4 py-3">Docs Added</th>
-              <th className="px-4 py-3">Chunks Added</th>
-            </tr>
-          </thead>
-          <tbody>
-            {scheduler?.recent_runs?.map((run, i) => (
-              <tr key={i} className="border-b border-[#152238] hover:bg-[#152238]/30">
-                <td className="px-4 py-3 font-mono-data">{new Date(run.run_id).toLocaleString()}</td>
-                <td className={`px-4 py-3 ${run.state === 'SUCCESS' ? 'text-secondary' : run.state === 'FAILED' ? 'text-red-500' : ''}`}>{run.state}</td>
-                <td className="px-4 py-3">{formatDur(run.total_duration_seconds)}</td>
-                <td className="px-4 py-3">+{run.corpus_growth?.growth_documents || 0}</td>
-                <td className="px-4 py-3">+{run.corpus_growth?.growth_chunks || 0}</td>
+        <div className="overflow-x-auto w-full">
+          <table className="w-full text-left text-sm text-on-surface-variant font-body-md min-w-[600px]">
+            <thead className="bg-[#152238]/50 text-xs uppercase font-mono-data">
+              <tr>
+                <th className="px-4 py-3">Run ID</th>
+                <th className="px-4 py-3">State</th>
+                <th className="px-4 py-3">Duration</th>
+                <th className="px-4 py-3">Docs Added</th>
+                <th className="px-4 py-3">Chunks Added</th>
               </tr>
-            ))}
-            {(!scheduler?.recent_runs || scheduler.recent_runs.length === 0) && (
-              <tr><td colSpan={5} className="px-4 py-6 text-center">No recent runs found.</td></tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {scheduler?.recent_runs?.map((run, i) => (
+                <tr key={i} className="border-b border-[#152238] hover:bg-[#152238]/30">
+                  <td className="px-4 py-3 font-mono-data">{new Date(run.run_id).toLocaleString()}</td>
+                  <td className={`px-4 py-3 ${run.state === 'SUCCESS' ? 'text-secondary' : run.state === 'FAILED' ? 'text-red-500' : ''}`}>{run.state}</td>
+                  <td className="px-4 py-3">{formatDur(run.total_duration_seconds)}</td>
+                  <td className="px-4 py-3">+{run.corpus_growth?.growth_documents || 0}</td>
+                  <td className="px-4 py-3">+{run.corpus_growth?.growth_chunks || 0}</td>
+                </tr>
+              ))}
+              {(!scheduler?.recent_runs || scheduler.recent_runs.length === 0) && (
+                <tr><td colSpan={5} className="px-4 py-6 text-center">No recent runs found.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

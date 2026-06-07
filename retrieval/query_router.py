@@ -24,6 +24,21 @@ KNOWN_AMCS: set = set()
 KNOWN_FUNDS: set = set()
 KNOWN_STRATEGIES: set = set()
 
+AMC_ALIASES = {
+    "quant": "quant mutual fund",
+    "tata": "tata mutual fund",
+    "icici": "icici prudential",
+    "edelweiss": "edelweiss mutual fund",
+    "sbi": "sbi mutual fund",
+    "franklin": "franklin templeton",
+    "360 one": "360 one mutual fund",
+    "bandhan": "bandhan mutual fund",
+    "iti": "iti mutual fund",
+    "aditya birla": "aditya birla sun life",
+    "absl": "aditya birla sun life",
+    "wealth company": "the wealth company"
+}
+
 def _load_registry() -> None:
     global KNOWN_AMCS, KNOWN_FUNDS, KNOWN_STRATEGIES
     if not REGISTRY_PATH.is_file():
@@ -70,6 +85,16 @@ def extract_entities(query: str) -> Dict[str, List[str]]:
     result = {"amc": [], "fund": [], "strategy": []}
     lowered = query.lower()
     
+    # 1. Alias matching for AMCs
+    tokens = _tokenise(query)
+    for alias, canonical in AMC_ALIASES.items():
+        if len(alias.split()) == 1:
+            if alias in tokens:
+                result["amc"].append(canonical)
+        else:
+            if alias in lowered:
+                result["amc"].append(canonical)
+                
     # Substring matching for multi-word entities (like "tata mutual fund")
     for amc in KNOWN_AMCS:
         # Avoid matching common words like "the" or "fund" on their own

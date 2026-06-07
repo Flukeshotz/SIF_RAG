@@ -23,6 +23,7 @@ function App() {
   
   // App State Toggles
   const [isDemoMode, setIsDemoMode] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   
   // Tour State
@@ -62,6 +63,10 @@ function App() {
   }, [messages]);
 
   const handleCitationClick = (chunkId: string) => {
+    if (window.innerWidth < 1024) {
+      window.open(`#document-${chunkId}`, '_blank');
+      return;
+    }
     setActiveCitationId(chunkId);
   };
 
@@ -145,10 +150,19 @@ function App() {
       <TopNavBar 
         isDemoMode={isDemoMode} 
         setIsDemoMode={setIsDemoMode} 
+        toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
-      <SideNavBar onViewChange={setCurrentView} currentView={currentView} />
+      <SideNavBar 
+        onViewChange={(view) => {
+          setCurrentView(view);
+          setIsSidebarOpen(false);
+        }} 
+        currentView={currentView} 
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
       
-      <main className="md:ml-[280px] md:pt-12 h-screen overflow-hidden flex flex-col md:flex-row bg-[#020617]">
+      <main className="md:ml-[280px] pt-12 md:pt-12 h-screen overflow-hidden flex flex-col md:flex-row bg-[#020617]">
         {currentView === 'chat' && (
           <>
             <div className="flex-1 flex flex-col h-full relative border-r border-[#152238] bg-[#071122]">
@@ -187,11 +201,13 @@ function App() {
             </div>
             
             {activeCitationId && (
-              <EvidenceExplorer 
-                sourceId={activeCitationId} 
-                onClose={handleCloseExplorer} 
-                isDemoMode={isDemoMode}
-              />
+              <div className="hidden lg:block w-1/2 h-full z-10 shrink-0 border-l border-[#152238] shadow-2xl relative">
+                <EvidenceExplorer 
+                  sourceId={activeCitationId} 
+                  onClose={handleCloseExplorer} 
+                  isDemoMode={isDemoMode}
+                />
+              </div>
             )}
           </>
         )}
