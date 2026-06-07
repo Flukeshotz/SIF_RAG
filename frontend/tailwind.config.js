@@ -119,7 +119,7 @@ export default {
         "slide-in-up": "slide-in-up 0.5s ease-out forwards",
         "pulse-text": "pulse-text 2.5s ease-in-out infinite",
         "fade-up": "fadeUp 0.8s ease-out forwards",
-        "ticker": "ticker 20s linear infinite"
+        "ticker": "ticker 120s linear infinite"
       }
     },
   },
