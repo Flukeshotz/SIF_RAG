@@ -62,7 +62,7 @@ def answer_query_structured(query: str) -> dict:
             "structured_data": funds,
             "citations": [],
             "retrieval": {
-                "chunks_retrieved": len(funds),
+                "chunks_retrieved": 0,
                 "search_time_ms": search_time_ms,
                 "embedding_model": "registry_lookup",
                 "llm": "none"
@@ -79,7 +79,7 @@ def answer_query_structured(query: str) -> dict:
             "structured_data": funds,
             "citations": [],
             "retrieval": {
-                "chunks_retrieved": len(funds),
+                "chunks_retrieved": 0,
                 "search_time_ms": search_time_ms,
                 "embedding_model": "registry_lookup",
                 "llm": "none"
@@ -112,7 +112,7 @@ def answer_query_structured(query: str) -> dict:
             "structured_data": funds_by_amc,
             "citations": [],
             "retrieval": {
-                "chunks_retrieved": sum(len(f) for f in funds_by_amc.values()),
+                "chunks_retrieved": 0,
                 "search_time_ms": search_time_ms,
                 "embedding_model": "registry_lookup",
                 "llm": "none"

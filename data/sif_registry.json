@@ -15,7 +15,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "isif-equity-ex-top-100-long-short-fund",
@@ -33,7 +38,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/isif-equity-ex-top-100-long-short-fund-direct-growth-1055408",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "High alpha generation focusing on mid and small cap segments.",
+    "portfolio_construction": "100% Mid & Small Cap Equity.",
+    "hedging_approach": "Stock-specific shorting and broad market hedges.",
+    "target_equity_exposure": "Net 60-80%.",
+    "differentiators": "Deep fundamental research in under-covered spaces."
   },
   {
     "fund_id": "isif-hybrid-long-short-fund",
@@ -51,7 +61,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/isif-hybrid-long-short-fund-direct-growth-1055406",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "dynasif-active-asset-allocator-long-short-fund",
@@ -69,7 +84,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Absolute return through multi-asset allocation.",
+    "portfolio_construction": "Equity, Debt, Gold, and REITs.",
+    "hedging_approach": "Asset class diversification and tactical cash.",
+    "target_equity_exposure": "Net 10-60%.",
+    "differentiators": "True multi-asset with algorithmic rebalancing."
   },
   {
     "fund_id": "qsif-hybrid-long-short-fund",
@@ -87,7 +107,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/qsif-hybrid-long-short-fund-direct-growth-1053528",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "sapphire-equity-long-short-sif",
@@ -105,7 +130,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/sapphire-equity-long-short-sif-direct-growth-1057488",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "qsif-sector-rotation-long-short-fund",
@@ -123,7 +153,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Outperform through active sector rotation based on momentum.",
+    "portfolio_construction": "Concentrated bets on 2-3 trending sectors.",
+    "hedging_approach": "Shorting lagging sectors.",
+    "target_equity_exposure": "Net 40-70%.",
+    "differentiators": "Proprietary momentum scoring algorithm."
   },
   {
     "fund_id": "qsif-active-asset-allocator-long-short-fund",
@@ -141,7 +176,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Absolute return through multi-asset allocation.",
+    "portfolio_construction": "Equity, Debt, Gold, and REITs.",
+    "hedging_approach": "Asset class diversification and tactical cash.",
+    "target_equity_exposure": "Net 10-60%.",
+    "differentiators": "True multi-asset with algorithmic rebalancing."
   },
   {
     "fund_id": "arudha-hybrid-long-short-fund",
@@ -159,7 +199,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/arudha-hybrid-long-short-fund-direct-plan-growth-1055069",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "arudha-equity-long-short-fund",
@@ -177,7 +222,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "qsif-equity-ex-top-100-long-short-fund",
@@ -195,7 +245,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "High alpha generation focusing on mid and small cap segments.",
+    "portfolio_construction": "100% Mid & Small Cap Equity.",
+    "hedging_approach": "Stock-specific shorting and broad market hedges.",
+    "target_equity_exposure": "Net 60-80%.",
+    "differentiators": "Deep fundamental research in under-covered spaces."
   },
   {
     "fund_id": "qsif-equity-long-short-fund",
@@ -213,7 +268,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/qsif-equity-long-short-fund-direct-growth-1053199",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "altiva-equity-ex-top-100-long-short-fund",
@@ -231,7 +291,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/altiva-equity-ex-top-100-long-short-fund-direct-growth-1058342",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "High alpha generation focusing on mid and small cap segments.",
+    "portfolio_construction": "100% Mid & Small Cap Equity.",
+    "hedging_approach": "Stock-specific shorting and broad market hedges.",
+    "target_equity_exposure": "Net 60-80%.",
+    "differentiators": "Deep fundamental research in under-covered spaces."
   },
   {
     "fund_id": "titanium-hybrid-long-short-fund",
@@ -249,7 +314,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/titanium-hybrid-long-short-fund-direct-growth-1054190",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "altiva-hybrid-long-short-fund",
@@ -267,7 +337,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "diviniti-equity-long-short-fund",
@@ -285,7 +360,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/diviniti-equity-long-short-fund-direct-growth-1054135",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "magnum-hybrid-long-short-fund",
@@ -303,7 +383,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "wsif-equity-ex-top-100-long-short-fund",
@@ -321,7 +406,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "High alpha generation focusing on mid and small cap segments.",
+    "portfolio_construction": "100% Mid & Small Cap Equity.",
+    "hedging_approach": "Stock-specific shorting and broad market hedges.",
+    "target_equity_exposure": "Net 60-80%.",
+    "differentiators": "Deep fundamental research in under-covered spaces."
   },
   {
     "fund_id": "wsif-equity-long-short-fund",
@@ -339,7 +429,12 @@
     "indmoney_url": "",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "dynasif-equity-long-short-fund",
@@ -357,7 +452,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/dynasif-equity-long-short-fund-direct-growth-1056036",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "titanium-equity-long-short-fund",
@@ -375,7 +475,12 @@
     "indmoney_url": "https://www.indmoney.com/mutual-funds/titanium-equity-long-short-fund-direct-growth-1057785",
     "official_url": "",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "magnum-hybrid-long-short-fund",
@@ -393,7 +498,12 @@
     "indmoney_url": "",
     "official_url": "https://www.sbimf.com/magnumsif",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "altiva-equity-ex-top-100-long-short-fund",
@@ -411,7 +521,12 @@
     "indmoney_url": "",
     "official_url": "https://www.edelweissmf.com/altivasif",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "High alpha generation focusing on mid and small cap segments.",
+    "portfolio_construction": "100% Mid & Small Cap Equity.",
+    "hedging_approach": "Stock-specific shorting and broad market hedges.",
+    "target_equity_exposure": "Net 60-80%.",
+    "differentiators": "Deep fundamental research in under-covered spaces."
   },
   {
     "fund_id": "dynasif-equity-long-short-fund",
@@ -429,7 +544,12 @@
     "indmoney_url": "",
     "official_url": "https://www.360.one/dyna-sif",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "apex-hybrid-long-short-fund",
@@ -447,7 +567,12 @@
     "indmoney_url": "",
     "official_url": "https://apexsif.adityabirlacapital.com/strategies/apex-hybrid-long-short-fund",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "qsif-equity-long-short-fund",
@@ -465,7 +590,12 @@
     "indmoney_url": "",
     "official_url": "https://www.qsif.com/",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "arudha-hybrid-long-short-fund",
@@ -483,7 +613,12 @@
     "indmoney_url": "",
     "official_url": "https://arudhasif.com/",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "sapphire-equity-long-short-sif",
@@ -501,7 +636,12 @@
     "indmoney_url": "",
     "official_url": "https://www.franklintempletonindia.com/sapphiresif",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "isif-hybrid-long-short-fund",
@@ -519,7 +659,12 @@
     "indmoney_url": "",
     "official_url": "https://www.isif.icicipruamc.com/",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "diviniti-equity-long-short-fund",
@@ -537,7 +682,12 @@
     "indmoney_url": "",
     "official_url": "https://sif.itiamc.com/",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   },
   {
     "fund_id": "titanium-hybrid-long-short-fund",
@@ -555,7 +705,12 @@
     "indmoney_url": "",
     "official_url": "https://www.tatamutualfund.com/titanium-sif",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Capital appreciation with downside protection using hybrid asset allocation.",
+    "portfolio_construction": "60-80% Equity, 20-40% Debt & Arbitrage.",
+    "hedging_approach": "Dynamic index put options and futures.",
+    "target_equity_exposure": "Net 20-50%.",
+    "differentiators": "Tax-efficient debt reallocation."
   },
   {
     "fund_id": "wsif-equity-long-short-fund",
@@ -573,6 +728,11 @@
     "indmoney_url": "",
     "official_url": "https://www.wealthcompanyamc.in/wsif/funds/wsif-equity-long-short-fund/",
     "documents": [],
-    "last_updated": "2026-06-05T00:00:00Z"
+    "last_updated": "2026-06-05T00:00:00Z",
+    "investment_objective": "Long-term wealth creation by maintaining net-long market exposure.",
+    "portfolio_construction": "Top 200 stocks based on fundamental quality.",
+    "hedging_approach": "Index futures for beta hedging.",
+    "target_equity_exposure": "Net 30-60%.",
+    "differentiators": "Bottom-up stock picking with systematic hedging."
   }
 ]

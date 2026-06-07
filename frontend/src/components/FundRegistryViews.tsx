@@ -54,6 +54,11 @@ export const ComparisonTable = ({ funds }: { funds: any[] }) => {
   const properties = [
     { key: 'amc', label: 'AMC' },
     { key: 'strategy', label: 'Strategy' },
+    { key: 'investment_objective', label: 'Investment Objective' },
+    { key: 'portfolio_construction', label: 'Portfolio Construction' },
+    { key: 'hedging_approach', label: 'Hedging Approach' },
+    { key: 'target_equity_exposure', label: 'Target Equity Exposure' },
+    { key: 'differentiators', label: 'Differentiators' },
     { key: 'risk_band', label: 'Risk Band' },
     { key: 'status', label: 'Status' },
     { key: 'minimum_investment', label: 'Min Investment' },

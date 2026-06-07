@@ -297,8 +297,17 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
                           </summary>
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 animate-fade-up">
                             <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg shadow-inner">
-                              <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Retrieved</span>
-                              <span className="font-mono-data text-on-surface text-sm flex items-center gap-1"><span className="material-symbols-outlined text-[14px] text-primary">library_books</span> {msg.retrieval.chunks_retrieved} chunks</span>
+                              {msg.retrieval.chunks_retrieved === 0 && msg.retrieval.embedding_model === "registry_lookup" ? (
+                                <>
+                                  <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Source Type</span>
+                                  <span className="font-mono-data text-on-surface text-sm flex items-center gap-1"><span className="material-symbols-outlined text-[14px] text-primary">database</span> Structured Registry</span>
+                                </>
+                              ) : (
+                                <>
+                                  <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Retrieved</span>
+                                  <span className="font-mono-data text-on-surface text-sm flex items-center gap-1"><span className="material-symbols-outlined text-[14px] text-primary">library_books</span> {msg.retrieval.chunks_retrieved} chunks</span>
+                                </>
+                              )}
                             </div>
                             <div className="bg-[#020617] border border-[#152238] p-3 rounded-lg shadow-inner">
                               <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Search</span>
@@ -312,7 +321,9 @@ export default function ChatArea({ messages, onCitationClick, onClear, isPresent
                               <span className="block text-[10px] text-on-surface-variant uppercase mb-1">Confidence</span>
                               <span className="font-mono-data text-secondary text-sm flex items-center gap-1">
                                 <span className="material-symbols-outlined text-[14px]">done_all</span> 
-                                {msg.citations && msg.citations.length > 0 
+                                {msg.retrieval.chunks_retrieved === 0 && msg.retrieval.embedding_model === "registry_lookup" 
+                                  ? 'High' 
+                                  : msg.citations && msg.citations.length > 0 
                                   ? `${Math.round(msg.citations[0].confidence * 100)}%` 
                                   : 'N/A'}
                               </span>
