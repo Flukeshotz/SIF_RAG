@@ -34,6 +34,10 @@ RUN playwright install chromium
 # Copy source code
 COPY . .
 
+# Remove local .env so Render's dashboard env vars take full effect
+# (local .env has ENVIRONMENT=development which would otherwise override)
+RUN rm -f .env .env.development .env.production
+
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV ENVIRONMENT=production
