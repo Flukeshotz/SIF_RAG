@@ -23,7 +23,8 @@ class TestRetrievalPipeline(unittest.TestCase):
         }
         mock_point.score = 0.8
         
-        mock_client.search.return_value = [mock_point]
+        mock_response.points = [mock_point]
+        mock_client.query_points.return_value = mock_response
         mock_get_qdrant.return_value = mock_client
         
         # Don't need real embedding for mock search, just passing a mock vector

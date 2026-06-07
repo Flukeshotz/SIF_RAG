@@ -17,9 +17,9 @@ def search_chunks(query_vector: list[float], top_k: int = 5, query_filter: Filte
     fetch_k = top_k * 10
     
     try:
-        response = client.search(
+        response = client.query_points(
             collection_name="sif_documents",
-            query_vector=query_vector,
+            query=query_vector,
             query_filter=query_filter,
             limit=fetch_k
         )
@@ -28,7 +28,7 @@ def search_chunks(query_vector: list[float], top_k: int = 5, query_filter: Filte
         return []
     
     chunks = []
-    for point in response:
+    for point in response.points:
         chunk_data = point.payload
         base_score = point.score
         

@@ -3,11 +3,16 @@ from qdrant_client.models import Distance, VectorParams
 from pathlib import Path
 from core.config import settings
 
+_client = None
+
 def get_client() -> QdrantClient:
     """Returns a local Qdrant Client."""
-    db_path = Path(settings.QDRANT_PATH)
-    db_path.mkdir(parents=True, exist_ok=True)
-    return QdrantClient(path=str(db_path))
+    global _client
+    if _client is None:
+        db_path = Path(settings.QDRANT_PATH)
+        db_path.mkdir(parents=True, exist_ok=True)
+        _client = QdrantClient(path=str(db_path))
+    return _client
 
 def init_collection(client: QdrantClient, collection_name: str = "sif_documents", recreate: bool = False):
     """Recreates the collection with proper vector schema if needed."""

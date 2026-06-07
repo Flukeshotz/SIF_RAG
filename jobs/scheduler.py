@@ -16,12 +16,12 @@ def start_scheduler():
             replace_existing=True
         )
         
-        # Live market simulation: every 1 minute
+        # Live market simulation: every 1 hour
         from jobs.nav_updater import update_navs
         scheduler.add_job(
             update_navs,
             'interval',
-            minutes=1,
+            hours=1,
             id='live_market_simulation',
             replace_existing=True
         )
