@@ -84,6 +84,39 @@ def answer_query_structured(query: str) -> dict:
                 "llm": "none"
             }
         }
+        
+    if route_type == "amc_comparison":
+        amcs = params.get("amcs", [])
+        funds_by_amc = {}
+        for amc in amcs:
+            funds_by_amc[amc] = get_funds_by_amc(amc)
+            
+        answer_lines = ["I found multiple SIFs under these AMCs.\n"]
+        for amc in amcs:
+            pretty_amc = amc.title()
+            if funds_by_amc[amc]:
+                pretty_amc = funds_by_amc[amc][0].get("amc", pretty_amc)
+                
+            answer_lines.append(f"**{pretty_amc}**")
+            for f in funds_by_amc[amc]:
+                answer_lines.append(f"• {f.get('fund_name')}")
+            answer_lines.append("")
+            
+        answer_lines.append("Which specific funds would you like me to compare?")
+        
+        search_time_ms = int((time.perf_counter() - start_time) * 1000)
+        return {
+            "answer": "\n".join(answer_lines),
+            "query_type": "amc_comparison",
+            "structured_data": funds_by_amc,
+            "citations": [],
+            "retrieval": {
+                "chunks_retrieved": sum(len(f) for f in funds_by_amc.values()),
+                "search_time_ms": search_time_ms,
+                "embedding_model": "registry_lookup",
+                "llm": "none"
+            }
+        }
     
     # --- DEFAULT: RAG PIPELINE ---
     query_vector = embed_query(query)

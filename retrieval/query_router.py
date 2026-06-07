@@ -19,7 +19,7 @@ MARKET_DISCOVERY_TRIGGERS = {"newest", "latest", "recent", "popular", "entered",
 # ------------------------------------------------------------
 # Dynamic entity dictionaries – loaded once at import time
 # ------------------------------------------------------------
-REGISTRY_PATH = Path(__file__).resolve().parents[2] / "data" / "sif_registry.json"
+REGISTRY_PATH = Path(__file__).resolve().parents[1] / "data" / "sif_registry.json"
 KNOWN_AMCS: set = set()
 KNOWN_FUNDS: set = set()
 KNOWN_STRATEGIES: set = set()
@@ -32,10 +32,14 @@ def _load_registry() -> None:
     try:
         with REGISTRY_PATH.open() as f:
             data = json.load(f)
-        # Expected structure: {"amcs": [{"name": "..."}], "funds": [{"name": "..."}], "strategies": [{"name": "..."}]}
-        KNOWN_AMCS = {item["name"].lower() for item in data.get("amcs", [])}
-        KNOWN_FUNDS = {item["name"].lower() for item in data.get("funds", [])}
-        KNOWN_STRATEGIES = {item["name"].lower() for item in data.get("strategies", [])}
+        # Expected structure: List of dicts with 'amc', 'fund_name', 'strategy'
+        for item in data:
+            if "amc" in item and item["amc"]:
+                KNOWN_AMCS.add(item["amc"].lower())
+            if "fund_name" in item and item["fund_name"]:
+                KNOWN_FUNDS.add(item["fund_name"].lower())
+            if "strategy" in item and item["strategy"]:
+                KNOWN_STRATEGIES.add(item["strategy"].lower())
     except Exception as e:
         logger.error(f"Failed to load SIF registry for entity extraction: {e}")
 
@@ -59,22 +63,35 @@ def _match_pattern(tokens: List[str], actions: set, objects: set) -> bool:
                     continue
     return False
 
-def extract_entities(query: str) -> Dict[str, str]:
+def extract_entities(query: str) -> Dict[str, List[str]]:
     """Simple entity extraction based on the dynamically loaded registry sets.
-    Returns a dict with possible keys: 'amc', 'fund', 'strategy'.
+    Returns a dict with possible keys: 'amc', 'fund', 'strategy', each containing a list of matches.
     """
-    result = {}
+    result = {"amc": [], "fund": [], "strategy": []}
     lowered = query.lower()
-    tokens = _tokenise(query)
-    # Find first matching amc/fund/strategy token present in registry sets
-    for token in tokens:
-        if token in KNOWN_AMCS:
-            result["amc"] = token
-        if token in KNOWN_FUNDS:
-            result["fund"] = token
-        if token in KNOWN_STRATEGIES:
-            result["strategy"] = token
-    return result
+    
+    # Substring matching for multi-word entities (like "tata mutual fund")
+    for amc in KNOWN_AMCS:
+        # Avoid matching common words like "the" or "fund" on their own
+        if amc in lowered and amc not in ("fund", "the", "mutual fund"):
+            result["amc"].append(amc)
+            
+    for fund in KNOWN_FUNDS:
+        if fund in lowered:
+            result["fund"].append(fund)
+            
+    for strategy in KNOWN_STRATEGIES:
+        if strategy in lowered:
+            result["strategy"].append(strategy)
+            
+    # Remove duplicates and clean up empty lists
+    final_result = {}
+    for k, v in result.items():
+        if v:
+            # Sort by length descending to match longest possible entity first (optional)
+            final_result[k] = list(set(v))
+            
+    return final_result
 
 # CSV logging – ensure directory exists
 LOG_DIR = Path(__file__).resolve().parents[2] / "logs"
@@ -110,9 +127,18 @@ def route_query(query: str) -> Tuple[str, Dict[str, Any]]:
 
     # 2. Comparison detection
     if any(tok in COMPARISON_ACTIONS for tok in tokens):
-        # Simple heuristic: need at least two recognizable entities (amc/fund/strategy)
         entities = extract_entities(query)
-        if len(entities) >= 2:
+        amcs = entities.get("amc", [])
+        
+        # New Rule: If comparing exactly 2 AMCs, route to amc_comparison to bypass RAG
+        if len(amcs) == 2:
+            confidence = 1.0
+            log_decision(query, "amc_comparison", confidence, "amc_comparison", False)
+            return "amc_comparison", {"amcs": amcs}
+            
+        # Simple heuristic: need at least two recognizable entities (amc/fund/strategy)
+        total_extracted = sum(len(v) for v in entities.values())
+        if total_extracted >= 2:
             confidence = 1.0
             log_decision(query, "comparison", confidence, "comparison", False)
             return "comparison", entities
