@@ -183,7 +183,7 @@ function App() {
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        placeholder="Ask a question about SIF regulations or compare funds..."
+                        placeholder="Ask a question about SIF regulations or explore funds..."
                         className="flex-1 bg-transparent border-none focus:ring-0 text-on-surface p-3 placeholder-on-surface-variant/50 outline-none"
                         aria-label="Research Query Input"
                       />

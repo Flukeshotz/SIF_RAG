@@ -92,25 +92,32 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
             {/* Suggestions */}
             <div className="w-full max-w-[900px] flex flex-wrap justify-center gap-sm mb-xl animate-fade-up" style={{ animationDelay: '300ms' }}>
                 <button 
-                    onClick={() => handleSuggestionClick("Compare Quant vs Tata")}
+                    onClick={() => handleSuggestionClick("Show all live SIFs")}
                     className="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md"
                 >
-                    <span className="material-symbols-outlined text-[16px]">compare_arrows</span>
-                    Compare Quant vs Tata
+                    <span className="material-symbols-outlined text-[16px]">inventory_2</span>
+                    Show all live SIFs
                 </button>
                 <button 
-                    onClick={() => handleSuggestionClick("What are the specific exit load regulations for Social Impact Funds (SIF) under SEBI guidelines?")}
+                    onClick={() => handleSuggestionClick("Which AMCs have launched SIFs?")}
                     className="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md"
                 >
-                    <span className="material-symbols-outlined text-[16px]">update</span>
-                    Latest SEBI changes
+                    <span className="material-symbols-outlined text-[16px]">corporate_fare</span>
+                    Which AMCs have launched SIFs?
                 </button>
                 <button 
-                    onClick={() => handleSuggestionClick("Exit load methodologies")}
+                    onClick={() => handleSuggestionClick("What are the eligibility requirements for SIFs?")}
                     className="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md"
                 >
-                    <span className="material-symbols-outlined text-[16px]">article</span>
-                    Exit load methodologies
+                    <span className="material-symbols-outlined text-[16px]">gavel</span>
+                    Eligibility requirements
+                </button>
+                <button 
+                    onClick={() => handleSuggestionClick("Explain Hybrid Long-Short strategies")}
+                    className="flex items-center gap-xs px-sm py-xs rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:text-primary hover:border-primary/50 transition-colors font-label-md text-label-md"
+                >
+                    <span className="material-symbols-outlined text-[16px]">lightbulb</span>
+                    Explain Hybrid Long-Short
                 </button>
             </div>
 
