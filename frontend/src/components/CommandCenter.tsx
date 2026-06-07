@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchIntelligence, IntelligenceItem } from '../api';
+import { fetchIntelligence, type IntelligenceItem } from '../api';
 
 interface CommandCenterProps {
     onSearch: (query: string) => void;
@@ -121,17 +121,23 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
                     <h3 className="font-headline-md text-headline-md text-on-surface">Daily Intelligence Feed</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-                    {displayFeed.map((item, idx) => (
-                        <div key={idx} className={`bg-surface rounded-xl border border-outline-variant p-md hover:border-${item.type}/40 transition-colors flex flex-col gap-sm relative overflow-hidden`}>
-                            <div className={`absolute top-0 left-0 w-1 h-full bg-${item.type}`}></div>
+                    {displayFeed.map((item, idx) => {
+                        const borderHover = item.type === 'primary' ? 'hover:border-primary/40' : item.type === 'error' ? 'hover:border-error/40' : 'hover:border-secondary/40';
+                        const bgIndicator = item.type === 'primary' ? 'bg-primary' : item.type === 'error' ? 'bg-error' : 'bg-secondary';
+                        const badgeColors = item.type === 'primary' ? 'text-primary bg-primary/10' : item.type === 'error' ? 'text-error bg-error/10' : 'text-secondary bg-secondary/10';
+                        
+                        return (
+                        <div key={idx} className={`bg-surface rounded-xl border border-outline-variant p-md ${borderHover} transition-colors flex flex-col gap-sm relative overflow-hidden`}>
+                            <div className={`absolute top-0 left-0 w-1 h-full ${bgIndicator}`}></div>
                             <div className="flex justify-between items-start">
-                                <span className={`font-label-md text-label-md text-${item.type} bg-${item.type}/10 px-xs py-[2px] rounded uppercase tracking-wider`}>{item.category}</span>
+                                <span className={`font-label-md text-label-md px-xs py-[2px] rounded uppercase tracking-wider ${badgeColors}`}>{item.category}</span>
                                 <span className="font-mono-data text-mono-data text-on-surface-variant">{item.time_ago}</span>
                             </div>
                             <h4 className="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">{item.title}</h4>
                             <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">{item.description}</p>
                         </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </div>
