@@ -4,7 +4,8 @@
   <p><strong>Institutional-Grade AI Research Desk for Specialized Investment Funds</strong></p>
 
   <p>
-    <a href="https://your-vercel-url.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-Available-success?style=for-the-badge" alt="Live Demo" /></a>
+    <a href="https://your-vercel-url.vercel.app"><img src="https://img.shields.io/badge/Live_Demo-Available-success?style=for-the-badge" alt="Live Demo" /></a><br/>
+    <em>(Currently optimized for Desktop only)</em>
   </p>
 
   <p>
