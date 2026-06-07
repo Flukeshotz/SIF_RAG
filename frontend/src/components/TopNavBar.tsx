@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { fetchNavs, NavData } from '../api';
 
 interface TopNavBarProps {
     isDemoMode: boolean;
@@ -5,6 +7,32 @@ interface TopNavBarProps {
 }
 
 const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
+    const [navs, setNavs] = useState<NavData[]>([]);
+
+    useEffect(() => {
+        const loadNavs = async () => {
+            try {
+                const data = await fetchNavs();
+                setNavs(data);
+            } catch (err) {
+                console.error("Failed to load NAVs", err);
+            }
+        };
+        
+        loadNavs();
+        // Poll every 60 seconds
+        const interval = setInterval(loadNavs, 60000);
+        return () => clearInterval(interval);
+    }, []);
+
+    // Fallback if empty
+    const displayNavs = navs.length > 0 ? navs : [
+        { fund_id: '1', ticker: 'QUANT SIF', nav: 14.52, change_percent: 1.2, last_updated: '' },
+        { fund_id: '2', ticker: 'TATA SIF', nav: 102.40, change_percent: 0.8, last_updated: '' },
+        { fund_id: '3', ticker: 'ZERODHA SIF', nav: 25.10, change_percent: -0.3, last_updated: '' },
+        { fund_id: '4', ticker: 'SBI SIF', nav: 45.80, change_percent: 0.1, last_updated: '' }
+    ];
+
     return (
         <nav className="fixed top-0 left-0 w-full z-50 h-12 flex justify-between items-center px-gutter bg-surface/60 backdrop-blur-md border-b border-outline-variant shadow-sm">
             <div className="flex items-center gap-md flex-1 overflow-hidden">
@@ -14,10 +42,15 @@ const TopNavBar: React.FC<TopNavBarProps> = ({ isDemoMode, setIsDemoMode }) => {
                 {/* SIF NAV Ticker */}
                 <div className="hidden md:flex flex-1 overflow-hidden relative" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
                     <div className="flex animate-ticker whitespace-nowrap gap-xl items-center text-xs font-mono-data px-4">
-                        <span className="flex items-center gap-2"><span className="text-secondary font-bold">QUANT SIF</span> ₹14.52 <span className="text-secondary">▲ +1.2%</span></span>
-                        <span className="flex items-center gap-2"><span className="text-secondary font-bold">TATA SIF</span> ₹102.40 <span className="text-secondary">▲ +0.8%</span></span>
-                        <span className="flex items-center gap-2"><span className="text-error font-bold">ZERODHA SIF</span> ₹25.10 <span className="text-error">▼ -0.3%</span></span>
-                        <span className="flex items-center gap-2"><span className="text-secondary font-bold">SBI SIF</span> ₹45.80 <span className="text-secondary">▲ +0.1%</span></span>
+                        {displayNavs.map((nav) => (
+                            <span key={nav.fund_id} className="flex items-center gap-2">
+                                <span className={nav.change_percent >= 0 ? "text-secondary font-bold" : "text-error font-bold"}>{nav.ticker}</span> 
+                                ₹{nav.nav.toFixed(2)} 
+                                <span className={nav.change_percent >= 0 ? "text-secondary" : "text-error"}>
+                                    {nav.change_percent >= 0 ? '▲' : '▼'} {nav.change_percent >= 0 ? '+' : ''}{nav.change_percent.toFixed(2)}%
+                                </span>
+                            </span>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -79,6 +79,20 @@ export const fetchSchedulerStatus = async (): Promise<SchedulerResponse> => {
   return res.json();
 };
 
+export interface NavData {
+  fund_id: string;
+  ticker: string;
+  nav: number;
+  change_percent: number;
+  last_updated: string;
+}
+
+export const fetchNavs = async (): Promise<NavData[]> => {
+  const res = await fetch(`${API_BASE_URL}/funds/navs`);
+  if (!res.ok) throw new Error('Failed to fetch NAVs');
+  return res.json();
+};
+
 export const fetchAnalytics = async (): Promise<AnalyticsResponse> => {
   const res = await fetch(`${API_BASE_URL}/analytics`);
   if (!res.ok) throw new Error('Failed to fetch analytics');

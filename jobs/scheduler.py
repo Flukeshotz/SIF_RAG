@@ -6,7 +6,7 @@ from datetime import datetime
 scheduler = BackgroundScheduler()
 
 def start_scheduler():
-    """Initializes the background scheduler for nightly ingestion."""
+    """Initializes the background scheduler for nightly ingestion and frequent market updates."""
     if not scheduler.running:
         # Schedule to run every day at 02:00 AM
         scheduler.add_job(
@@ -15,8 +15,19 @@ def start_scheduler():
             id='daily_corpus_refresh',
             replace_existing=True
         )
+        
+        # Live market simulation: every 1 minute
+        from jobs.nav_updater import update_navs
+        scheduler.add_job(
+            update_navs,
+            'interval',
+            minutes=1,
+            id='live_market_simulation',
+            replace_existing=True
+        )
+        
         scheduler.start()
-        print("APScheduler started: daily_corpus_refresh scheduled for 02:00 AM UTC.")
+        print("APScheduler started: daily_corpus_refresh at 02:00 AM UTC, live_market_simulation every 1m.")
 
 def get_scheduler_status():
     """Returns the current status of the background scheduler."""

@@ -1,0 +1,226 @@
+[
+  {
+    "fund_id": "apex-hybrid-long-short-fund",
+    "ticker": "APEX SIF",
+    "nav": 111.49,
+    "change_percent": 1.72,
+    "last_updated": "2026-06-07T11:54:10.186789"
+  },
+  {
+    "fund_id": "isif-equity-ex-top-100-long-short-fund",
+    "ticker": "ISIF SIF",
+    "nav": 18.92,
+    "change_percent": -0.79,
+    "last_updated": "2026-06-07T11:54:10.186936"
+  },
+  {
+    "fund_id": "isif-hybrid-long-short-fund",
+    "ticker": "ISIF SIF",
+    "nav": 142.77,
+    "change_percent": 0.31,
+    "last_updated": "2026-06-07T11:54:10.186940"
+  },
+  {
+    "fund_id": "dynasif-active-asset-allocator-long-short-fund",
+    "ticker": "DYNASIF SIF",
+    "nav": 107.2,
+    "change_percent": 0.07,
+    "last_updated": "2026-06-07T11:54:10.186942"
+  },
+  {
+    "fund_id": "qsif-hybrid-long-short-fund",
+    "ticker": "QSIF SIF",
+    "nav": 42.49,
+    "change_percent": 0.26,
+    "last_updated": "2026-06-07T11:54:10.186945"
+  },
+  {
+    "fund_id": "sapphire-equity-long-short-sif",
+    "ticker": "SAPPHIRE SIF",
+    "nav": 50.71,
+    "change_percent": 1.56,
+    "last_updated": "2026-06-07T11:54:10.186948"
+  },
+  {
+    "fund_id": "qsif-sector-rotation-long-short-fund",
+    "ticker": "QSIF SIF",
+    "nav": 111.6,
+    "change_percent": -1.42,
+    "last_updated": "2026-06-07T11:54:10.186950"
+  },
+  {
+    "fund_id": "qsif-active-asset-allocator-long-short-fund",
+    "ticker": "QSIF SIF",
+    "nav": 21.43,
+    "change_percent": -0.64,
+    "last_updated": "2026-06-07T11:54:10.186953"
+  },
+  {
+    "fund_id": "arudha-hybrid-long-short-fund",
+    "ticker": "ARUDHA SIF",
+    "nav": 111.77,
+    "change_percent": -0.18,
+    "last_updated": "2026-06-07T11:54:10.186955"
+  },
+  {
+    "fund_id": "arudha-equity-long-short-fund",
+    "ticker": "ARUDHA SIF",
+    "nav": 85.21,
+    "change_percent": -1.55,
+    "last_updated": "2026-06-07T11:54:10.186958"
+  },
+  {
+    "fund_id": "qsif-equity-ex-top-100-long-short-fund",
+    "ticker": "QSIF SIF",
+    "nav": 52.92,
+    "change_percent": 1.58,
+    "last_updated": "2026-06-07T11:54:10.186960"
+  },
+  {
+    "fund_id": "qsif-equity-long-short-fund",
+    "ticker": "QSIF SIF",
+    "nav": 132.34,
+    "change_percent": 1.67,
+    "last_updated": "2026-06-07T11:54:10.186962"
+  },
+  {
+    "fund_id": "altiva-equity-ex-top-100-long-short-fund",
+    "ticker": "ALTIVA SIF",
+    "nav": 31.85,
+    "change_percent": -0.01,
+    "last_updated": "2026-06-07T11:54:10.186965"
+  },
+  {
+    "fund_id": "titanium-hybrid-long-short-fund",
+    "ticker": "TITANIUM SIF",
+    "nav": 95.42,
+    "change_percent": -1.79,
+    "last_updated": "2026-06-07T11:54:10.186967"
+  },
+  {
+    "fund_id": "altiva-hybrid-long-short-fund",
+    "ticker": "ALTIVA SIF",
+    "nav": 113.94,
+    "change_percent": 0.3,
+    "last_updated": "2026-06-07T11:54:10.186970"
+  },
+  {
+    "fund_id": "diviniti-equity-long-short-fund",
+    "ticker": "DIVINITI SIF",
+    "nav": 92.24,
+    "change_percent": 1.76,
+    "last_updated": "2026-06-07T11:54:10.186972"
+  },
+  {
+    "fund_id": "magnum-hybrid-long-short-fund",
+    "ticker": "MAGNUM SIF",
+    "nav": 78.09,
+    "change_percent": -0.4,
+    "last_updated": "2026-06-07T11:54:10.186975"
+  },
+  {
+    "fund_id": "wsif-equity-ex-top-100-long-short-fund",
+    "ticker": "WSIF SIF",
+    "nav": 28.78,
+    "change_percent": -1.99,
+    "last_updated": "2026-06-07T11:54:10.186977"
+  },
+  {
+    "fund_id": "wsif-equity-long-short-fund",
+    "ticker": "WSIF SIF",
+    "nav": 72.33,
+    "change_percent": 1.22,
+    "last_updated": "2026-06-07T11:54:10.186979"
+  },
+  {
+    "fund_id": "dynasif-equity-long-short-fund",
+    "ticker": "DYNASIF SIF",
+    "nav": 55.62,
+    "change_percent": -1.32,
+    "last_updated": "2026-06-07T11:54:10.186982"
+  },
+  {
+    "fund_id": "titanium-equity-long-short-fund",
+    "ticker": "TITANIUM SIF",
+    "nav": 47.01,
+    "change_percent": -0.21,
+    "last_updated": "2026-06-07T11:54:10.186984"
+  },
+  {
+    "fund_id": "magnum-hybrid-long-short-fund",
+    "ticker": "MAGNUM SIF",
+    "nav": 120.0,
+    "change_percent": 0.41,
+    "last_updated": "2026-06-07T11:54:10.186986"
+  },
+  {
+    "fund_id": "altiva-equity-ex-top-100-long-short-fund",
+    "ticker": "ALTIVA SIF",
+    "nav": 108.8,
+    "change_percent": -0.05,
+    "last_updated": "2026-06-07T11:54:10.186989"
+  },
+  {
+    "fund_id": "dynasif-equity-long-short-fund",
+    "ticker": "DYNASIF SIF",
+    "nav": 77.27,
+    "change_percent": 0.34,
+    "last_updated": "2026-06-07T11:54:10.186991"
+  },
+  {
+    "fund_id": "apex-hybrid-long-short-fund",
+    "ticker": "APEX SIF",
+    "nav": 27.36,
+    "change_percent": 0.49,
+    "last_updated": "2026-06-07T11:54:10.186993"
+  },
+  {
+    "fund_id": "qsif-equity-long-short-fund",
+    "ticker": "QSIF SIF",
+    "nav": 109.5,
+    "change_percent": 0.94,
+    "last_updated": "2026-06-07T11:54:10.186995"
+  },
+  {
+    "fund_id": "arudha-hybrid-long-short-fund",
+    "ticker": "ARUDHA SIF",
+    "nav": 92.82,
+    "change_percent": 0.66,
+    "last_updated": "2026-06-07T11:54:10.186998"
+  },
+  {
+    "fund_id": "sapphire-equity-long-short-sif",
+    "ticker": "SAPPHIRE SIF",
+    "nav": 123.22,
+    "change_percent": 0.28,
+    "last_updated": "2026-06-07T11:54:10.187000"
+  },
+  {
+    "fund_id": "isif-hybrid-long-short-fund",
+    "ticker": "ISIF SIF",
+    "nav": 56.24,
+    "change_percent": 0.61,
+    "last_updated": "2026-06-07T11:54:10.187002"
+  },
+  {
+    "fund_id": "diviniti-equity-long-short-fund",
+    "ticker": "DIVINITI SIF",
+    "nav": 71.38,
+    "change_percent": -1.73,
+    "last_updated": "2026-06-07T11:54:10.187007"
+  },
+  {
+    "fund_id": "titanium-hybrid-long-short-fund",
+    "ticker": "TITANIUM SIF",
+    "nav": 28.82,
+    "change_percent": -0.7,
+    "last_updated": "2026-06-07T11:54:10.187009"
+  },
+  {
+    "fund_id": "wsif-equity-long-short-fund",
+    "ticker": "WSIF SIF",
+    "nav": 91.15,
+    "change_percent": 1.28,
+    "last_updated": "2026-06-07T11:54:10.187011"
+  }
+]

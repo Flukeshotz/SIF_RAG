@@ -23,6 +23,10 @@ app = FastAPI(title="SIF Copilot API")
 
 @app.on_event("startup")
 def startup_event():
+    # Generate initial NAV data for the demo ticker
+    from jobs.nav_updater import update_navs
+    update_navs()
+    
     start_scheduler()
     # Auto-ingest if Qdrant collection is empty (first boot on fresh disk)
     try:
@@ -336,6 +340,16 @@ def get_funds_categories():
         cat = f.get("category", "Unknown")
         categories[cat] = categories.get(cat, 0) + 1
     return categories
+
+@app.get("/funds/navs")
+def get_funds_navs():
+    if os.path.exists("data/nav_data.json"):
+        with open("data/nav_data.json", "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except:
+                return []
+    return []
 
 @app.get("/funds/{amc}")
 def get_funds_by_amc(amc: str):
