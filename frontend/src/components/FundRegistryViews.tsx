@@ -92,7 +92,10 @@ export const ComparisonTable = ({ funds }: { funds: any[] }) => {
                        `₹${fund[prop.key]}`}
                     </span>
                   ) : (
-                    fund[prop.key] || 'Unknown'
+                    fund[prop.key] ? fund[prop.key] : 
+                    ['investment_objective', 'portfolio_construction', 'hedging_approach', 'target_equity_exposure', 'differentiators'].includes(prop.key) ? 
+                      <span className="text-on-surface-variant/50 italic text-xs">Not available in indexed documents</span> : 
+                      'Unknown'
                   )}
                 </td>
               ))}
