@@ -40,7 +40,6 @@ AMC_ALIASES = {
 }
 
 def _load_registry() -> None:
-    global KNOWN_AMCS, KNOWN_FUNDS, KNOWN_STRATEGIES
     if not REGISTRY_PATH.is_file():
         logger.warning(f"Registry file not found at {REGISTRY_PATH}, entity extraction will be limited.")
         return
