@@ -30,11 +30,7 @@ def fetch_real_nav(scheme_code):
         return None, None
 
 def update_navs():
-    """Fetches REAL NAV data for all funds and caches it. Removes random walk. Skips weekends."""
-    if datetime.utcnow().weekday() >= 5:
-        print("Market closed on weekends. Skipping NAV update.")
-        return
-        
+    """Fetches REAL NAV data for all funds and caches it. Removes random walk."""
     os.makedirs("data", exist_ok=True)
     
     if not os.path.exists(REGISTRY_FILE):

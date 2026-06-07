@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
@@ -227,7 +227,30 @@ def admin_system_endpoint():
 
 @app.get("/scheduler/status")
 def scheduler_status_endpoint():
-    return get_scheduler_status()
+    # It reads from the unified pipeline_status.json
+    status = get_scheduler_status()
+    # Read last 10 runs from history
+    try:
+        import os
+        import json
+        if os.path.exists("data/history/pipeline_history.jsonl"):
+            with open("data/history/pipeline_history.jsonl", "r") as f:
+                lines = f.readlines()
+            history = [json.loads(line) for line in lines[-10:]]
+            history.reverse() # latest first
+            status["recent_runs"] = history
+    except:
+        status["recent_runs"] = []
+    return status
+
+@app.post("/admin/run-pipeline")
+def manual_trigger_pipeline(background_tasks: BackgroundTasks):
+    from jobs.refresh_corpus import trigger_refresh
+    background_tasks.add_task(trigger_refresh)
+    return {
+        "status": "started",
+        "message": "Pipeline execution triggered manually in the background."
+    }
 
 @app.get("/analytics")
 def analytics_endpoint():

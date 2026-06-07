@@ -65,13 +65,17 @@ async def run_ingestion():
         "success": len(success),
         "new_versions": len(new_versions),
         "errors": len(errors),
+        "new_documents": [r["source_id"] for r in new_versions],
         "error_details": errors
     }
     
+    import os
+    os.makedirs("data/raw", exist_ok=True)
     with open("data/raw/ingestion_report.json", "w") as f:
         json.dump(summary, f, indent=2)
         
     logger.info(f"Ingestion complete. Success: {len(success)}, New Versions: {len(new_versions)}, Errors: {len(errors)}")
+    return len(success)
 
 if __name__ == "__main__":
     asyncio.run(run_ingestion())

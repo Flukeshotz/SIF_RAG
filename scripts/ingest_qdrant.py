@@ -81,6 +81,7 @@ def ingest_vectors():
         f.write("- **Payload Validation:** Schema validated. All chunks contain the required routing metadata (`document_type`, `fund_name`, `strategy_type`, `priority_tier`).\n")
 
     print(f"Ingestion complete. Uploaded: {total_uploaded}, Failures: {failures}")
+    return total_uploaded
 
 if __name__ == "__main__":
     ingest_vectors()

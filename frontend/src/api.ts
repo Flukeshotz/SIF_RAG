@@ -34,12 +34,39 @@ export interface MetricsResponse {
 }
 
 export interface SchedulerResponse {
-  last_refresh: string;
-  next_refresh: string;
-  status: string;
-  documents_processed: number;
-  chunks_generated: number;
+  pipeline_version?: string;
+  run_id?: string;
+  state?: string;
+  current_stage?: string;
+  elapsed_seconds?: number;
+  total_duration_seconds?: number;
+  stages?: Record<string, { duration_seconds: number }>;
+  corpus_growth?: {
+    total_documents: number;
+    previous_documents: number;
+    growth_documents: number;
+    total_chunks: number;
+    growth_chunks: number;
+  };
+  qdrant_validation?: {
+    retrieval_health: boolean;
+    expected_vectors: number;
+    actual_qdrant_vectors: number;
+    consistency_error?: string;
+  };
+  failed_urls?: string[];
+  recent_runs?: any[];
+  status?: string;
 }
+
+export const runPipeline = async (): Promise<{ status: string, message?: string }> => {
+  const response = await fetch(`${API_BASE_URL}/admin/run-pipeline`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  if (!response.ok) throw new Error('Failed to start pipeline');
+  return response.json();
+};
 
 export interface AnalyticsResponse {
   total_queries: number;

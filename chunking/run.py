@@ -10,14 +10,14 @@ from chunking.kim_chunker import KIMChunker
 from chunking.factsheet_chunker import FactsheetChunker
 from chunking.validator import ChunkValidator
 
-def run_chunking():
+def run_chunking(new_documents: List[str] = None):
     input_dir = Path("data/processed/sanitized")
     output_dir = Path("data/processed/chunks")
     output_dir.mkdir(parents=True, exist_ok=True)
     
     if not input_dir.exists():
         print(f"Directory {input_dir} does not exist.")
-        return
+        return 0
 
     # Initialize Chunkers
     chunkers = {
@@ -38,6 +38,10 @@ def run_chunking():
             
         doc_type = data.get("document_type", "Unknown").lower()
         doc_name = data.get("document_id", "").lower()
+        
+        # Idempotency check: Skip if it's not in the new_documents list
+        if new_documents is not None and doc_name not in [d.lower() for d in new_documents]:
+            continue
         
         # Determine chunker
         chunker = None
@@ -82,6 +86,8 @@ def run_chunking():
             print(f"  ... and {len(report['errors']) - 10} more errors.")
             
     print(f"Metrics: Empty: {report['empty_chunks']}, Oversized: {report['oversized_chunks']}, Duplicate: {report['duplicate_chunks']}, Missing Meta: {report['missing_metadata']}")
+    
+    return total_chunks_processed
 
 if __name__ == "__main__":
     run_chunking()

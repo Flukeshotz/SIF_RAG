@@ -3,14 +3,16 @@ from pathlib import Path
 from embeddings.model import EmbeddingModel
 import numpy as np
 
-def generate_embeddings():
+from typing import List
+
+def generate_embeddings(new_documents: List[str] = None):
     input_dir = Path("data/processed/chunks")
     output_dir = Path("data/processed/embeddings")
     output_dir.mkdir(parents=True, exist_ok=True)
     
     if not input_dir.exists():
         print(f"Directory {input_dir} does not exist.")
-        return
+        return 0
 
     model = EmbeddingModel()
     
@@ -18,6 +20,13 @@ def generate_embeddings():
     total_processed = 0
     
     for file_path in input_dir.glob("*_chunks.json"):
+        # Extact doc name from filename (e.g. 'doc1_chunks.json' -> 'doc1')
+        doc_name = file_path.name.replace('_chunks.json', '').lower()
+        
+        # Idempotency check
+        if new_documents is not None and doc_name not in [d.lower() for d in new_documents]:
+            continue
+            
         with open(file_path, "r") as f:
             chunks = json.load(f)
             
@@ -44,6 +53,7 @@ def generate_embeddings():
         total_processed += len(chunks)
         
     print(f"\nSuccessfully generated {total_processed} embeddings and saved to {output_dir}")
+    return total_processed
 
 if __name__ == "__main__":
     generate_embeddings()
