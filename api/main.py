@@ -128,6 +128,75 @@ def metrics_endpoint():
             "last_refresh_timestamp": "Unknown"
         }
 
+@app.get("/admin/ingest")
+def admin_ingest_endpoint():
+    """Manually trigger Qdrant ingestion from pre-computed embeddings."""
+    import traceback
+    logs = []
+    try:
+        from db.qdrant_connection import get_client, init_collection
+        from pathlib import Path
+        import json, uuid
+        from qdrant_client.models import PointStruct
+
+        logs.append("Initializing Qdrant client...")
+        client = get_client()
+        logs.append(f"Client initialized. QDRANT_PATH={settings.QDRANT_PATH}")
+
+        collection_exists = client.collection_exists("sif_documents")
+        logs.append(f"Collection exists: {collection_exists}")
+
+        logs.append("Running init_collection...")
+        init_collection(client, "sif_documents")
+        logs.append("Collection initialized.")
+
+        embeddings_dir = Path("data/processed/embeddings")
+        files = list(embeddings_dir.glob("*.json"))
+        logs.append(f"Found {len(files)} embedding files: {[f.name for f in files]}")
+
+        total_uploaded = 0
+        failures = 0
+
+        for fp in files:
+            with open(fp, "r") as f:
+                chunks = json.load(f)
+            logs.append(f"Processing {fp.name}: {len(chunks)} chunks")
+
+            points = []
+            for c in chunks:
+                try:
+                    meta = c.get("metadata", {})
+                    payload = {
+                        "chunk_id": c.get("chunk_id"),
+                        "document_id": c.get("document_id"),
+                        "document_type": c.get("document_type"),
+                        "organization": c.get("organization"),
+                        "fund_name": c.get("fund_name") or meta.get("fund_name"),
+                        "strategy_type": c.get("strategy_type") or meta.get("strategy"),
+                        "priority_tier": c.get("priority_tier") or meta.get("priority_tier"),
+                        "chunk_type": c.get("chunk_type"),
+                        "page_number": c.get("page_number"),
+                        "text": c.get("text")
+                    }
+                    point_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, payload["chunk_id"]))
+                    points.append(PointStruct(id=point_id, vector=c["vector"], payload=payload))
+                except Exception as e:
+                    failures += 1
+                    logs.append(f"Point error: {e}")
+
+            if points:
+                client.upload_points(collection_name="sif_documents", points=points, batch_size=100)
+                total_uploaded += len(points)
+                logs.append(f"Uploaded {len(points)} points from {fp.name}")
+
+        logs.append(f"Ingestion complete. Total uploaded: {total_uploaded}, Failures: {failures}")
+        return {"status": "success", "total_uploaded": total_uploaded, "failures": failures, "logs": logs}
+
+    except Exception as e:
+        logs.append(f"FATAL ERROR: {e}")
+        logs.append(traceback.format_exc())
+        return {"status": "error", "error": str(e), "logs": logs}
+
 @app.get("/admin/system")
 def admin_system_endpoint():
     try:
