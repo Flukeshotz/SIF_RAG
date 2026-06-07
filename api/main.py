@@ -24,6 +24,19 @@ app = FastAPI(title="SIF Copilot API")
 @app.on_event("startup")
 def startup_event():
     start_scheduler()
+    # Auto-ingest if Qdrant collection is empty (first boot on fresh disk)
+    try:
+        from db.qdrant_connection import get_client
+        from scripts.ingest_qdrant import ingest_vectors
+        client = get_client()
+        if not client.collection_exists("sif_documents"):
+            print("Qdrant collection not found — running initial ingestion from pre-computed embeddings...")
+            ingest_vectors()
+            print("Initial ingestion complete.")
+        else:
+            print("Qdrant collection exists, skipping ingestion.")
+    except Exception as e:
+        print(f"Startup ingestion error (non-fatal): {e}")
 
 app.add_middleware(
     CORSMiddleware,

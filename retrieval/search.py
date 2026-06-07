@@ -16,12 +16,16 @@ def search_chunks(query_vector: list[float], top_k: int = 5, query_filter: Filte
     # Fetch a wider net to re-rank
     fetch_k = top_k * 10
     
-    response = client.query_points(
-        collection_name="sif_documents",
-        query=query_vector,
-        query_filter=query_filter,
-        limit=fetch_k
-    )
+    try:
+        response = client.query_points(
+            collection_name="sif_documents",
+            query=query_vector,
+            query_filter=query_filter,
+            limit=fetch_k
+        )
+    except Exception as e:
+        print(f"Qdrant search error (collection may not exist yet): {e}")
+        return []
     
     chunks = []
     for point in response.points:

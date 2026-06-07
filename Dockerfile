@@ -24,6 +24,10 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     && rm -rf /var/lib/apt/lists/*
 
+# Install CPU-only PyTorch first (saves ~200MB vs default GPU build)
+# Must be installed before requirements.txt to avoid GPU torch being pulled in
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
