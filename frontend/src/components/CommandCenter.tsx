@@ -93,8 +93,8 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
                             <span className="font-label-md text-label-md text-primary bg-primary/10 px-xs py-[2px] rounded uppercase tracking-wider">Regulatory Update</span>
                             <span className="font-mono-data text-mono-data text-on-surface-variant">2h ago</span>
                         </div>
-                        <h4 className="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">SEBI clarifies exit load methodology for Tier 2 funds</h4>
-                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">New circular outlines specific calculation models required for mid-cap oriented schemes effective Q3.</p>
+                        <h4 className="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">SEBI mandates strict AUM thresholds for New SIF Launches</h4>
+                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">The latest master circular requires Specialized Investment Funds to maintain a minimum corpus before admitting retail investors.</p>
                     </div>
 
                     {/* Intelligence Card 2 */}
@@ -104,8 +104,8 @@ const CommandCenter: React.FC<CommandCenterProps> = ({ onSearch }) => {
                             <span className="font-label-md text-label-md text-secondary bg-secondary/10 px-xs py-[2px] rounded uppercase tracking-wider">Market Insight</span>
                             <span className="font-mono-data text-mono-data text-on-surface-variant">4h ago</span>
                         </div>
-                        <h4 className="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">Tata Asset Management AUM crosses threshold</h4>
-                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">Internal corpus analysis detects anomalous inflows matching institutional reallocation patterns.</p>
+                        <h4 className="font-headline-md text-[16px] leading-tight text-on-surface mt-xs">Quant SIF Active Allocator sees record inflows</h4>
+                        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">Following the recent market correction, Quant's flagship SIF strategy attracted heavy HNI allocations bypassing traditional MFs.</p>
                     </div>
                 </div>
             </div>

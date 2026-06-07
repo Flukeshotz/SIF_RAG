@@ -17,18 +17,18 @@ def search_chunks(query_vector: list[float], top_k: int = 5, query_filter: Filte
     fetch_k = top_k * 10
     
     try:
-        response = client.query_points(
+        response = client.search(
             collection_name="sif_documents",
-            query=query_vector,
+            query_vector=query_vector,
             query_filter=query_filter,
             limit=fetch_k
         )
     except Exception as e:
-        print(f"Qdrant search error (collection may not exist yet): {e}")
+        print(f"Qdrant search error: {e}")
         return []
     
     chunks = []
-    for point in response.points:
+    for point in response:
         chunk_data = point.payload
         base_score = point.score
         
