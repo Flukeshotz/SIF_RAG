@@ -1,0 +1,16 @@
+[
+  {
+    "category": "Industry Trend",
+    "title": "Wealth managers shifting core allocation to Equity SIFs",
+    "description": "A recent AMFI report shows a 15% quarter-over-quarter increase in RIA allocations moving from direct equity to active SIF strategies.",
+    "time_ago": "25m ago",
+    "type": "primary"
+  },
+  {
+    "category": "Fund Launch",
+    "title": "Zerodha AMC files draft for new passive SIF",
+    "description": "Disrupting the historically active-only SIF space, Zerodha plans to introduce a low-cost, rules-based passive SIF tracking the top 100 market cap.",
+    "time_ago": "4h ago",
+    "type": "secondary"
+  }
+]

@@ -93,6 +93,20 @@ export const fetchNavs = async (): Promise<NavData[]> => {
   return res.json();
 };
 
+export interface IntelligenceItem {
+  category: string;
+  title: string;
+  description: string;
+  time_ago: string;
+  type: 'primary' | 'secondary' | 'error';
+}
+
+export const fetchIntelligence = async (): Promise<IntelligenceItem[]> => {
+  const res = await fetch(`${API_BASE_URL}/intelligence`);
+  if (!res.ok) throw new Error('Failed to fetch intelligence feed');
+  return res.json();
+};
+
 export const fetchAnalytics = async (): Promise<AnalyticsResponse> => {
   const res = await fetch(`${API_BASE_URL}/analytics`);
   if (!res.ok) throw new Error('Failed to fetch analytics');

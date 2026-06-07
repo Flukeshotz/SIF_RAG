@@ -27,6 +27,10 @@ def startup_event():
     from jobs.nav_updater import update_navs
     update_navs()
     
+    # Generate initial intelligence feed
+    from jobs.intelligence_updater import update_intelligence
+    update_intelligence()
+    
     start_scheduler()
     # Auto-ingest if Qdrant collection is empty (first boot on fresh disk)
     try:
@@ -345,6 +349,16 @@ def get_funds_categories():
 def get_funds_navs():
     if os.path.exists("data/nav_data.json"):
         with open("data/nav_data.json", "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except:
+                return []
+    return []
+
+@app.get("/intelligence")
+def get_intelligence_feed():
+    if os.path.exists("data/intelligence_feed.json"):
+        with open("data/intelligence_feed.json", "r", encoding="utf-8") as f:
             try:
                 return json.load(f)
             except:

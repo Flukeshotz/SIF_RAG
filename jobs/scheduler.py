@@ -26,8 +26,18 @@ def start_scheduler():
             replace_existing=True
         )
         
+        # Intelligence feed updates: every 1 hour
+        from jobs.intelligence_updater import update_intelligence
+        scheduler.add_job(
+            update_intelligence,
+            'interval',
+            hours=1,
+            id='intelligence_feed_updater',
+            replace_existing=True
+        )
+        
         scheduler.start()
-        print("APScheduler started: daily_corpus_refresh at 02:00 AM UTC, live_market_simulation every 1m.")
+        print("APScheduler started: daily_corpus_refresh at 02:00 AM UTC, live_market_simulation every 1m, intelligence feed every 1h.")
 
 def get_scheduler_status():
     """Returns the current status of the background scheduler."""
