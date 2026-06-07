@@ -229,7 +229,16 @@ export default function MarketExplorer() {
                         <span className="block text-[10px] uppercase text-on-surface-variant mt-1">Live SIFs</span>
                     </div>
                     <div className="bg-surface-container-low border border-[#152238] rounded-xl p-4 text-center">
-                        <span className="text-2xl font-black text-secondary">₹1 Cr+</span>
+                        <span className="text-2xl font-black text-secondary">
+                            {filteredFunds.length > 0 
+                                ? (() => {
+                                    const avg = filteredFunds.reduce((sum, f) => sum + (f.minimum_investment || 1000000), 0) / filteredFunds.length;
+                                    return avg >= 10000000 
+                                        ? `₹${(avg / 10000000).toFixed(1)} Cr` 
+                                        : `₹${(avg / 100000).toFixed(0)} Lakhs`;
+                                })()
+                                : '₹0'}
+                        </span>
                         <span className="block text-[10px] uppercase text-on-surface-variant mt-1">Avg Min Investment</span>
                     </div>
                 </div>
