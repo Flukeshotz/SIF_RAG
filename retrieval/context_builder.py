@@ -53,7 +53,14 @@ def sanitize_chunk_text(text: str) -> str:
     cleaned = []
     for line in text.split('\n'):
         ls = line.strip()
-        if ls.startswith('|') and ls.endswith('|'):
+        if ls.startswith('|'):
+            if not ls.endswith('|'):
+                # Continuation row from a word-wrapped table cell — strip the
+                # leading pipe and emit as plain text (or drop if only whitespace)
+                plain = ls.lstrip('|').strip()
+                if plain:
+                    cleaned.append(plain)
+                continue
             if _is_separator_row(ls):
                 cleaned.append(line)          # keep valid separator rows
                 continue

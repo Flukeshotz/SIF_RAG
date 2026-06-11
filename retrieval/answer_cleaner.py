@@ -138,32 +138,57 @@ def deduplicate_sections(text: str) -> str:
 
 def strip_broken_answer_start(text: str) -> str:
     """
-    If the LLM response itself starts mid-sentence (lowercase, punctuation,
-    or a pipe/table row), find the first clean sentence boundary and trim to it.
-    If none is found, return the text unchanged rather than discarding everything.
+    If the LLM response starts mid-sentence, trim to the first real prose sentence.
+    Skips metadata-looking lines like 'Document:', '[Source N]', 'Type:' etc.
     """
     stripped = text.lstrip()
     if not stripped:
         return text
     first_char = stripped[0]
-    # Starts with a table row or lowercase/punctuation → broken start
     if first_char == '|' or first_char.islower() or first_char in ':-.;,':
-        # Find first real sentence: capital letter at start of a line, or after ". "
-        match = re.search(r'(?:^|\n)\s*([A-Z][a-zA-Z])', text, re.MULTILINE)
-        if match:
-            return text[match.start():].lstrip()
+        # Find first line that looks like real prose:
+        # - starts with a capital letter
+        # - is NOT a metadata key (Document:, Type:, Content:, AMC:)
+        # - is NOT a source marker ([Source N])
+        # - has meaningful length
+        meta_pattern = re.compile(
+            r'^(?:\[Source|Document:|Type:|Content:|AMC:|Fund:|Date:)', re.IGNORECASE
+        )
+        for line in text.split('\n'):
+            l = line.strip()
+            if not l:
+                continue
+            if l[0].isupper() and not meta_pattern.match(l) and len(l) > 20:
+                idx = text.find(line)
+                if idx != -1:
+                    return text[idx:].lstrip()
     return text
+
+
+def strip_source_blocks(text: str) -> str:
+    """
+    Remove any [Source N]\nDocument: ... blocks that the LLM mistakenly
+    echoes verbatim from the context into its answer.
+    """
+    return re.sub(
+        r'\[Source \d+\]\nDocument:.*?(?=\n\[Source \d+\]|\Z)',
+        '',
+        text,
+        flags=re.DOTALL
+    ).strip()
 
 
 def clean_answer(text: str) -> str:
     """
     Master post-processor for LLM output.
     Order matters:
-      1. Trim broken answer starts (LLM started mid-sentence or with a table)
-      2. Strip broken single-column pipe lines (PDF table fragments)
-      3. Repair any real but malformed markdown tables
-      4. Deduplicate repeated sections
+      1. Strip echoed source-block metadata ([Source N]\nDocument:...)
+      2. Trim broken answer starts (LLM started mid-sentence or with a table)
+      3. Strip broken single-column pipe lines (PDF table fragments)
+      4. Repair any real but malformed markdown tables
+      5. Deduplicate repeated sections
     """
+    text = strip_source_blocks(text)
     text = strip_broken_answer_start(text)
     text = strip_broken_pipe_lines(text)
     text = repair_markdown_tables(text)
