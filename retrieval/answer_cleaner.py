@@ -136,14 +136,35 @@ def deduplicate_sections(text: str) -> str:
     return cleaned_text.strip()
 
 
+def strip_broken_answer_start(text: str) -> str:
+    """
+    If the LLM response itself starts mid-sentence (lowercase, punctuation,
+    or a pipe/table row), find the first clean sentence boundary and trim to it.
+    If none is found, return the text unchanged rather than discarding everything.
+    """
+    stripped = text.lstrip()
+    if not stripped:
+        return text
+    first_char = stripped[0]
+    # Starts with a table row or lowercase/punctuation → broken start
+    if first_char == '|' or first_char.islower() or first_char in ':-.;,':
+        # Find first real sentence: capital letter at start of a line, or after ". "
+        match = re.search(r'(?:^|\n)\s*([A-Z][a-zA-Z])', text, re.MULTILINE)
+        if match:
+            return text[match.start():].lstrip()
+    return text
+
+
 def clean_answer(text: str) -> str:
     """
     Master post-processor for LLM output.
     Order matters:
-      1. Strip broken single-column pipe lines (PDF table fragments)
-      2. Repair any real but malformed markdown tables
-      3. Deduplicate repeated sections
+      1. Trim broken answer starts (LLM started mid-sentence or with a table)
+      2. Strip broken single-column pipe lines (PDF table fragments)
+      3. Repair any real but malformed markdown tables
+      4. Deduplicate repeated sections
     """
+    text = strip_broken_answer_start(text)
     text = strip_broken_pipe_lines(text)
     text = repair_markdown_tables(text)
     text = deduplicate_sections(text)
