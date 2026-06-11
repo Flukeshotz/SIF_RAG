@@ -6,6 +6,7 @@ import CommandCenter from './components/CommandCenter';
 import EvidenceExplorer from './components/EvidenceExplorer';
 import Tour from './components/Tour';
 import { submitQuery } from './api';
+import type { Citation } from './api';
 import type { Message } from './types';
 
 // Lazy loaded routes
@@ -15,7 +16,7 @@ const SchedulerDashboard = lazy(() => import('./pages/SchedulerDashboard'));
 const MarketExplorer = lazy(() => import('./pages/MarketExplorer'));
 
 function App() {
-  const [activeCitationId, setActiveCitationId] = useState<string | null>(null);
+  const [activeCitation, setActiveCitation] = useState<Citation | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -63,15 +64,18 @@ function App() {
   }, [messages]);
 
   const handleCitationClick = (chunkId: string) => {
-    if (window.innerWidth < 1024) {
-      window.open(`#document-${chunkId}`, '_blank');
-      return;
+    // Find the citation object directly from messages — no extra API call needed
+    for (const msg of messages) {
+      const found = msg.citations?.find(c => c.chunk_id === chunkId);
+      if (found) {
+        setActiveCitation(found);
+        return;
+      }
     }
-    setActiveCitationId(chunkId);
   };
 
   const handleCloseExplorer = () => {
-    setActiveCitationId(null);
+    setActiveCitation(null);
   };
 
   const executeQuery = async (query: string) => {
@@ -200,12 +204,11 @@ function App() {
               )}
             </div>
             
-            {activeCitationId && (
+            {activeCitation && (
               <div className="hidden lg:block w-1/2 h-full z-10 shrink-0 border-l border-[#152238] shadow-2xl relative">
                 <EvidenceExplorer 
-                  sourceId={activeCitationId} 
-                  onClose={handleCloseExplorer} 
-                  isDemoMode={isDemoMode}
+                  citation={activeCitation}
+                  onClose={handleCloseExplorer}
                 />
               </div>
             )}

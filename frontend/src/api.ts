@@ -82,6 +82,7 @@ export interface SourceResponse {
   organization: string;
   page_number: string | number;
   priority_tier: string | number;
+  source_url: string;
 }
 
 export const submitQuery = async (query: string): Promise<QueryResponse> => {

@@ -396,6 +396,33 @@ def get_funds_by_amc(amc: str):
     return filtered
 # ------------------------------
 
+# Canonical public URLs for every document in the corpus.
+# For uncategorized docs, a Google search URL is built dynamically.
+DOCUMENT_URL_MAP = {
+    # SEBI Circulars
+    "sebi-sebi-circular": "https://www.sebi.gov.in/legal/circulars/feb-2025/regulatory-framework-for-specialized-investment-funds-sif-_92373.html",
+    "sebi-sebi-circular-3": "https://www.sebi.gov.in/legal/circulars/mar-2025/guidelines-for-specialized-investment-funds-_92697.html",
+    "sebi-sebi-circular-5": "https://www.sebi.gov.in/legal/circulars.html",
+    # AMFI Circulars
+    "amfi-amfi-circular": "https://www.amfiindia.com/research-information/other-data/amfi-circular",
+    "amfi-amfi-circular-3": "https://www.amfiindia.com/research-information/other-data/amfi-circular",
+    # AMC Documents
+    "franklin-templeton-kim": "https://www.franklintempletonindia.com/investor-education/specialized-investment-funds",
+    "quant-mutual-fund-factsheet": "https://www.quantmutual.com/factsheets",
+    "quant-mutual-fund-isid": "https://www.quantmutual.com/specialized-investment-fund",
+    "icici-prudential-amc-factsheet": "https://www.icicipruamc.com/downloads/factsheet",
+    "icici-prudential-amc-kim": "https://www.icicipruamc.com/specialized-investment-fund",
+    "dsp-mutual-fund-factsheet": "https://www.dspim.com/getmedia/factsheet",
+}
+
+def get_document_url(document_id: str, document_title: str, organization: str) -> str:
+    """Return canonical URL for document, falling back to a Google search."""
+    if document_id in DOCUMENT_URL_MAP:
+        return DOCUMENT_URL_MAP[document_id]
+    # Smart fallback: Google search scoped to the org + SIF
+    query = f"{document_title} {organization} Specialized Investment Fund SIF India".replace(" ", "+")
+    return f"https://www.google.com/search?q={query}"
+
 @app.get("/sources/{source_id}")
 def get_source_endpoint(source_id: str):
     try:
@@ -406,15 +433,20 @@ def get_source_endpoint(source_id: str):
         
         point = result[0]
         payload = point.payload or {}
-        
+
+        document_id = payload.get("document_id", "")
+        document_title = payload.get("document_id", "Unknown Document")
+        organization = payload.get("organization", "Unknown AMC")
+
         return {
             "id": source_id,
             "text": payload.get("text", "No content available"),
-            "document_title": payload.get("document_id", "Unknown Document"),
+            "document_title": document_title,
             "document_type": payload.get("document_type", "Unknown Type"),
-            "organization": payload.get("organization", "Unknown AMC"),
+            "organization": organization,
             "page_number": payload.get("page_number", "N/A"),
-            "priority_tier": payload.get("priority_tier", "Unknown")
+            "priority_tier": payload.get("priority_tier", "Unknown"),
+            "source_url": get_document_url(document_id, document_title, organization),
         }
     except Exception as e:
         print(f"Source fetch error: {e}")
