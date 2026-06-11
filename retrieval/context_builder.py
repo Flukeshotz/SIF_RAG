@@ -2,60 +2,81 @@ import re
 import tiktoken
 
 def get_tokenizer():
-    # cl100k_base is the standard tokenizer used for modern LLMs (including Llama/GPT)
     return tiktoken.get_encoding("cl100k_base")
+
+
+def _count_real_cols(row: str) -> int:
+    """Count columns with actual non-whitespace content."""
+    inner = row.strip().strip('|')
+    return len([c for c in inner.split('|') if c.strip()])
+
+
+def _is_separator_row(row: str) -> bool:
+    inner = row.strip().strip('|')
+    cells = [c.strip() for c in inner.split('|') if c.strip()]
+    return bool(cells) and all(re.match(r'^:?-+:?$', c) for c in cells)
 
 
 def sanitize_chunk_text(text: str) -> str:
     """
-    Clean up a chunk of text before it is fed to the LLM.
-    Handles two common PDF-extraction artefacts:
+    Clean a raw chunk before it reaches the LLM.
 
-    1. Mid-sentence starts: if the text begins with a lowercase letter or
-       certain punctuation (e.g. '-ting', ':-ting'), the PDF chunker caught
-       the tail of a previous sentence. We trim to the first real sentence
-       boundary (capital letter after newline/period) so the LLM sees
-       complete, parseable text.
-
-    2. Single-column pipe lines: lines like '| some text |' with only one
-       cell are broken PDF table rows that confuse the markdown renderer.
-       Strip the pipes and emit the content as plain text instead.
+    Problems handled:
+    A) Mid-sentence start — chunk begins lowercase/punctuation (PDF shredding).
+       Strategy: find the first real sentence boundary. If none exists, the
+       chunk is pure table-fragment garbage → return "" so it gets skipped.
+    B) Single-column pipe lines — broken table rows from multi-column PDF
+       tables that were chunked across rows. Strip the pipes, emit as text,
+       or drop if empty.
+    C) Table rows where ALL columns beyond the first are empty — artifact of
+       colspan cells in PDFs. Drop those rows entirely.
     """
     if not text:
-        return text
+        return ""
 
-    # ── 1. Trim mid-sentence starts ─────────────────────────────────────────
-    stripped_start = text.lstrip()
-    first_char = stripped_start[0] if stripped_start else ''
-    if first_char and (first_char.islower() or first_char in ':-,;.'):
-        # Seek the first real sentence start (capital after newline or ". ")
-        match = re.search(r'(?:(?<=\n)|(?<=\.\s))\s*([A-Z])', text)
+    # ── A. Trim mid-sentence starts ──────────────────────────────────────────
+    first_real = text.lstrip()
+    first_char = first_real[0] if first_real else ''
+    starts_broken = first_char and (first_char.islower() or first_char in ':-.;,')
+
+    if starts_broken:
+        # Look for the first real sentence start: capital letter that follows
+        # a newline, a period+space, or appears after a | boundary.
+        match = re.search(r'(?:(?<=\n)|(?<=\.\s)|(?<=\|\s))\s*([A-Z][a-zA-Z])', text)
         if match:
             text = text[match.start():]
+        else:
+            # No clean sentence start anywhere — entire chunk is a fragment
+            return ""
 
-    # ── 2. Strip single-column pipe lines ───────────────────────────────────
-    cleaned_lines = []
+    # ── B & C. Process pipe lines ─────────────────────────────────────────────
+    cleaned = []
     for line in text.split('\n'):
         ls = line.strip()
         if ls.startswith('|') and ls.endswith('|'):
-            inner = ls.strip('|')
-            cells = [c for c in inner.split('|') if c.strip()]
-            is_sep = cells and all(re.match(r'^:?-+:?$', c.strip()) for c in cells)
-            if is_sep or len(cells) >= 2:
-                cleaned_lines.append(line)   # real table row — keep as-is
-            else:
-                plain = inner.strip()        # single-column fragment — plain text
+            if _is_separator_row(ls):
+                cleaned.append(line)          # keep valid separator rows
+                continue
+            real_cols = _count_real_cols(ls)
+            if real_cols == 0:
+                continue                       # empty row — drop
+            if real_cols == 1:
+                # Single content cell — emit as plain text
+                plain = ls.strip('|').strip()
                 if plain:
-                    cleaned_lines.append(plain)
+                    cleaned.append(plain)
+            else:
+                cleaned.append(line)          # real multi-column row — keep
         else:
-            cleaned_lines.append(line)
+            cleaned.append(line)
 
-    return '\n'.join(cleaned_lines).strip()
+    result = '\n'.join(cleaned).strip()
+    return result
 
 
 def build_context(chunks: list[dict], max_tokens: int = 6000) -> tuple[str, list[dict]]:
     """
-    Builds the context string for the prompt.
+    Builds the context string for the LLM prompt.
     Returns the assembled string and the list of chunks actually included.
     """
     tokenizer = get_tokenizer()
@@ -66,15 +87,14 @@ def build_context(chunks: list[dict], max_tokens: int = 6000) -> tuple[str, list
 
     for i, chunk in enumerate(chunks, 1):
         doc_title = chunk.get("document_id", "Unknown Document")
-        doc_type = chunk.get("document_type", "Unknown Type")
-        amc = chunk.get("organization", "Unknown AMC")
-        fund = chunk.get("fund_name", "Unknown Fund")
-        raw_text = chunk.get("text", "")
+        doc_type  = chunk.get("document_type", "Unknown Type")
+        amc       = chunk.get("organization", "Unknown AMC")
+        fund      = chunk.get("fund_name", "Unknown Fund")
+        raw_text  = chunk.get("text", "")
 
-        # Sanitise before feeding to LLM — this is the root-cause fix
         text = sanitize_chunk_text(raw_text)
         if not text:
-            continue   # skip empty/useless chunks after sanitisation
+            continue   # drop broken/empty chunks entirely
 
         chunk_str = (
             f"[Source {i}]\n"
@@ -84,7 +104,6 @@ def build_context(chunks: list[dict], max_tokens: int = 6000) -> tuple[str, list
         )
 
         chunk_tokens = len(tokenizer.encode(chunk_str))
-
         if current_tokens + chunk_tokens > max_tokens:
             break
 
@@ -93,5 +112,4 @@ def build_context(chunks: list[dict], max_tokens: int = 6000) -> tuple[str, list
         included_chunks.append(chunk)
 
     context_str += "=== END OF CONTEXT ==="
-
     return context_str, included_chunks
