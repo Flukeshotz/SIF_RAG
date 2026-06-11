@@ -5,6 +5,19 @@ def get_tokenizer():
     return tiktoken.get_encoding("cl100k_base")
 
 
+def _is_table_heavy(text: str, threshold: float = 0.40) -> bool:
+    """
+    Return True if more than `threshold` fraction of non-empty lines are pipe rows.
+    These chunks are raw PDF table dumps — unreadable to the LLM and cause
+    degenerate loop outputs (hundreds of empty | | | rows).
+    """
+    lines = [l for l in text.split('\n') if l.strip()]
+    if not lines:
+        return False
+    pipe_lines = sum(1 for l in lines if l.strip().startswith('|'))
+    return (pipe_lines / len(lines)) > threshold
+
+
 def _count_real_cols(row: str) -> int:
     """Count columns with actual non-whitespace content."""
     inner = row.strip().strip('|')
@@ -22,19 +35,21 @@ def sanitize_chunk_text(text: str) -> str:
     Clean a raw chunk before it reaches the LLM.
 
     Problems handled:
-    A) Mid-sentence start — chunk begins lowercase/punctuation (PDF shredding).
-       Strategy: find the first real sentence boundary. If none exists, the
-       chunk is pure table-fragment garbage → return "" so it gets skipped.
-    B) Single-column pipe lines — broken table rows from multi-column PDF
-       tables that were chunked across rows. Strip the pipes, emit as text,
-       or drop if empty.
-    C) Table rows where ALL columns beyond the first are empty — artifact of
-       colspan cells in PDFs. Drop those rows entirely.
+    A) Table-heavy chunks — >40% pipe rows → drop entirely (PDF table dumps
+       cause the LLM to generate degenerate looping output).
+    B) Mid-sentence start — chunk begins lowercase/punctuation (PDF shredding).
+       Strategy: find the first real sentence boundary. If none exists → "".
+    C) Single-column / open-ended pipe lines — broken table rows from multi-
+       column PDF tables chunked across rows. Strip or drop.
     """
     if not text:
         return ""
 
-    # ── A. Trim mid-sentence starts ──────────────────────────────────────────
+    # ── A. Drop table-heavy chunks outright ──────────────────────────────────
+    if _is_table_heavy(text):
+        return ""
+
+    # ── B. Trim mid-sentence starts ──────────────────────────────────────────
     first_real = text.lstrip()
     first_char = first_real[0] if first_real else ''
     starts_broken = first_char and (first_char.islower() or first_char in ':-.;,')
@@ -49,7 +64,7 @@ def sanitize_chunk_text(text: str) -> str:
             # No clean sentence start anywhere — entire chunk is a fragment
             return ""
 
-    # ── B & C. Process pipe lines ─────────────────────────────────────────────
+    # ── C. Strip broken pipe lines ────────────────────────────────────────────
     cleaned = []
     for line in text.split('\n'):
         ls = line.strip()
