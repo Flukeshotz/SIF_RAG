@@ -43,32 +43,51 @@ def answer_query_structured(query: str) -> dict:
     route_type, params = route_query(query)
     
     if route_type in ("inventory", "discovery", "market_discovery"):
-        if "amc" in params and params["amc"]:
-            funds = get_funds_by_amc(params["amc"][0])
-        elif "strategy" in params and params["strategy"]:
-            funds = get_funds_by_strategy(params["strategy"][0])
-        elif "filter_status" in params:
-            if params["filter_status"] == "Live":
-                funds = get_live_funds()
-            else:
-                funds = get_nfo_funds()
+        if "fund" in params and params["fund"]:
+            # Route specific fund questions to RAG instead of listing inventory
+            pass
         else:
-            funds = get_all_funds()
-            
-        search_time_ms = int((time.perf_counter() - start_time) * 1000)
-        return {
-            "answer": f"We currently have structured information for {len(funds)} funds matching your criteria.",
-            "query_type": "inventory",
-            "structured_data": funds,
-            "citations": [],
-            "retrieval": {
-                "chunks_retrieved": 0,
-                "search_time_ms": search_time_ms,
-                "embedding_model": "registry_lookup",
-                "llm": "none"
-            }
-        }
-        
+            if "amc" in params and params["amc"]:
+                funds = get_funds_by_amc(params["amc"][0])
+            elif "strategy" in params and params["strategy"]:
+                funds = get_funds_by_strategy(params["strategy"][0])
+            elif "filter_status" in params:
+                if params["filter_status"] == "Live":
+                    funds = get_live_funds()
+                else:
+                    funds = get_nfo_funds()
+            elif "amc" in query.lower() or "amcs" in query.lower():
+                funds = get_all_funds()
+                unique_amcs = sorted(list(set(f.get("amc") for f in funds if f.get("amc"))))
+                search_time_ms = int((time.perf_counter() - start_time) * 1000)
+                return {
+                    "answer": f"There are {len(unique_amcs)} AMCs that have launched SIFs.",
+                    "query_type": "inventory",
+                    "structured_data": [{"amc": amc} for amc in unique_amcs],
+                    "citations": [],
+                    "retrieval": {
+                        "chunks_retrieved": 0,
+                        "search_time_ms": search_time_ms,
+                        "embedding_model": "registry_lookup",
+                        "llm": "none"
+                    }
+                }
+            else:
+                funds = get_all_funds()
+                
+            search_time_ms = int((time.perf_counter() - start_time) * 1000)
+            return {
+                "answer": f"We currently have structured information for {len(funds)} funds matching your criteria.",
+                "query_type": "inventory",
+                "structured_data": funds,
+                "citations": [],
+                "retrieval": {
+                    "chunks_retrieved": 0,
+                    "search_time_ms": search_time_ms,
+                    "embedding_model": "registry_lookup",
+                    "llm": "none"
+                }
+            }        
     if route_type == "comparison":
         funds_to_compare = params.get("fund", params.get("funds", []))
         funds = compare_funds(funds_to_compare)

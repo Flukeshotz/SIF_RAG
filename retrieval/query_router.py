@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 # ------------------------------------------------------------
 # Intent pattern sets (case‑insensitive)
 # ------------------------------------------------------------
-INVENTORY_ACTIONS = {"show", "list", "display", "give", "which", "what", "how many"}
+INVENTORY_ACTIONS = {"show", "list", "display", "give", "how many"}
 INVENTORY_OBJECTS = {"sif", "sifs", "fund", "funds", "strategy", "strategies", "amc", "amcs"}
 COMPARISON_ACTIONS = {"compare", "vs", "versus", "difference", "different", "better"}
 ADVISORY_PHRASES = {"should i", "recommend", "advice", "what should i do", "which fund should i pick", "can you advise"}
@@ -196,7 +196,7 @@ def route_query(query: str) -> Tuple[str, Dict[str, Any]]:
         response = client.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[
-                {"role": "system", "content": "Classify the user query into one of the predefined categories and extract entities if possible."},
+                {"role": "system", "content": "Classify the user query into one of the predefined categories and extract entities if possible. Output as a JSON object."},
                 {"role": "user", "content": query}
             ],
             temperature=0.0,
