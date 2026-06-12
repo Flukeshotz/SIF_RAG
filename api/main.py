@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, BackgroundTasks
+from fastapi import FastAPI, HTTPException, BackgroundTasks, Depends, Header, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
@@ -31,7 +31,10 @@ def startup_event():
     from jobs.intelligence_updater import update_intelligence
     update_intelligence()
     
-    start_scheduler()
+    if not settings.USE_EXTERNAL_SCHEDULER:
+        start_scheduler()
+    else:
+        print("External scheduler configured. Internal APScheduler will NOT start.")
     # Auto-ingest if Qdrant collection is empty (first boot on fresh disk)
     try:
         from db.qdrant_connection import get_client
@@ -243,13 +246,38 @@ def scheduler_status_endpoint():
         status["recent_runs"] = []
     return status
 
-@app.post("/admin/run-pipeline")
+def verify_cron_secret(authorization: str = Header(None)):
+    if authorization != f"Bearer {settings.CRON_SECRET}":
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or missing cron secret",
+        )
+
+@app.post("/admin/run-pipeline", dependencies=[Depends(verify_cron_secret)])
 def manual_trigger_pipeline(background_tasks: BackgroundTasks):
     from jobs.refresh_corpus import trigger_refresh
     background_tasks.add_task(trigger_refresh)
     return {
         "status": "started",
         "message": "Pipeline execution triggered manually in the background."
+    }
+
+@app.post("/admin/update-navs", dependencies=[Depends(verify_cron_secret)])
+def manual_trigger_navs(background_tasks: BackgroundTasks):
+    from jobs.nav_updater import update_navs
+    background_tasks.add_task(update_navs)
+    return {
+        "status": "started",
+        "message": "NAV update triggered manually in the background."
+    }
+
+@app.post("/admin/update-intelligence", dependencies=[Depends(verify_cron_secret)])
+def manual_trigger_intelligence(background_tasks: BackgroundTasks):
+    from jobs.intelligence_updater import update_intelligence
+    background_tasks.add_task(update_intelligence)
+    return {
+        "status": "started",
+        "message": "Intelligence feed update triggered manually in the background."
     }
 
 @app.get("/analytics")

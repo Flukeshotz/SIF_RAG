@@ -11,6 +11,8 @@ class Settings(BaseSettings):
 
     # API Keys
     GROQ_API_KEY: str
+    CRON_SECRET: str = "default_secret_for_local_dev"
+    USE_EXTERNAL_SCHEDULER: bool = False
 
     # Qdrant Config
     QDRANT_PATH: str = "data/qdrant"

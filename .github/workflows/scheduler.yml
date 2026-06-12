@@ -1,0 +1,45 @@
+name: SIF Copilot Scheduler
+
+on:
+  schedule:
+    # Daily at 02:00 UTC for Corpus Refresh
+    - cron: '0 2 * * *'
+    # Hourly at minute 0 for NAV and Intelligence updates
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    inputs:
+      job_to_run:
+        description: 'Which job to trigger manually'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - corpus_refresh
+          - update_navs
+          - update_intelligence
+
+jobs:
+  run-scheduled-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Corpus Refresh
+        if: github.event.schedule == '0 2 * * *' || github.event.inputs.job_to_run == 'corpus_refresh' || github.event.inputs.job_to_run == 'all'
+        run: |
+          curl -X POST "${{ secrets.PRODUCTION_URL }}/admin/run-pipeline" \
+          -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+          -H "Content-Type: application/json"
+
+      - name: Trigger NAV Updates
+        if: github.event.schedule == '0 * * * *' || github.event.inputs.job_to_run == 'update_navs' || github.event.inputs.job_to_run == 'all'
+        run: |
+          curl -X POST "${{ secrets.PRODUCTION_URL }}/admin/update-navs" \
+          -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+          -H "Content-Type: application/json"
+
+      - name: Trigger Intelligence Updates
+        if: github.event.schedule == '0 * * * *' || github.event.inputs.job_to_run == 'update_intelligence' || github.event.inputs.job_to_run == 'all'
+        run: |
+          curl -X POST "${{ secrets.PRODUCTION_URL }}/admin/update-intelligence" \
+          -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+          -H "Content-Type: application/json"
